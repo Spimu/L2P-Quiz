@@ -22,6 +22,8 @@
 		95E75A60187C162800FFE5AD /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A44187C162800FFE5AD /* CoreData.framework */; };
 		95E75A68187C162800FFE5AD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 95E75A66187C162800FFE5AD /* InfoPlist.strings */; };
 		95E75A6A187C162800FFE5AD /* L2P_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E75A69187C162800FFE5AD /* L2P_QuizTests.m */; };
+		95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E75A74187C1A0C00FFE5AD /* LoginViewController.m */; };
+		95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E75A76187C1A4500FFE5AD /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,9 @@
 		95E75A65187C162800FFE5AD /* L2P-QuizTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "L2P-QuizTests-Info.plist"; sourceTree = "<group>"; };
 		95E75A67187C162800FFE5AD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		95E75A69187C162800FFE5AD /* L2P_QuizTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = L2P_QuizTests.m; sourceTree = "<group>"; };
+		95E75A73187C1A0C00FFE5AD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		95E75A74187C1A0C00FFE5AD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		95E75A76187C1A4500FFE5AD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +122,11 @@
 			children = (
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
+				95E75A73187C1A0C00FFE5AD /* LoginViewController.h */,
+				95E75A74187C1A0C00FFE5AD /* LoginViewController.m */,
 				95E75A55187C162800FFE5AD /* Images.xcassets */,
 				95E75A52187C162800FFE5AD /* L2P_Quiz.xcdatamodeld */,
+				95E75A76187C1A4500FFE5AD /* Main.storyboard */,
 				95E75A47187C162800FFE5AD /* Supporting Files */,
 			);
 			path = "L2P-Quiz";
@@ -200,6 +208,13 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = RWTHi10;
 				TargetAttributes = {
+					95E75A3A187C162800FFE5AD = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					95E75A5A187C162800FFE5AD = {
 						TestTargetID = 95E75A3A187C162800FFE5AD;
 					};
@@ -230,6 +245,7 @@
 			files = (
 				95E75A4B187C162800FFE5AD /* InfoPlist.strings in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
+				95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,6 +264,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,

@@ -16,10 +16,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
+
     return YES;
 }
 
@@ -144,6 +142,42 @@
 - (NSURL *)applicationDocumentsDirectory
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
+}
+
+
+#pragma mark - Background fetching
+
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    /*
+    BackgroundFetchManager *fetcher = [BackgroundFetchManager sharedManager];
+    UIBackgroundFetchResult fetchResult = UIBackgroundFetchResultFailed;
+    
+    if ([fetcher hasOutstandingFetch]) {
+        fetchResult = UIBackgroundFetchResultNoData;
+    }
+    
+    else if ([fetcher hasDataPendingProcessing]) {
+        [self processData:fetcher.processingData]l
+        [fetcher markFetchProcessed];
+        
+        fetchResult = UIBackgroundFetchResultNewData;
+    }
+    
+    else {
+        [fetcher beginFetch];
+        fetchResult = UIBackgroundFetchResultNoData;
+    }
+    
+    completionHandler(fetchResult);
+    */
+    
+    
+    NSLog(@"########### Received Background Fetch ###########");
+    //Download  the Content .
+    
+    //Cleanup
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
 @end
