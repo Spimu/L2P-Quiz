@@ -149,8 +149,12 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    /*
+    
     BackgroundFetchManager *fetcher = [BackgroundFetchManager sharedManager];
+    [fetcher downloadNewQuestions];
+    
+    
+    /*
     UIBackgroundFetchResult fetchResult = UIBackgroundFetchResultFailed;
     
     if ([fetcher hasOutstandingFetch]) {

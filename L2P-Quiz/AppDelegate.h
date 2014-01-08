@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "LoginViewController.h"
+#import "BackgroundFetchManager.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

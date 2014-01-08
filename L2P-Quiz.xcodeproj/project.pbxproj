@@ -24,6 +24,7 @@
 		95E75A6A187C162800FFE5AD /* L2P_QuizTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E75A69187C162800FFE5AD /* L2P_QuizTests.m */; };
 		95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E75A74187C1A0C00FFE5AD /* LoginViewController.m */; };
 		95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95E75A76187C1A4500FFE5AD /* Main.storyboard */; };
+		95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 95E75AFD187C24A900FFE5AD /* BackgroundFetchManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		95E75A73187C1A0C00FFE5AD /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		95E75A74187C1A0C00FFE5AD /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		95E75A76187C1A4500FFE5AD /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		95E75AFC187C24A900FFE5AD /* BackgroundFetchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BackgroundFetchManager.h; sourceTree = "<group>"; };
+		95E75AFD187C24A900FFE5AD /* BackgroundFetchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BackgroundFetchManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +125,8 @@
 			children = (
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
-				95E75A73187C1A0C00FFE5AD /* LoginViewController.h */,
-				95E75A74187C1A0C00FFE5AD /* LoginViewController.m */,
+				95E75AFB187C248500FFE5AD /* Managers */,
+				95E75AFA187C246F00FFE5AD /* ViewControllers */,
 				95E75A55187C162800FFE5AD /* Images.xcassets */,
 				95E75A52187C162800FFE5AD /* L2P_Quiz.xcdatamodeld */,
 				95E75A76187C1A4500FFE5AD /* Main.storyboard */,
@@ -159,6 +162,24 @@
 				95E75A66187C162800FFE5AD /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95E75AFA187C246F00FFE5AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				95E75A73187C1A0C00FFE5AD /* LoginViewController.h */,
+				95E75A74187C1A0C00FFE5AD /* LoginViewController.m */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		95E75AFB187C248500FFE5AD /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				95E75AFC187C24A900FFE5AD /* BackgroundFetchManager.h */,
+				95E75AFD187C24A900FFE5AD /* BackgroundFetchManager.m */,
+			);
+			name = Managers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +288,7 @@
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
+				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -468,6 +490,7 @@
 				95E75A6F187C162800FFE5AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		95E75A70187C162800FFE5AD /* Build configuration list for PBXNativeTarget "L2P-QuizTests" */ = {
 			isa = XCConfigurationList;
@@ -476,6 +499,7 @@
 				95E75A72187C162800FFE5AD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
