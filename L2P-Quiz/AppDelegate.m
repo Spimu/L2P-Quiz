@@ -147,41 +147,10 @@
 
 #pragma mark - Background fetching
 
--(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+- (void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    
     BackgroundFetchManager *fetcher = [BackgroundFetchManager sharedManager];
-    [fetcher downloadNewQuestions];
-    
-    
-    /*
-    UIBackgroundFetchResult fetchResult = UIBackgroundFetchResultFailed;
-    
-    if ([fetcher hasOutstandingFetch]) {
-        fetchResult = UIBackgroundFetchResultNoData;
-    }
-    
-    else if ([fetcher hasDataPendingProcessing]) {
-        [self processData:fetcher.processingData]l
-        [fetcher markFetchProcessed];
-        
-        fetchResult = UIBackgroundFetchResultNewData;
-    }
-    
-    else {
-        [fetcher beginFetch];
-        fetchResult = UIBackgroundFetchResultNoData;
-    }
-    
-    completionHandler(fetchResult);
-    */
-    
-    
-    NSLog(@"########### Received Background Fetch ###########");
-    //Download  the Content .
-    
-    //Cleanup
-    completionHandler(UIBackgroundFetchResultNewData);
+    [fetcher downloadNewQuestionsWithCompletionHandler:completionHandler];    
 }
 
 @end

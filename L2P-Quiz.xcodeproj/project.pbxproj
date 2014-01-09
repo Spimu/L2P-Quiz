@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A3E187C162800FFE5AD /* Foundation.framework */; };
 		95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A40187C162800FFE5AD /* CoreGraphics.framework */; };
 		95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A42187C162800FFE5AD /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
+		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		95E75A3B187C162800FFE5AD /* L2P-Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L2P-Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E75A3E187C162800FFE5AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		95E75A40187C162800FFE5AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -178,6 +181,8 @@
 			children = (
 				95E75AFC187C24A900FFE5AD /* BackgroundFetchManager.h */,
 				95E75AFD187C24A900FFE5AD /* BackgroundFetchManager.m */,
+				953017B5187E973F00917C7C /* ParseManager.h */,
+				953017B6187E973F00917C7C /* ParseManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -288,6 +293,7 @@
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
+				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 			);

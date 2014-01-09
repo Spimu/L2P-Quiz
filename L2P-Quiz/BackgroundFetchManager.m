@@ -30,20 +30,31 @@
     self = [super init];
     if (self) {
         
-        NSLog(@"Initializing Manager");
+        //Do further initializations right here
         
     }
     return self;
 }
 
 
-- (void)downloadNewQuestions
+- (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     //New GET-request with the last received questionID as a parameter
-    NSString *urlString = [NSString stringWithFormat:@"%@?lastId=%d",NEW_QUESTIONS_URL,2];
-    NSURL *weatherURL = [NSURL URLWithString:urlString];
-    NSData *data = [NSData dataWithContentsOfURL:weatherURL];
-    NSLog([[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+    NSString *urlString = [NSString stringWithFormat:@"%@?lastId=%d",NEW_QUESTIONS_URL,10];
+    NSURL *downloadURL = [NSURL URLWithString:urlString];
+    NSData *data = [NSData dataWithContentsOfURL:downloadURL];
+    
+    //Parse the JSON-String that has been returned
+    ParseManager *parseManager = [[ParseManager alloc] init];
+    BOOL newUpdates = [parseManager parseData:data withCompletionHandler:completionHandler];
+    
+    //Update our fetch result and call the completion handler
+    UIBackgroundFetchResult result = UIBackgroundFetchResultNoData;
+    if(newUpdates) {
+        result = UIBackgroundFetchResultNewData;
+    }
+    completionHandler(result);
+    
 }
 
 

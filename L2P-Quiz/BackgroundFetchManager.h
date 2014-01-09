@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ParseManager.h"
 
 @interface BackgroundFetchManager : NSObject
 
 + (id)sharedManager;
 
-- (void)downloadNewQuestions;
+- (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
 
 @end
