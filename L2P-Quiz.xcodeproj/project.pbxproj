@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
+		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A3E187C162800FFE5AD /* Foundation.framework */; };
 		95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A40187C162800FFE5AD /* CoreGraphics.framework */; };
 		95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E75A42187C162800FFE5AD /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 /* Begin PBXFileReference section */
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
+		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		9579AFB1187EF04100747EF6 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		95E75A3B187C162800FFE5AD /* L2P-Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "L2P-Quiz.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95E75A3E187C162800FFE5AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		95E75A40187C162800FFE5AD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,6 +95,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				9579AFB0187EF04100747EF6 /* Question.h */,
+				9579AFB1187EF04100747EF6 /* Question.m */,
+			);
+			name = "Data Persistence";
+			sourceTree = "<group>";
+		};
 		95E75A32187C162800FFE5AD = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +138,7 @@
 		95E75A46187C162800FFE5AD /* L2P-Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				9579AFB3187EF04A00747EF6 /* Data Persistence */,
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
 				95E75AFB187C248500FFE5AD /* Managers */,
@@ -294,6 +307,7 @@
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
+				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 			);

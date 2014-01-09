@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
+#import "BackgroundFetchManager.h"
 
 @interface ParseManager : NSObject
 

@@ -30,7 +30,11 @@
     self = [super init];
     if (self) {
         
-        //Do further initializations right here
+        if ([[NSUserDefaults standardUserDefaults] objectForKey:@"biggestIdParsed"] != nil) {
+            [self restoreBiggestIdParsed];
+        } else {
+            _biggestIdParsed = 0;
+        }
         
     }
     return self;
@@ -40,7 +44,7 @@
 - (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     //New GET-request with the last received questionID as a parameter
-    NSString *urlString = [NSString stringWithFormat:@"%@?lastId=%d",NEW_QUESTIONS_URL,10];
+    NSString *urlString = [NSString stringWithFormat:@"%@?lastId=%d",NEW_QUESTIONS_URL,_biggestIdParsed];
     NSURL *downloadURL = [NSURL URLWithString:urlString];
     NSData *data = [NSData dataWithContentsOfURL:downloadURL];
     
@@ -57,6 +61,19 @@
     
 }
 
+- (void) saveBiggestIdParsed
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithInteger:_biggestIdParsed] forKey:@"biggestIdParsed"];
+    [defaults synchronize];
+}
+
+- (void) restoreBiggestIdParsed
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSUInteger bip = [[defaults objectForKey:@"biggestIdParsed"] integerValue];
+    _biggestIdParsed = bip;
+}
 
 
 @end

@@ -11,8 +11,11 @@
 
 @interface BackgroundFetchManager : NSObject
 
+@property (nonatomic) int biggestIdParsed;
+
 + (id)sharedManager;
 
 - (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+- (void) saveBiggestIdParsed;
 
 @end
