@@ -1,18 +1,18 @@
 //
-//  LoginViewController.m
+//  MainMenuViewController.m
 //  L2P-Quiz
 //
-//  Created by Claude Bemtgen on 1/7/14.
+//  Created by Claude Bemtgen on 1/9/14.
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
-#import "LoginViewController.h"
+#import "MainMenuViewController.h"
 
-@interface LoginViewController ()
+@interface MainMenuViewController ()
 
 @end
 
-@implementation LoginViewController
+@implementation MainMenuViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.    
+	// Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning
