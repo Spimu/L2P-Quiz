@@ -43,21 +43,35 @@
 
 - (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    //New GET-request with the last received questionID as a parameter
-    NSString *urlString = [NSString stringWithFormat:@"%@?lastId=%d",NEW_QUESTIONS_URL,_biggestIdParsed];
-    NSURL *downloadURL = [NSURL URLWithString:urlString];
-    NSData *data = [NSData dataWithContentsOfURL:downloadURL];
+    NSError *error = nil;
+    NSDictionary* courses = @{@"1":@"DIS",@"2":@"iPhone"};
+              
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:courses options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *coursesJsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *completeDataString = [NSString stringWithFormat:@"lastId=%d&courses=%@", _biggestIdParsed, coursesJsonString];
     
-    //Parse the JSON-String that has been returned
-    ParseManager *parseManager = [[ParseManager alloc] init];
-    BOOL newUpdates = [parseManager parseData:data withCompletionHandler:completionHandler];
-    
-    //Update our fetch result and call the completion handler
-    UIBackgroundFetchResult result = UIBackgroundFetchResultNoData;
-    if(newUpdates) {
-        result = UIBackgroundFetchResultNewData;
-    }
-    completionHandler(result);
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    NSURL *url = [NSURL URLWithString:NEW_QUESTIONS_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPBody = [completeDataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error == nil)
+        {
+            //Parse the JSON-String that has been returned
+            ParseManager *parseManager = [[ParseManager alloc] init];
+            BOOL newUpdates = [parseManager parseData:data withCompletionHandler:completionHandler];
+            
+            //Update our fetch result and call the completion handler
+            UIBackgroundFetchResult result = UIBackgroundFetchResultNoData;
+            if(newUpdates) {
+                result = UIBackgroundFetchResultNewData;
+            }
+            completionHandler(result);
+        }
+    }];
+    [postDataTask resume];
     
 }
 
