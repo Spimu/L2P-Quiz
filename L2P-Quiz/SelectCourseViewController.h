@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SingleGameManager.h"
 
-@interface SelectCourseViewController : UIViewController
+@interface SelectCourseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+- (IBAction)startPressed:(id)sender;
 
 @end

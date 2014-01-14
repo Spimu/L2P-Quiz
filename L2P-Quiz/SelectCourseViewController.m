@@ -10,6 +10,9 @@
 
 @interface SelectCourseViewController ()
 
+@property (nonatomic) NSArray *allCourses;
+@property (nonatomic) NSMutableArray *allSelectedCourses;
+
 @end
 
 @implementation SelectCourseViewController
@@ -26,13 +29,76 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+	
+    //TODO:
+    //_allCourses = [L2PManager getAllCoursesOfThisYear];
+    
+    _allCourses = [[NSArray alloc] init];
+    _allCourses = @[@"DIS", @"Current topics", @"iPhone"];
+    
+    _allSelectedCourses = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;    //count of section
+}
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    
+    return [_allCourses count];    //count number of row from counting array hear cataGorry is An Array
+}
+
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *MyIdentifier = @"MyIdentifier";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:MyIdentifier];
+    
+    if (cell == nil)
+    {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault
+                                       reuseIdentifier:MyIdentifier] ;
+    }
+    
+    cell.textLabel.text = _allCourses[indexPath.row];
+    return cell;
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    NSString *cellText = cell.textLabel.text;
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
+    {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [_allSelectedCourses removeObject:cellText];
+    }
+    else
+    {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [_allSelectedCourses addObject:cellText];
+    }
+    
+}
+
+
+- (IBAction)startPressed:(id)sender
+{
+    //Tell our GameManager which courses the user selected
+    [[SingleGameManager sharedManager] setSelectedCourses:_allSelectedCourses];
 }
 
 @end

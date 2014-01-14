@@ -233,6 +233,10 @@
                                 <rect key="frame" x="0.0" y="57" width="320" height="305"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ywD-l2-pPq" id="dhU-i0-DeY"/>
+                                    <outlet property="delegate" destination="ywD-l2-pPq" id="aTS-bl-apg"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jt0-zM-OTS">
                                 <rect key="frame" x="128" y="370" width="65" height="41"/>
@@ -243,6 +247,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
+                                    <action selector="startPressed:" destination="ywD-l2-pPq" eventType="touchUpInside" id="Ods-i6-Edh"/>
                                     <segue destination="m6v-5g-xCL" kind="push" id="mSu-Oa-Oyb"/>
                                 </connections>
                             </button>
@@ -267,10 +272,100 @@
                     <view key="view" contentMode="scaleToFill" id="9Yy-2P-zxZ">
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-pC-1UM" userLabel="question_IV">
+                                <rect key="frame" x="0.0" y="20" width="320" height="132"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="plY-Qq-CsR" userLabel="sol1_IV">
+                                <rect key="frame" x="0.0" y="179" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="alU-dR-NCf" userLabel="sol2_IV">
+                                <rect key="frame" x="0.0" y="239" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="buz-xK-q9n" userLabel="sol3_IV">
+                                <rect key="frame" x="0.0" y="299" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="IrQ-Pb-s4H" userLabel="sol4_IV">
+                                <rect key="frame" x="0.0" y="359" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What does DIS stand for?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="ydr-gT-vfI">
+                                <rect key="frame" x="20" y="36" width="280" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZuP-Ul-ZJB" userLabel="sol1_button">
+                                <rect key="frame" x="0.0" y="179" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Designing Interactive Systems">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol1Pressed:" destination="m6v-5g-xCL" eventType="touchUpInside" id="LHq-sV-K6z"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iIW-h0-Btc" userLabel="sol2_button">
+                                <rect key="frame" x="0.0" y="239" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Bla bla bla">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol2Pressed:" destination="m6v-5g-xCL" eventType="touchUpInside" id="8Ki-wA-mEc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UYV-b3-6b6" userLabel="sol3_button">
+                                <rect key="frame" x="0.0" y="299" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Dum Di Dum">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol3Pressed:" destination="m6v-5g-xCL" eventType="touchUpInside" id="u33-dg-JhO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zCL-6S-lId" userLabel="sol4_button">
+                                <rect key="frame" x="0.0" y="359" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal" title="Something">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol4Pressed:" destination="m6v-5g-xCL" eventType="touchUpInside" id="vT4-4X-SIt"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="hua-FL-nuA"/>
+                    <connections>
+                        <outlet property="questionIV" destination="bEP-pC-1UM" id="X0t-cm-1HM"/>
+                        <outlet property="questionLabel" destination="ydr-gT-vfI" id="S7R-2P-1nG"/>
+                        <outlet property="sol1_IV" destination="plY-Qq-CsR" id="U40-ar-QiB"/>
+                        <outlet property="sol1_button" destination="ZuP-Ul-ZJB" id="RQe-qo-y0m"/>
+                        <outlet property="sol2_IV" destination="alU-dR-NCf" id="zfD-li-4RC"/>
+                        <outlet property="sol2_button" destination="iIW-h0-Btc" id="6Kw-Dp-43v"/>
+                        <outlet property="sol3_IV" destination="buz-xK-q9n" id="FbG-P1-VCm"/>
+                        <outlet property="sol3_button" destination="UYV-b3-6b6" id="DYL-dg-KW6"/>
+                        <outlet property="sol4_IV" destination="IrQ-Pb-s4H" id="4m0-qW-fFL"/>
+                        <outlet property="sol4_button" destination="zCL-6S-lId" id="RKI-t8-dDc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quw-Id-bHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -416,6 +511,8 @@
     </scenes>
     <resources>
         <image name="logo_l2p.png" width="400" height="200"/>
+        <image name="question_background.png" width="640" height="264"/>
+        <image name="sol_background.png" width="640" height="114"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
