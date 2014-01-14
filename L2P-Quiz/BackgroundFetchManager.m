@@ -49,7 +49,7 @@
     //Here we create the POST-Body-String that we will send to the server
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:courses options:NSJSONWritingPrettyPrinted error:&error];
     NSString *coursesJsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSString *completeDataString = [NSString stringWithFormat:@"lastId=%d&courses=%@", _biggestIdParsed, coursesJsonString];
+    NSString *completeDataString = [NSString stringWithFormat:@"lastId=%ld&courses=%@", (long)_biggestIdParsed, coursesJsonString];
     
     //Create the session and send our request
     NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];

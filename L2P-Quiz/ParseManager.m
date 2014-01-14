@@ -43,7 +43,7 @@
         NSManagedObject *questionEntity = [NSEntityDescription
                                            insertNewObjectForEntityForName:@"Question"
                                            inManagedObjectContext:context];
-        [questionEntity setValue:[NSNumber numberWithInt:identity] forKey:@"identity"];
+        [questionEntity setValue:[NSNumber numberWithInteger:identity] forKey:@"identity"];
         [questionEntity setValue:course forKey:@"course"];
         [questionEntity setValue:question forKey:@"question"];
         [questionEntity setValue:corr_sol forKey:@"corr_sol"];

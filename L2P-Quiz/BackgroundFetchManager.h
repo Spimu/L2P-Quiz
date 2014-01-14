@@ -11,7 +11,7 @@
 
 @interface BackgroundFetchManager : NSObject
 
-@property (nonatomic) int biggestIdParsed;
+@property (nonatomic) NSInteger biggestIdParsed;
 
 + (id)sharedManager;
 
