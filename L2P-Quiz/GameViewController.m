@@ -26,7 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+}
+
+
+
+- (void) viewDidAppear:(BOOL)animated
+{
+    [self performSelector:@selector(showQuestion) withObject:nil afterDelay:0.5];
 }
 
 - (void)didReceiveMemoryWarning
@@ -85,6 +91,8 @@
 
 - (void) hideQuestion
 {
+    //TODO: stop timer
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -104,16 +112,16 @@
     [_sol4_IV setFrame:CGRectMake(_sol4_IV.frame.origin.x+400, _sol4_IV.frame.origin.y, _sol4_IV.frame.size.width, _sol4_IV.frame.size.height)];
     [_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x+400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
     
-    [self performSelector:@selector(showQuestion) withObject:self afterDelay:1.0];
+    [self performSelector:@selector(showRating) withObject:self afterDelay:1.0];
     
     [UIView commitAnimations];
 }
 
 - (void) showQuestion
 {
-    //TODO: change question
-    
-    
+    //TODO: set question
+    //TODO: start timer
+
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -134,6 +142,13 @@
     [_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x-400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
     
     [UIView commitAnimations];
+}
+
+- (void) showRating
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    RatingViewController *rating = (RatingViewController*)[storyboard instantiateViewControllerWithIdentifier:@"rating"];    
+    [self presentViewController:rating animated:YES completion:nil];
 }
 
 

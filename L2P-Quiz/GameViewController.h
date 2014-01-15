@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "SingleGameManager.h"
+#import "RatingViewController.h"
 
 @interface GameViewController : UIViewController
 - (IBAction)sol1Pressed:(id)sender;
