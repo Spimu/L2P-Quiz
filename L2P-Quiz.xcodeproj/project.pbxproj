@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		401EDAB11887ECC10091AD0A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
+		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
+		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
@@ -135,6 +137,10 @@
 		401EDAAF1887ECC10091AD0A /* NSNumberExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSNumberExtensions.h; sourceTree = "<group>"; };
 		401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		401EDAB21887ED1C0091AD0A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		401EDAB4188813C70091AD0A /* StatisticsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsPageViewController.h; sourceTree = "<group>"; };
+		401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsPageViewController.m; sourceTree = "<group>"; };
+		401EDAB71888154F0091AD0A /* SelectCourseStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseStatisticsViewController.h; sourceTree = "<group>"; };
+		401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseStatisticsViewController.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -424,6 +430,10 @@
 				958F8DFB1885563800F87F00 /* GameViewController.m */,
 				95F654121886952C00014005 /* RatingViewController.h */,
 				95F654131886952C00014005 /* RatingViewController.m */,
+				401EDAB71888154F0091AD0A /* SelectCourseStatisticsViewController.h */,
+				401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */,
+				401EDAB4188813C70091AD0A /* StatisticsPageViewController.h */,
+				401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -552,6 +562,7 @@
 			files = (
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,
+				401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */,
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95F654141886952C00014005 /* RatingViewController.m in Sources */,
 				958F8DF918854B2B00F87F00 /* SelectCourseViewController.m in Sources */,
@@ -561,6 +572,7 @@
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
+				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
