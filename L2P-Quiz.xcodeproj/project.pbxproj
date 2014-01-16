@@ -11,6 +11,7 @@
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
+		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
@@ -141,6 +142,8 @@
 		401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsPageViewController.m; sourceTree = "<group>"; };
 		401EDAB71888154F0091AD0A /* SelectCourseStatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectCourseStatisticsViewController.h; sourceTree = "<group>"; };
 		401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseStatisticsViewController.m; sourceTree = "<group>"; };
+		401EDABB188817D40091AD0A /* Courses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Courses.h; sourceTree = "<group>"; };
+		401EDABC188817D40091AD0A /* Courses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Courses.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -312,6 +315,15 @@
 			path = CorePlotHeaders;
 			sourceTree = "<group>";
 		};
+		401EDABA188817A10091AD0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				401EDABB188817D40091AD0A /* Courses.h */,
+				401EDABC188817D40091AD0A /* Courses.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +382,7 @@
 		95E75A46187C162800FFE5AD /* L2P-Quiz */ = {
 			isa = PBXGroup;
 			children = (
+				401EDABA188817A10091AD0A /* Model */,
 				9579AFB3187EF04A00747EF6 /* Data Persistence */,
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
@@ -569,6 +582,7 @@
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				958F8DFC1885563800F87F00 /* GameViewController.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
+				401EDABD188817D40091AD0A /* Courses.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
