@@ -8,8 +8,11 @@
 
 #import "SelectCourseStatisticsViewController.h"
 #import "Courses.h"
+#import "StatisticsPageViewController.h"
 
-@interface SelectCourseStatisticsViewController ()
+@interface SelectCourseStatisticsViewController () {
+    NSString* selectedCourse;
+}
 
 @end
 
@@ -33,6 +36,7 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    selectedCourse = [[NSString alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,6 +74,15 @@
     cell.textLabel.text = courseName;
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+
+    selectedCourse = cell.textLabel.text;
+    // transition to statistics page view of selected course.
+    [self performSegueWithIdentifier:@"showStatisticsPageViewSegue" sender:self];
 }
 
 /*
@@ -111,16 +124,13 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [[segue destinationViewController] setNameOfCourse:selectedCourse];
 }
-
- */
 
 @end
