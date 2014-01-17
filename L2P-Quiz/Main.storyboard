@@ -540,6 +540,10 @@
                                     <segue destination="ZYR-nm-0Y3" kind="push" id="HXy-N7-eRR"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-V0-xJn">
+                                <rect key="frame" x="20" y="20" width="165" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
