@@ -596,10 +596,8 @@
 				95E75A4B187C162800FFE5AD /* InfoPlist.strings in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,
-				03ECD3D018897BF500802A1B /* profile@2x.png in Resources */,
 				95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */,
 				95DE358B188594F300BF8CB3 /* sol_background_correct.png in Resources */,
-				03ECD3CA18896EF700802A1B /* logo_l2p@2x.png in Resources */,
 				95DE358518858F5D00BF8CB3 /* sol_background.png in Resources */,
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
@@ -621,8 +619,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				409B1E8E18895579006E7240 /* StatisticsViewController.m in Sources */,
-				409B1E9318896C2F006E7240 /* CPDConstants.m in Sources */,
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,
 				401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */,
@@ -637,8 +633,6 @@
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
-				409B1E8B18894E11006E7240 /* StatisticsPageContentViewController.m in Sources */,
-				409B1E9418896C2F006E7240 /* CPDStockPriceStore.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
