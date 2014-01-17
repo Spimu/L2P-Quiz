@@ -55,7 +55,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return [_allCourses count];    //count number of row from counting array hear cataGorry is An Array
+    return [_allCourses count]; 
 }
 
 

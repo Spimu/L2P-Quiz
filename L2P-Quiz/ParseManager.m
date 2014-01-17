@@ -40,21 +40,62 @@
         //... and store
         AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         NSManagedObjectContext *context = [appDelegate managedObjectContext];
+        
+        
+        //1) course
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+        
+        // Looking for all the course entities
+        NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
+        [fetchRequest setEntity:entity];
+        
+        // The courseName should be the one we are looking for
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(courseName LIKE[c] %@)", course];
+        [fetchRequest setPredicate:predicate];
+        
+        //Look if the course already exists
+        NSArray *fetchedCourses = [context executeFetchRequest:fetchRequest error:&error];
+        NSManagedObject *courseEntity;
+        if ([fetchedCourses count] == 0)
+        {
+            courseEntity = [NSEntityDescription
+                                               insertNewObjectForEntityForName:@"Courses"
+                                               inManagedObjectContext:context];
+            [courseEntity setValue:course forKey:@"courseName"];
+            [courseEntity setValue:@"theCourseIdentifier" forKey:@"courseIdentifier"];
+            
+        }
+        else
+        {
+            courseEntity = [fetchedCourses objectAtIndex:0];
+        }
+        
+        //2) the question
         NSManagedObject *questionEntity = [NSEntityDescription
                                            insertNewObjectForEntityForName:@"Question"
                                            inManagedObjectContext:context];
         [questionEntity setValue:[NSNumber numberWithInteger:identity] forKey:@"identity"];
-        [questionEntity setValue:course forKey:@"course"];
         [questionEntity setValue:question forKey:@"question"];
         [questionEntity setValue:corr_sol forKey:@"corr_sol"];
         [questionEntity setValue:wrong_sol1 forKey:@"wrong_sol1"];
         [questionEntity setValue:wrong_sol2 forKey:@"wrong_sol2"];
         [questionEntity setValue:wrong_sol3 forKey:@"wrong_sol3"];
         
+        //Link the course to the question
+        NSMutableSet *courseQuestionsSet = [courseEntity valueForKey:@"questions"];
+        [courseQuestionsSet addObject:questionEntity];
+        [courseEntity setValue:courseQuestionsSet forKey:@"questions"];
+        
+        //Link the question to the course
+        [questionEntity setValue:courseEntity forKey:@"course"];
+        
         //Save and handle errors
         if (![context save:&error]) {
             NSLog(@"Whoops, couldn't save: %@", [error localizedDescription]);
         }
+        
+        //TODO: remove
+        [UIApplication sharedApplication].applicationIconBadgeNumber += 1;
         
         //Save the id of last question that has been saved
         if ([[BackgroundFetchManager sharedManager] biggestIdParsed] < identity) {

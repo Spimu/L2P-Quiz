@@ -26,6 +26,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_sol1_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol2_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol3_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol4_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    [self getAllPossibleQuestions];
 }
 
 
@@ -101,25 +108,38 @@
     [_questionLabel setFrame:CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y-200, _questionLabel.frame.size.width, _questionLabel.frame.size.height)];
     
     [_sol1_IV setFrame:CGRectMake(_sol1_IV.frame.origin.x-400, _sol1_IV.frame.origin.y, _sol1_IV.frame.size.width, _sol1_IV.frame.size.height)];
-    [_sol1_button setFrame:CGRectMake(_sol1_button.frame.origin.x-400, _sol1_button.frame.origin.y, _sol1_button.frame.size.width, _sol1_button.frame.size.height)];
+    //[_sol1_button setFrame:CGRectMake(_sol1_button.frame.origin.x-400, _sol1_button.frame.origin.y, _sol1_button.frame.size.width, _sol1_button.frame.size.height)];
     
     [_sol2_IV setFrame:CGRectMake(_sol2_IV.frame.origin.x+400, _sol2_IV.frame.origin.y, _sol2_IV.frame.size.width, _sol2_IV.frame.size.height)];
-    [_sol2_button setFrame:CGRectMake(_sol2_button.frame.origin.x+400, _sol2_button.frame.origin.y, _sol2_button.frame.size.width, _sol2_button.frame.size.height)];
+    //[_sol2_button setFrame:CGRectMake(_sol2_button.frame.origin.x+400, _sol2_button.frame.origin.y, _sol2_button.frame.size.width, _sol2_button.frame.size.height)];
     
     [_sol3_IV setFrame:CGRectMake(_sol3_IV.frame.origin.x-400, _sol3_IV.frame.origin.y, _sol3_IV.frame.size.width, _sol3_IV.frame.size.height)];
-    [_sol3_button setFrame:CGRectMake(_sol3_button.frame.origin.x-400, _sol3_button.frame.origin.y, _sol3_button.frame.size.width, _sol3_button.frame.size.height)];
+    //[_sol3_button setFrame:CGRectMake(_sol3_button.frame.origin.x-400, _sol3_button.frame.origin.y, _sol3_button.frame.size.width, _sol3_button.frame.size.height)];
     
     [_sol4_IV setFrame:CGRectMake(_sol4_IV.frame.origin.x+400, _sol4_IV.frame.origin.y, _sol4_IV.frame.size.width, _sol4_IV.frame.size.height)];
-    [_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x+400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
+    //[_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x+400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
     
     [self performSelector:@selector(showRating) withObject:self afterDelay:1.0];
     
     [UIView commitAnimations];
+    
+    [_sol1_button setHidden:YES];
+    [_sol2_button setHidden:YES];
+    [_sol3_button setHidden:YES];
+    [_sol4_button setHidden:YES];
 }
 
 - (void) showQuestion
 {
+    //deselect all answers
+    [_sol1_IV setImage:[UIImage imageNamed:@"sol_background"]];
+    [_sol2_IV setImage:[UIImage imageNamed:@"sol_background"]];
+    [_sol3_IV setImage:[UIImage imageNamed:@"sol_background"]];
+    [_sol4_IV setImage:[UIImage imageNamed:@"sol_background"]];
+    
     //TODO: set question
+    [self setQuestionWithAnswers];
+    
     //TODO: start timer
 
     [UIView beginAnimations:nil context:nil];
@@ -130,19 +150,70 @@
     [_questionLabel setFrame:CGRectMake(_questionLabel.frame.origin.x, _questionLabel.frame.origin.y+200, _questionLabel.frame.size.width, _questionLabel.frame.size.height)];
     
     [_sol1_IV setFrame:CGRectMake(_sol1_IV.frame.origin.x+400, _sol1_IV.frame.origin.y, _sol1_IV.frame.size.width, _sol1_IV.frame.size.height)];
-    [_sol1_button setFrame:CGRectMake(_sol1_button.frame.origin.x+400, _sol1_button.frame.origin.y, _sol1_button.frame.size.width, _sol1_button.frame.size.height)];
+    //[_sol1_button setFrame:CGRectMake(_sol1_button.frame.origin.x+400, _sol1_button.frame.origin.y, _sol1_button.frame.size.width, _sol1_button.frame.size.height)];
     
     [_sol2_IV setFrame:CGRectMake(_sol2_IV.frame.origin.x-400, _sol2_IV.frame.origin.y, _sol2_IV.frame.size.width, _sol2_IV.frame.size.height)];
-    [_sol2_button setFrame:CGRectMake(_sol2_button.frame.origin.x-400, _sol2_button.frame.origin.y, _sol2_button.frame.size.width, _sol2_button.frame.size.height)];
+    //[_sol2_button setFrame:CGRectMake(_sol2_button.frame.origin.x-400, _sol2_button.frame.origin.y, _sol2_button.frame.size.width, _sol2_button.frame.size.height)];
     
     [_sol3_IV setFrame:CGRectMake(_sol3_IV.frame.origin.x+400, _sol3_IV.frame.origin.y, _sol3_IV.frame.size.width, _sol3_IV.frame.size.height)];
-    [_sol3_button setFrame:CGRectMake(_sol3_button.frame.origin.x+400, _sol3_button.frame.origin.y, _sol3_button.frame.size.width, _sol3_button.frame.size.height)];
+    //[_sol3_button setFrame:CGRectMake(_sol3_button.frame.origin.x+400, _sol3_button.frame.origin.y, _sol3_button.frame.size.width, _sol3_button.frame.size.height)];
     
     [_sol4_IV setFrame:CGRectMake(_sol4_IV.frame.origin.x-400, _sol4_IV.frame.origin.y, _sol4_IV.frame.size.width, _sol4_IV.frame.size.height)];
-    [_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x-400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
+    //[_sol4_button setFrame:CGRectMake(_sol4_button.frame.origin.x-400, _sol4_button.frame.origin.y, _sol4_button.frame.size.width, _sol4_button.frame.size.height)];
+    
+    [_sol1_button setHidden:NO];
+    [_sol2_button setHidden:NO];
+    [_sol3_button setHidden:NO];
+    [_sol4_button setHidden:NO];
     
     [UIView commitAnimations];
 }
+
+
+- (void) getAllPossibleQuestions
+{
+    NSError *error = nil;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+    // Looking for all the course entities
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    // Filter all the courses we selected
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", [[SingleGameManager sharedManager] selectedCourses]];
+    [fetchRequest setPredicate:predicate];
+    
+    NSArray *fetchedCourses = [context executeFetchRequest:fetchRequest error:&error];
+    NSMutableSet *questions = [[NSMutableSet alloc] init];
+    for (NSManagedObject *course in fetchedCourses) {
+        NSSet *set = [course valueForKeyPath:@"questions"];
+        [questions unionSet:set];
+    }
+    
+    [[SingleGameManager sharedManager] setPossibleQuestions:[questions allObjects]];
+}
+
+
+- (void) setQuestionWithAnswers
+{
+    uint32_t rnd = arc4random_uniform([[[SingleGameManager sharedManager] possibleQuestions] count]);
+    NSManagedObject *questionsObject = [[[SingleGameManager sharedManager] possibleQuestions] objectAtIndex:rnd];
+    
+    _questionLabel.text = [questionsObject valueForKey:@"question"];
+    [_sol1_button setTitle:[questionsObject valueForKey:@"corr_sol"] forState:UIControlStateNormal];
+    [_sol2_button setTitle:[questionsObject valueForKey:@"wrong_sol1"] forState:UIControlStateNormal];
+    [_sol3_button setTitle:[questionsObject valueForKey:@"wrong_sol2"] forState:UIControlStateNormal];
+    [_sol4_button setTitle:[questionsObject valueForKey:@"wrong_sol3"] forState:UIControlStateNormal];
+    
+    _sol1_button.titleLabel.textColor = [UIColor blackColor];
+    _sol2_button.titleLabel.textColor = [UIColor blackColor];
+    _sol3_button.titleLabel.textColor = [UIColor blackColor];
+    _sol4_button.titleLabel.textColor = [UIColor blackColor];
+}
+
 
 - (void) showRating
 {

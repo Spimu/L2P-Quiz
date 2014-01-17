@@ -12,7 +12,6 @@
 @implementation Question
 
 @dynamic identity;
-@dynamic course;
 @dynamic corr_sol;
 @dynamic wrong_sol1;
 @dynamic wrong_sol2;
