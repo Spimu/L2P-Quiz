@@ -63,21 +63,18 @@
 // This function first checks if the user answered right or wrong
 // Then it shows the correct answer if the user is not in 1 minute madness mode
 // At the end it jumps to the next question
-- (void)proceed
+- (void)proceed:(id)sender
 {
     //Checks if the answer was right
-    [self checkIfRight];
-    
-    //Displays the right answer if the user is not im 1minMadnessMode
-    [self displayRightAnswer];
+    [self performSelector:@selector(checkIfRight:) withObject:sender afterDelay:1.0];
     
     //Check if we reached the last question in ?/10
     [self checkIfLastQuestion];
     
     //Show the next question
-    NSTimeInterval delay = 5.0;
+    NSTimeInterval delay = 4.0;
     if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_1minute) {
-        delay = 1.0;
+        delay = 0.3;
     }
     [self performSelector:@selector(hideQuestion) withObject:self afterDelay:delay];
     
@@ -87,9 +84,42 @@
 
 
 //TODO: submit the result to our SingleGameManager
-- (void) checkIfRight
+- (void) checkIfRight:(id)sender
 {
+    BOOL answerWasCorrect = NO;
+    UIButton *senderButton = (UIButton *)sender;
+    NSString *correctSolution = [[[SingleGameManager sharedManager] currentQuestion] valueForKey:@"corr_sol"];
     
+    if ([senderButton.titleLabel.text isEqualToString:correctSolution])
+    {
+        answerWasCorrect = YES;
+    }
+    
+    //TODO: submit to stats
+ 
+    //Displays the right answer if the user is not im 1minMadnessMode
+    if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_1minute)
+    {
+        int senderTag = [senderButton tag];
+        UIImageView *correctIV = (UIImageView *)[self.view viewWithTag:senderTag-10];
+        if (answerWasCorrect)
+        {
+            [correctIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
+        }
+        else
+        {
+            [correctIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
+            for (int i = 11; i < 15; i++)
+            {
+                UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
+                if ([tempButton.titleLabel.text isEqualToString:correctSolution])
+                {
+                    UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
+                    [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
+                }
+            }
+        }
+    }
 }
 
 
@@ -97,9 +127,7 @@
 //TODO: if wrong: blink the right answer / if right: set correct_background
 - (void) displayRightAnswer
 {
-    if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_1minute) {
-        //TODO
-    }
+    
 }
 
 
@@ -142,6 +170,23 @@
 
 
 
+- (NSArray *) shuffleArray:(NSArray *)inputArray
+{
+    NSMutableArray *outputArray = [[NSMutableArray alloc] initWithArray:inputArray];
+    NSUInteger count = [inputArray count];
+    
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = arc4random_uniform(nElements) + i;
+        
+        [outputArray exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+    
+    return outputArray;
+}
+
+
 //----------------------------------------------------------------------------------------
 #pragma mark GUI functions
 //----------------------------------------------------------------------------------------
@@ -152,12 +197,16 @@
 {
     uint32_t rnd = arc4random_uniform([[[SingleGameManager sharedManager] possibleQuestions] count]);
     NSManagedObject *questionsObject = [[[SingleGameManager sharedManager] possibleQuestions] objectAtIndex:rnd];
+    [[SingleGameManager sharedManager] setCurrentQuestion:questionsObject];
+    
+    NSArray *keyArray = @[@"corr_sol",@"wrong_sol1",@"wrong_sol2",@"wrong_sol3"];
+    NSArray *shuffledKeyArray = [self shuffleArray:keyArray];
     
     _questionLabel.text = [questionsObject valueForKey:@"question"];
-    [_sol1_button setTitle:[questionsObject valueForKey:@"corr_sol"] forState:UIControlStateNormal];
-    [_sol2_button setTitle:[questionsObject valueForKey:@"wrong_sol1"] forState:UIControlStateNormal];
-    [_sol3_button setTitle:[questionsObject valueForKey:@"wrong_sol2"] forState:UIControlStateNormal];
-    [_sol4_button setTitle:[questionsObject valueForKey:@"wrong_sol3"] forState:UIControlStateNormal];
+    [_sol1_button setTitle:[questionsObject valueForKey:shuffledKeyArray[0]] forState:UIControlStateNormal];
+    [_sol2_button setTitle:[questionsObject valueForKey:shuffledKeyArray[1]] forState:UIControlStateNormal];
+    [_sol3_button setTitle:[questionsObject valueForKey:shuffledKeyArray[2]] forState:UIControlStateNormal];
+    [_sol4_button setTitle:[questionsObject valueForKey:shuffledKeyArray[3]] forState:UIControlStateNormal];
     
     _sol1_button.titleLabel.textColor = [UIColor blackColor];
     _sol2_button.titleLabel.textColor = [UIColor blackColor];
@@ -267,7 +316,7 @@
 {
     [_sol1_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
-    [self proceed];
+    [self proceed:sender];
 }
 
 
@@ -275,7 +324,7 @@
 {
     [_sol2_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
-    [self proceed];
+    [self proceed:sender];
 }
 
 
@@ -283,7 +332,7 @@
 {
     [_sol3_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
-    [self proceed];
+    [self proceed:sender];
 }
 
 
@@ -291,7 +340,7 @@
 {
     [_sol4_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
-    [self proceed];
+    [self proceed:sender];
 }
 
 

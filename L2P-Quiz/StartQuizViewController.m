@@ -50,11 +50,11 @@
     }
     if([segue.identifier isEqualToString:@"10questionsSegue"])
     {
-        [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_1minute];
+        [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_10questions];
     }
     if([segue.identifier isEqualToString:@"InfinitySegue"])
     {
-        [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_1minute];
+        [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_Infinity];
     }
 }
 
