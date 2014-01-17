@@ -85,11 +85,11 @@
                                     <segue destination="y9D-Ip-1Yo" kind="push" id="QLE-Rf-NDV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-U3-mub">
-                                <rect key="frame" x="177" y="317" width="129" height="130"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-U3-mub">
+                                <rect key="frame" x="177" y="316" width="129" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="View profile">
+                                <state key="normal" image="profile.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -666,6 +666,7 @@
     </scenes>
     <resources>
         <image name="logo_l2p.png" width="181" height="75"/>
+        <image name="profile.png" width="102" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
     </resources>
