@@ -7,6 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPDConstants.h"
+#import "CPDStockPriceStore.h"
+
 
 @interface StatisticsPageContentViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
