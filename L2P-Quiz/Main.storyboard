@@ -158,15 +158,15 @@
                                 <rect key="frame" x="63" y="230" width="85" height="85"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" title="Start new">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWY-gG-coM">
-                                <rect key="frame" x="178" y="230" width="85" height="85"/>
+                                <rect key="frame" x="178" y="230" width="85" height="84"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="View">
+                                <state key="normal" title="View current">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -539,6 +539,14 @@
                                 <connections>
                                     <segue destination="ZYR-nm-0Y3" kind="push" id="HXy-N7-eRR"/>
                                 </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhj-wY-x31">
+                                <rect key="frame" x="20" y="255" width="129" height="130"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" title="View Highscore">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-V0-xJn">
                                 <rect key="frame" x="20" y="20" width="165" height="178"/>
