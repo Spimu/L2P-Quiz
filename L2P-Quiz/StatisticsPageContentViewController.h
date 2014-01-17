@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CPDConstants.h"
+#import "CPDStockPriceStore.h"
 
-@interface StatisticsPageContentViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UIView *testView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@interface StatisticsPageContentViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
 @property NSUInteger pageIndex;
 @property NSString *titleText;

@@ -15,6 +15,8 @@
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
 		409B1E8B18894E11006E7240 /* StatisticsPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */; };
 		409B1E8E18895579006E7240 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8D18895579006E7240 /* StatisticsViewController.m */; };
+		409B1E9318896C2F006E7240 /* CPDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9018896C2F006E7240 /* CPDConstants.m */; };
+		409B1E9418896C2F006E7240 /* CPDStockPriceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
@@ -151,6 +153,10 @@
 		409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsPageContentViewController.m; sourceTree = "<group>"; };
 		409B1E8C18895579006E7240 /* StatisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatisticsViewController.h; sourceTree = "<group>"; };
 		409B1E8D18895579006E7240 /* StatisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatisticsViewController.m; sourceTree = "<group>"; };
+		409B1E8F18896C2F006E7240 /* CPDConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDConstants.h; sourceTree = "<group>"; };
+		409B1E9018896C2F006E7240 /* CPDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDConstants.m; sourceTree = "<group>"; };
+		409B1E9118896C2F006E7240 /* CPDStockPriceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDStockPriceStore.h; sourceTree = "<group>"; };
+		409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDStockPriceStore.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -330,6 +336,17 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		409B1E9518896F67006E7240 /* Example Data for Plots */ = {
+			isa = PBXGroup;
+			children = (
+				409B1E8F18896C2F006E7240 /* CPDConstants.h */,
+				409B1E9018896C2F006E7240 /* CPDConstants.m */,
+				409B1E9118896C2F006E7240 /* CPDStockPriceStore.h */,
+				409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */,
+			);
+			name = "Example Data for Plots";
+			sourceTree = "<group>";
+		};
 		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +409,7 @@
 				9579AFB3187EF04A00747EF6 /* Data Persistence */,
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
+				409B1E9518896F67006E7240 /* Example Data for Plots */,
 				95E75AFB187C248500FFE5AD /* Managers */,
 				95E75AFA187C246F00FFE5AD /* ViewControllers */,
 				95E75A55187C162800FFE5AD /* Images.xcassets */,
@@ -584,6 +602,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409B1E8E18895579006E7240 /* StatisticsViewController.m in Sources */,
+				409B1E9318896C2F006E7240 /* CPDConstants.m in Sources */,
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,
 				401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */,
@@ -599,6 +618,7 @@
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
 				409B1E8B18894E11006E7240 /* StatisticsPageContentViewController.m in Sources */,
+				409B1E9418896C2F006E7240 /* CPDStockPriceStore.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
@@ -718,6 +738,7 @@
 		95E75A6E187C162800FFE5AD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -727,7 +748,10 @@
 					"$(inherited)",
 					"/Users/marty/Desktop/L2P-Quiz",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -736,6 +760,7 @@
 		95E75A6F187C162800FFE5AD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -745,7 +770,10 @@
 					"$(inherited)",
 					"/Users/marty/Desktop/L2P-Quiz",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
