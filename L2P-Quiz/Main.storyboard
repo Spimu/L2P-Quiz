@@ -45,7 +45,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921568627451" green="0.58039215686274503" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DUS-iq-gsU"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -666,7 +666,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_l2p.png" width="400" height="200"/>
+        <image name="logo_l2p.png" width="362" height="150"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
     </resources>
