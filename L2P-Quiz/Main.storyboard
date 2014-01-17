@@ -664,7 +664,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_l2p.png" width="362" height="150"/>
+        <image name="logo_l2p.png" width="181" height="75"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
     </resources>
