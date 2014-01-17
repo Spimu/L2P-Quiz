@@ -8,6 +8,5 @@
 
 #import <UIKit/UIKit.h>
 
-@interface SelectCourseStatisticsViewController : UITableViewController
-
+@interface SelectCourseStatisticsViewController : UITableViewController 
 @end

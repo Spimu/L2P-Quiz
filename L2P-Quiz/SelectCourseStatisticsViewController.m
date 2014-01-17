@@ -8,7 +8,7 @@
 
 #import "SelectCourseStatisticsViewController.h"
 #import "Courses.h"
-#import "StatisticsPageViewController.h"
+#import "StatisticsViewController.h"
 
 @interface SelectCourseStatisticsViewController () {
     NSString* selectedCourse;
@@ -37,6 +37,7 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     selectedCourse = [[NSString alloc] init];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -130,6 +131,7 @@
 // In a story board-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+//    [[segue destinationViewController] setNameOfCourse:selectedCourse];
     [[segue destinationViewController] setNameOfCourse:selectedCourse];
 }
 

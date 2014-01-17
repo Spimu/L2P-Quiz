@@ -566,7 +566,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="OYP-Y5-oRs" kind="push" identifier="showStatisticsPageViewSegue" id="mb9-of-aJh"/>
+                                    <segue destination="CZH-Xb-H4g" kind="push" identifier="showStatisticsPageViewSegue" id="LxU-qI-kyZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -584,12 +584,70 @@
         <!--Statistics Page View Controller-->
         <scene sceneID="4WA-ru-Bbd">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="OYP-Y5-oRs" userLabel="Statistics Page View Controller" customClass="StatisticsPageViewController" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="OYP-Y5-oRs" userLabel="Statistics Page View Controller" customClass="StatisticsPageViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Gl2-1E-zIf"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv9-Tb-jLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="289"/>
+            <point key="canvasLocation" x="1102" y="297"/>
+        </scene>
+        <!--Statistics View Controller-->
+        <scene sceneID="F0r-3x-3Xm">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsViewController" id="CZH-Xb-H4g" userLabel="Statistics View Controller" customClass="StatisticsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fGD-Iw-Jp5"/>
+                        <viewControllerLayoutGuide type="bottom" id="1EI-KA-U7f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DAk-MD-db3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sHr-nZ-xSs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgR-Xt-MwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="308"/>
+        </scene>
+        <!--Statistics Page Content Controller-->
+        <scene sceneID="MUD-Su-vwc">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsPageContentViewController" id="pbk-oy-hrC" userLabel="Statistics Page Content Controller" customClass="StatisticsPageContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wO3-Ed-jAp"/>
+                        <viewControllerLayoutGuide type="bottom" id="uRt-YS-B2i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nac-Yz-hZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LE7-Yb-ahr">
+                                <rect key="frame" x="0.0" y="57" width="320" height="423"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WZ-4U-Prg">
+                                        <rect key="frame" x="42" y="12" width="236" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="8cw-cp-RUr"/>
+                    <connections>
+                        <outlet property="testView" destination="LE7-Yb-ahr" id="Bgi-eH-f3b"/>
+                        <outlet property="titleLabel" destination="6WZ-4U-Prg" id="Zbd-u1-sca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meL-zC-ahw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="889"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sAZ-ag-FkI">
