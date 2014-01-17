@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		401EDAB11887ECC10091AD0A /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
+		951762671889317600730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
@@ -203,7 +203,7 @@
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
 				95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */,
 				95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */,
-				401EDAB11887ECC10091AD0A /* libCorePlot-CocoaTouch.a in Frameworks */,
+				951762671889317600730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -714,6 +714,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/marty/Desktop/L2P-Quiz",
+					"/Users/claudebemtgen/iPhone/L2P-Quiz",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -732,6 +733,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/marty/Desktop/L2P-Quiz",
+					"/Users/claudebemtgen/iPhone/L2P-Quiz",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";

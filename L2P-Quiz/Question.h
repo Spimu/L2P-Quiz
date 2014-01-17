@@ -13,7 +13,6 @@
 @interface Question : NSManagedObject
 
 @property (nonatomic, retain) NSNumber * identity;
-@property (nonatomic, retain) NSString * course;
 @property (nonatomic, retain) NSString * corr_sol;
 @property (nonatomic, retain) NSString * wrong_sol1;
 @property (nonatomic, retain) NSString * wrong_sol2;
