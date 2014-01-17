@@ -11,7 +11,6 @@
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
-		7547560F1889913E006B6DCB /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7547560E1889913E006B6DCB /* GameCenterManager.m */; };
 		951762671889317600730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
@@ -154,8 +153,6 @@
 		409B1E9018896C2F006E7240 /* CPDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDConstants.m; sourceTree = "<group>"; };
 		409B1E9118896C2F006E7240 /* CPDStockPriceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDStockPriceStore.h; sourceTree = "<group>"; };
 		409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDStockPriceStore.m; sourceTree = "<group>"; };
-		7547560D1889913E006B6DCB /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
-		7547560E1889913E006B6DCB /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -346,15 +343,6 @@
 			name = "Example Data for Plots";
 			sourceTree = "<group>";
 		};
-		7547560C18899130006B6DCB /* GameCenter */ = {
-			isa = PBXGroup;
-			children = (
-				7547560D1889913E006B6DCB /* GameCenterManager.h */,
-				7547560E1889913E006B6DCB /* GameCenterManager.m */,
-			);
-			name = GameCenter;
-			sourceTree = "<group>";
-		};
 		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -381,7 +369,6 @@
 		95E75A32187C162800FFE5AD = {
 			isa = PBXGroup;
 			children = (
-				7547560C18899130006B6DCB /* GameCenter */,
 				401EDA601887EC6F0091AD0A /* CorePlot */,
 				95E75A46187C162800FFE5AD /* L2P-Quiz */,
 				95E75A63187C162800FFE5AD /* L2P-QuizTests */,
@@ -612,7 +599,6 @@
 			files = (
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,
-				7547560F1889913E006B6DCB /* GameCenterManager.m in Sources */,
 				401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */,
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95F654141886952C00014005 /* RatingViewController.m in Sources */,
