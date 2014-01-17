@@ -10,6 +10,4 @@
 
 @interface StatisticsPageViewController : UIPageViewController
 
-@property (nonatomic, strong) NSString* nameOfCourse;
-
 @end

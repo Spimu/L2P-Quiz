@@ -45,7 +45,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921568627451" green="0.58039215686274503" blue="0.8901960784313725" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DUS-iq-gsU"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -85,11 +85,11 @@
                                     <segue destination="y9D-Ip-1Yo" kind="push" id="QLE-Rf-NDV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-U3-mub">
-                                <rect key="frame" x="177" y="317" width="129" height="130"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHN-U3-mub">
+                                <rect key="frame" x="177" y="316" width="129" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="View profile">
+                                <color key="backgroundColor" red="0.71372549019607845" green="0.83529411764705885" blue="0.94901960784313721" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" image="profile.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -108,7 +108,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="4np-Q6-gjR"/>
                     <nil key="simulatedTopBarMetrics"/>
@@ -193,7 +193,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="jBF-eR-RcT"/>
@@ -252,7 +252,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="n88-dC-7rL"/>
@@ -351,7 +351,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="hua-FL-nuA"/>
@@ -412,7 +412,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EfX-zR-rNg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -434,6 +434,7 @@
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9P-hw-unx">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                             </pickerView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Question" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cYJ-Ro-rP2">
                                 <rect key="frame" x="20" y="170" width="280" height="30"/>
@@ -489,7 +490,7 @@
                                 </connections>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="P3g-HE-zEI">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="Jfo-dX-yU6">
@@ -544,8 +545,12 @@
                                     <segue destination="ZYR-nm-0Y3" kind="push" id="HXy-N7-eRR"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="Twb-V0-xJn">
+                                <rect key="frame" x="20" y="20" width="165" height="178"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
-                        <color key="backgroundColor" red="0.1109982477" green="0.084083969810000006" blue="0.98290878530000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="DCq-oD-7lI"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
@@ -571,7 +576,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="OYP-Y5-oRs" kind="push" identifier="showStatisticsPageViewSegue" id="mb9-of-aJh"/>
+                                    <segue destination="CZH-Xb-H4g" kind="push" identifier="showStatisticsPageViewSegue" id="LxU-qI-kyZ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -589,12 +594,68 @@
         <!--Statistics Page View Controller-->
         <scene sceneID="4WA-ru-Bbd">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="OYP-Y5-oRs" userLabel="Statistics Page View Controller" customClass="StatisticsPageViewController" sceneMemberID="viewController">
+                <pageViewController storyboardIdentifier="StatisticsPageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="OYP-Y5-oRs" userLabel="Statistics Page View Controller" customClass="StatisticsPageViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="Gl2-1E-zIf"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nv9-Tb-jLd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="654" y="289"/>
+            <point key="canvasLocation" x="1102" y="297"/>
+        </scene>
+        <!--Statistics View Controller-->
+        <scene sceneID="F0r-3x-3Xm">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsViewController" id="CZH-Xb-H4g" userLabel="Statistics View Controller" customClass="StatisticsViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fGD-Iw-Jp5"/>
+                        <viewControllerLayoutGuide type="bottom" id="1EI-KA-U7f"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DAk-MD-db3">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="sHr-nZ-xSs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgR-Xt-MwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="686" y="308"/>
+        </scene>
+        <!--Statistics Page Content Controller-->
+        <scene sceneID="MUD-Su-vwc">
+            <objects>
+                <viewController storyboardIdentifier="StatisticsPageContentViewController" id="pbk-oy-hrC" userLabel="Statistics Page Content Controller" customClass="StatisticsPageContentViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wO3-Ed-jAp"/>
+                        <viewControllerLayoutGuide type="bottom" id="uRt-YS-B2i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Nac-Yz-hZ0">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6WZ-4U-Prg">
+                                <rect key="frame" x="42" y="71" width="236" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J2v-fu-6u5" customClass="CPTGraphHostingView">
+                                <rect key="frame" x="0.0" y="100" width="320" height="372"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="8cw-cp-RUr"/>
+                    <connections>
+                        <outlet property="hostView" destination="J2v-fu-6u5" id="pYu-ep-PyH"/>
+                        <outlet property="titleLabel" destination="6WZ-4U-Prg" id="Zbd-u1-sca"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="meL-zC-ahw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1110" y="889"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="sAZ-ag-FkI">
@@ -613,7 +674,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="logo_l2p.png" width="400" height="200"/>
+        <image name="logo_l2p.png" width="181" height="75"/>
+        <image name="profile.png" width="102" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
     </resources>
