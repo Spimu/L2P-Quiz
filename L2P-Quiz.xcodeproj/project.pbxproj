@@ -7,11 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03ECD3CA18896EF700802A1B /* logo_l2p@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3C918896EF700802A1B /* logo_l2p@2x.png */; };
+		03ECD3D018897BF500802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3CF18897BF500802A1B /* profile@2x.png */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
-		951762671889317600730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
+		409B1E8B18894E11006E7240 /* StatisticsPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */; };
+		409B1E8E18895579006E7240 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8D18895579006E7240 /* StatisticsViewController.m */; };
+		409B1E9318896C2F006E7240 /* CPDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9018896C2F006E7240 /* CPDConstants.m */; };
+		409B1E9418896C2F006E7240 /* CPDStockPriceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */; };
+		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
@@ -211,7 +217,7 @@
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
 				95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */,
 				95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */,
-				951762671889317600730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
+				9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -343,6 +349,36 @@
 			name = "Example Data for Plots";
 			sourceTree = "<group>";
 		};
+		951762691889932A00730C0F /* Single Game */ = {
+			isa = PBXGroup;
+			children = (
+				958F8DF41885483400F87F00 /* StartQuizViewController.h */,
+				958F8DF51885483500F87F00 /* StartQuizViewController.m */,
+				958F8DF718854B2B00F87F00 /* SelectCourseViewController.h */,
+				958F8DF818854B2B00F87F00 /* SelectCourseViewController.m */,
+				958F8DFA1885563800F87F00 /* GameViewController.h */,
+				958F8DFB1885563800F87F00 /* GameViewController.m */,
+				95F654121886952C00014005 /* RatingViewController.h */,
+				95F654131886952C00014005 /* RatingViewController.m */,
+			);
+			name = "Single Game";
+			sourceTree = "<group>";
+		};
+		9517626A1889935000730C0F /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				401EDAB71888154F0091AD0A /* SelectCourseStatisticsViewController.h */,
+				401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */,
+				409B1E8C18895579006E7240 /* StatisticsViewController.h */,
+				409B1E8D18895579006E7240 /* StatisticsViewController.m */,
+				401EDAB4188813C70091AD0A /* StatisticsPageViewController.h */,
+				401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */,
+				409B1E8918894E11006E7240 /* StatisticsPageContentViewController.h */,
+				409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */,
+			);
+			name = Statistics;
+			sourceTree = "<group>";
+		};
 		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -450,28 +486,14 @@
 		95E75AFA187C246F00FFE5AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				951762691889932A00730C0F /* Single Game */,
+				9517626A1889935000730C0F /* Statistics */,
 				95E75A73187C1A0C00FFE5AD /* LoginViewController.h */,
 				95E75A74187C1A0C00FFE5AD /* LoginViewController.m */,
 				95EF1EB4187F5056008BF8AC /* MainMenuViewController.h */,
 				95EF1EB5187F5056008BF8AC /* MainMenuViewController.m */,
 				95EF1EB9188049A0008BF8AC /* SubmitQuestionViewController.h */,
 				95EF1EBA188049A0008BF8AC /* SubmitQuestionViewController.m */,
-				958F8DF41885483400F87F00 /* StartQuizViewController.h */,
-				958F8DF51885483500F87F00 /* StartQuizViewController.m */,
-				958F8DF718854B2B00F87F00 /* SelectCourseViewController.h */,
-				958F8DF818854B2B00F87F00 /* SelectCourseViewController.m */,
-				958F8DFA1885563800F87F00 /* GameViewController.h */,
-				958F8DFB1885563800F87F00 /* GameViewController.m */,
-				95F654121886952C00014005 /* RatingViewController.h */,
-				95F654131886952C00014005 /* RatingViewController.m */,
-				401EDAB71888154F0091AD0A /* SelectCourseStatisticsViewController.h */,
-				401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */,
-				409B1E8C18895579006E7240 /* StatisticsViewController.h */,
-				409B1E8D18895579006E7240 /* StatisticsViewController.m */,
-				401EDAB4188813C70091AD0A /* StatisticsPageViewController.h */,
-				401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */,
-				409B1E8918894E11006E7240 /* StatisticsPageContentViewController.h */,
-				409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -744,8 +766,11 @@
 				INFOPLIST_FILE = "L2P-Quiz/L2P-Quiz-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/marty/Desktop/L2P-Quiz",
 					"/Users/claudebemtgen/iPhone/L2P-Quiz",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -763,8 +788,11 @@
 				INFOPLIST_FILE = "L2P-Quiz/L2P-Quiz-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/marty/Desktop/L2P-Quiz",
 					"/Users/claudebemtgen/iPhone/L2P-Quiz",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;

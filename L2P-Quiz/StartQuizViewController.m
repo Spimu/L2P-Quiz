@@ -36,6 +36,12 @@
 }
 
 
+
+//----------------------------------------------------------------------------------------
+#pragma mark Segue delegates
+//----------------------------------------------------------------------------------------
+
+
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"1minSegue"])

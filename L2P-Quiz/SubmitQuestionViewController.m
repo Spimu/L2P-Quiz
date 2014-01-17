@@ -40,7 +40,15 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)dismissKeyboard {
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Keyboard functions
+//----------------------------------------------------------------------------------------
+
+
+- (void) dismissKeyboard
+{
     [_questionTextField resignFirstResponder];
     [_correctAnswerTextField resignFirstResponder];
     [_wrongAnswerTextField1 resignFirstResponder];
@@ -48,15 +56,17 @@
     [_wrongAnswerTextField3 resignFirstResponder];
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+
+
+- (BOOL) textFieldShouldReturn:(UITextField *)textField {
     [textField resignFirstResponder];
     return NO;
 }
 
 
--(void)scrollToY:(float)y
+
+- (void) scrollToY:(float)y
 {
-    
     [UIView beginAnimations:@"registerScroll" context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:0.4];
@@ -65,7 +75,9 @@
     
 }
 
--(void)scrollToView:(UIView *)view
+
+
+- (void) scrollToView:(UIView *)view
 {
     CGRect theFrame = view.frame;
     float y = theFrame.origin.y;
@@ -73,16 +85,27 @@
     [self scrollToY:-y];
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
+
+
+- (void) textFieldDidBeginEditing:(UITextField *)textField
 {
     [self scrollToView:textField];
 }
 
--(void) textFieldDidEndEditing:(UITextField *)textField
+
+
+- (void) textFieldDidEndEditing:(UITextField *)textField
 {
     [self scrollToY:0];
     [textField resignFirstResponder];
 }
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Helper functions
+//----------------------------------------------------------------------------------------
+
 
 - (BOOL)checkIfEverythingIsFilled
 {
@@ -90,7 +113,8 @@
           ![_correctAnswerTextField.text isEqualToString:@""] &&
           ![_wrongAnswerTextField1.text isEqualToString:@""] &&
           ![_wrongAnswerTextField2.text isEqualToString:@""] &&
-          ![_wrongAnswerTextField3.text isEqualToString:@""]) {
+          ![_wrongAnswerTextField3.text isEqualToString:@""])
+    {
         return YES;
     }
     else
@@ -105,6 +129,12 @@
         return NO;
     }
 }
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Button presses
+//----------------------------------------------------------------------------------------
 
 
 - (IBAction)sumbitQuestion:(id)sender

@@ -45,6 +45,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Helper functions
+//----------------------------------------------------------------------------------------
+
+
 - (void) submitRating
 {
     NSMutableArray *nullArray = [[NSMutableArray alloc] init];
@@ -58,6 +65,13 @@
     }
 }
 
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Button presses
+//----------------------------------------------------------------------------------------
+
+
 - (IBAction)ratePressed:(id)sender
 {
     [self submitRating];
@@ -65,6 +79,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Table View Delegates
+//----------------------------------------------------------------------------------------
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -116,6 +135,8 @@
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
+
+
 
 
 @end

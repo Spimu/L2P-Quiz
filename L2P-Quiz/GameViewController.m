@@ -23,6 +23,8 @@
     return self;
 }
 
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -42,11 +44,21 @@
     [self performSelector:@selector(showQuestion) withObject:nil afterDelay:0.5];
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Helper functions
+//----------------------------------------------------------------------------------------
+
 
 // This function first checks if the user answered right or wrong
 // Then it shows the correct answer if the user is not in 1 minute madness mode
@@ -73,11 +85,13 @@
 }
 
 
+
 //TODO: submit the result to our SingleGameManager
 - (void) checkIfRight
 {
     
 }
+
 
 
 //TODO: if wrong: blink the right answer / if right: set correct_background
@@ -89,11 +103,68 @@
 }
 
 
+
 //TODO: check if we are in ?/10-mode and if we reached the last question
 - (void) checkIfLastQuestion
 {
     
 }
+
+
+
+- (void) getAllPossibleQuestions
+{
+    NSError *error = nil;
+    
+    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSManagedObjectContext *context = [appDelegate managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+
+    // Looking for all the course entities
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
+    [fetchRequest setEntity:entity];
+    
+    // Filter all the courses we selected
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", [[SingleGameManager sharedManager] selectedCourses]];
+    [fetchRequest setPredicate:predicate];
+    
+    //Get all the possible questions and save them in our sanglegamemanager
+    NSArray *fetchedCourses = [context executeFetchRequest:fetchRequest error:&error];
+    NSMutableSet *questions = [[NSMutableSet alloc] init];
+    for (NSManagedObject *course in fetchedCourses)
+    {
+        NSSet *set = [course valueForKeyPath:@"questions"];
+        [questions unionSet:set];
+    }
+    
+    [[SingleGameManager sharedManager] setPossibleQuestions:[questions allObjects]];
+}
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark GUI functions
+//----------------------------------------------------------------------------------------
+
+
+// Displays the new question
+- (void) setQuestionWithAnswers
+{
+    uint32_t rnd = arc4random_uniform([[[SingleGameManager sharedManager] possibleQuestions] count]);
+    NSManagedObject *questionsObject = [[[SingleGameManager sharedManager] possibleQuestions] objectAtIndex:rnd];
+    
+    _questionLabel.text = [questionsObject valueForKey:@"question"];
+    [_sol1_button setTitle:[questionsObject valueForKey:@"corr_sol"] forState:UIControlStateNormal];
+    [_sol2_button setTitle:[questionsObject valueForKey:@"wrong_sol1"] forState:UIControlStateNormal];
+    [_sol3_button setTitle:[questionsObject valueForKey:@"wrong_sol2"] forState:UIControlStateNormal];
+    [_sol4_button setTitle:[questionsObject valueForKey:@"wrong_sol3"] forState:UIControlStateNormal];
+    
+    _sol1_button.titleLabel.textColor = [UIColor blackColor];
+    _sol2_button.titleLabel.textColor = [UIColor blackColor];
+    _sol3_button.titleLabel.textColor = [UIColor blackColor];
+    _sol4_button.titleLabel.textColor = [UIColor blackColor];
+}
+
 
 
 - (void) hideQuestion
@@ -129,6 +200,8 @@
     [_sol4_button setHidden:YES];
 }
 
+
+
 - (void) showQuestion
 {
     //deselect all answers
@@ -141,7 +214,7 @@
     [self setQuestionWithAnswers];
     
     //TODO: start timer
-
+    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -170,49 +243,10 @@
 }
 
 
-- (void) getAllPossibleQuestions
-{
-    NSError *error = nil;
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
 
-    // Looking for all the course entities
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    // Filter all the courses we selected
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", [[SingleGameManager sharedManager] selectedCourses]];
-    [fetchRequest setPredicate:predicate];
-    
-    NSArray *fetchedCourses = [context executeFetchRequest:fetchRequest error:&error];
-    NSMutableSet *questions = [[NSMutableSet alloc] init];
-    for (NSManagedObject *course in fetchedCourses) {
-        NSSet *set = [course valueForKeyPath:@"questions"];
-        [questions unionSet:set];
-    }
-    
-    [[SingleGameManager sharedManager] setPossibleQuestions:[questions allObjects]];
-}
-
-
-- (void) setQuestionWithAnswers
-{
-    uint32_t rnd = arc4random_uniform([[[SingleGameManager sharedManager] possibleQuestions] count]);
-    NSManagedObject *questionsObject = [[[SingleGameManager sharedManager] possibleQuestions] objectAtIndex:rnd];
-    
-    _questionLabel.text = [questionsObject valueForKey:@"question"];
-    [_sol1_button setTitle:[questionsObject valueForKey:@"corr_sol"] forState:UIControlStateNormal];
-    [_sol2_button setTitle:[questionsObject valueForKey:@"wrong_sol1"] forState:UIControlStateNormal];
-    [_sol3_button setTitle:[questionsObject valueForKey:@"wrong_sol2"] forState:UIControlStateNormal];
-    [_sol4_button setTitle:[questionsObject valueForKey:@"wrong_sol3"] forState:UIControlStateNormal];
-    
-    _sol1_button.titleLabel.textColor = [UIColor blackColor];
-    _sol2_button.titleLabel.textColor = [UIColor blackColor];
-    _sol3_button.titleLabel.textColor = [UIColor blackColor];
-    _sol4_button.titleLabel.textColor = [UIColor blackColor];
-}
+//----------------------------------------------------------------------------------------
+#pragma mark View transistions
+//----------------------------------------------------------------------------------------
 
 
 - (void) showRating
@@ -223,12 +257,19 @@
 }
 
 
+
+//----------------------------------------------------------------------------------------
+#pragma mark Button presses
+//----------------------------------------------------------------------------------------
+
+
 - (IBAction)sol1Pressed:(id)sender
 {
     [_sol1_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
     [self proceed];
 }
+
 
 - (IBAction)sol2Pressed:(id)sender
 {
@@ -237,6 +278,7 @@
     [self proceed];
 }
 
+
 - (IBAction)sol3Pressed:(id)sender
 {
     [_sol3_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
@@ -244,10 +286,13 @@
     [self proceed];
 }
 
+
 - (IBAction)sol4Pressed:(id)sender
 {
     [_sol4_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
     [self proceed];
 }
+
+
 @end

@@ -46,6 +46,26 @@
 }
 
 
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Button presses
+//----------------------------------------------------------------------------------------
+
+
+- (IBAction)startPressed:(id)sender
+{
+    //Tell our GameManager which courses the user selected
+    [[SingleGameManager sharedManager] setSelectedCourses:_allSelectedCourses];
+}
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Table View Delegates
+//----------------------------------------------------------------------------------------
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;    //count of section
@@ -94,11 +114,5 @@
     
 }
 
-
-- (IBAction)startPressed:(id)sender
-{
-    //Tell our GameManager which courses the user selected
-    [[SingleGameManager sharedManager] setSelectedCourses:_allSelectedCourses];
-}
 
 @end
