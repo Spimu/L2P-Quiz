@@ -8,10 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface StatisticsPageContentViewController : UIViewController
-
-@property (weak, nonatomic) IBOutlet UIView *testView;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@interface StatisticsPageContentViewController : UIViewController <CPTBarPlotDataSource, CPTBarPlotDelegate>
 
 @property NSUInteger pageIndex;
 @property NSString *titleText;

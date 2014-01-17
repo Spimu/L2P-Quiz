@@ -10,6 +10,10 @@
 
 @interface StatisticsPageContentViewController ()
 
+
+@property (weak, nonatomic) IBOutlet CPTGraphHostingView *hostView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end
 
 @implementation StatisticsPageContentViewController
