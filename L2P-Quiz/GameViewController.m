@@ -29,12 +29,13 @@
 {
     [super viewDidLoad];
     
-    [_sol1_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [_sol2_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [_sol3_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
-    [_sol4_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [self initSingleGame];
     
-    [self getAllPossibleQuestions];
+    UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abort quiz"
+                                                                     style:UIBarButtonItemStyleBordered
+                                                                    target:self
+                                                                    action:@selector(backButtonPressed)];
+    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 
@@ -60,6 +61,24 @@
 //----------------------------------------------------------------------------------------
 
 
+- (void) initSingleGame
+{
+    //Get all the questions depending on the courses we selected
+    [self getAllPossibleQuestions];
+    
+    //Init the integer values in the single game manager
+    [[SingleGameManager sharedManager] setCorrectAnswersInCurrentRound:0];
+    [[SingleGameManager sharedManager] setWrongAnswersInCurrentRound:0];
+    
+    //Align all the solutions to the center
+    [_sol1_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol2_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol3_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    [_sol4_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+}
+
+
+
 // This function first checks if the user answered right or wrong
 // Then it shows the correct answer if the user is not in 1 minute madness mode
 // At the end it jumps to the next question
@@ -67,9 +86,6 @@
 {
     //Checks if the answer was right
     [self performSelector:@selector(checkIfRight:) withObject:sender afterDelay:1.0];
-    
-    //Check if we reached the last question in ?/10
-    [self checkIfLastQuestion];
     
     //Show the next question
     NSTimeInterval delay = 4.0;
@@ -93,9 +109,12 @@
     if ([senderButton.titleLabel.text isEqualToString:correctSolution])
     {
         answerWasCorrect = YES;
+        [[SingleGameManager sharedManager] incrementCorrectAnswer];
     }
-    
-    //TODO: submit to stats
+    else
+    {
+        [[SingleGameManager sharedManager] incrementWrongAnswer];
+    }
  
     //Displays the right answer if the user is not im 1minMadnessMode
     if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_1minute)
@@ -124,18 +143,15 @@
 
 
 
-//TODO: if wrong: blink the right answer / if right: set correct_background
-- (void) displayRightAnswer
-{
-    
-}
-
-
-
 //TODO: check if we are in ?/10-mode and if we reached the last question
 - (void) checkIfLastQuestion
 {
-    
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions) {
+        if ([[SingleGameManager sharedManager] correctAnswersInCurrentRound] + [[SingleGameManager sharedManager] wrongAnswersInCurrentRound] == 10) {
+            //TODO
+            NSLog(@"Switch to result screen");
+        }
+    }
 }
 
 
@@ -253,6 +269,9 @@
 
 - (void) showQuestion
 {
+    //Check if we reached the last question in ?/10
+    [self checkIfLastQuestion];
+    
     //deselect all answers
     [_sol1_IV setImage:[UIImage imageNamed:@"sol_background"]];
     [_sol2_IV setImage:[UIImage imageNamed:@"sol_background"]];
@@ -308,6 +327,22 @@
 
 
 //----------------------------------------------------------------------------------------
+#pragma mark UIAlert
+//----------------------------------------------------------------------------------------
+
+
+-(void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        [self.navigationController popViewControllerAnimated:YES];
+        //TODO: score of -10
+    }
+}
+
+
+
+//----------------------------------------------------------------------------------------
 #pragma mark Button presses
 //----------------------------------------------------------------------------------------
 
@@ -341,6 +376,18 @@
     [_sol4_IV setImage:[UIImage imageNamed:@"sol_background_selected.png"]];
     [self.view setUserInteractionEnabled:NO];
     [self proceed:sender];
+}
+
+
+- (void) backButtonPressed
+{
+    UIAlertView *alert =
+    [[UIAlertView alloc] initWithTitle: @"Are you sure you want to quit?"
+                               message: @"If you quit, you will get a score of -10!"
+                              delegate: self
+                     cancelButtonTitle: @"Abort"
+                     otherButtonTitles: @"Continue playing",nil];
+    [alert show];
 }
 
 

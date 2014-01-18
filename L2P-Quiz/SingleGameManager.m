@@ -27,4 +27,18 @@
     return sharedInstance;
 }
 
+
+
+- (void) incrementCorrectAnswer
+{
+    _correctAnswersInCurrentRound += 1;
+}
+
+
+
+- (void) incrementWrongAnswer
+{
+    _wrongAnswersInCurrentRound += 1;
+}
+
 @end

@@ -22,5 +22,10 @@ typedef NS_ENUM(NSInteger, GameMode) {
 @property (nonatomic) NSMutableArray *selectedCourses;
 @property (nonatomic) NSArray *possibleQuestions;
 @property (nonatomic) NSManagedObject *currentQuestion;
+@property (nonatomic) int correctAnswersInCurrentRound;
+@property (nonatomic) int wrongAnswersInCurrentRound;
+
+- (void) incrementCorrectAnswer;
+- (void) incrementWrongAnswer;
 
 @end
