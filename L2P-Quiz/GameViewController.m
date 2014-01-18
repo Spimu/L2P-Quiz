@@ -30,12 +30,6 @@
     [super viewDidLoad];
     
     [self initSingleGame];
-    
-    UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abort quiz"
-                                                                     style:UIBarButtonItemStyleBordered
-                                                                    target:self
-                                                                    action:@selector(backButtonPressed)];
-    self.navigationItem.leftBarButtonItem = backButton;
 }
 
 
@@ -75,6 +69,16 @@
     [_sol2_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [_sol3_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [_sol4_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
+    
+    //Add an "Abort quiz"-button to the top, but only if we are not on the infinity mode
+    if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_Infinity) {
+        UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abort quiz"
+                                                                        style:UIBarButtonItemStyleBordered
+                                                                       target:self
+                                                                       action:@selector(backButtonPressed)];
+        self.navigationItem.leftBarButtonItem = backButton;
+    }
+    
 }
 
 
