@@ -96,11 +96,11 @@
                                     <segue destination="SAg-S4-z9t" kind="push" id="HSv-H9-VT2"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-3m-jBW">
-                                <rect key="frame" x="13" y="58" width="293" height="229"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HEJ-3m-jBW">
+                                <rect key="frame" x="20" y="58" width="287" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="Start quiz">
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" image="startQuiz.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -686,6 +686,7 @@
         <image name="profile.png" width="102" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
+        <image name="startQuiz.png" width="136" height="156"/>
         <image name="submitQuestion.png" width="136" height="102"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

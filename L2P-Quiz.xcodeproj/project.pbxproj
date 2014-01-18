@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		03ECD3D4188AB7D200802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */; };
+		03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
@@ -61,6 +62,7 @@
 		03ECD3C918896EF700802A1B /* logo_l2p@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_l2p@2x.png"; sourceTree = "<group>"; };
 		03ECD3CF18897BF500802A1B /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
 		03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
+		03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startQuiz@2x.png"; sourceTree = "<group>"; };
 		401EDA621887ECC10091AD0A /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		401EDA631887ECC10091AD0A /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		401EDA641887ECC10091AD0A /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -392,6 +394,7 @@
 				95DE3588188594F300BF8CB3 /* sol_background_correct.png */,
 				03ECD3CF18897BF500802A1B /* profile@2x.png */,
 				03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */,
+				03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */,
 				95DE3589188594F300BF8CB3 /* sol_background_selected.png */,
 				03ECD3C918896EF700802A1B /* logo_l2p@2x.png */,
 				95DE358A188594F300BF8CB3 /* sol_background_wrong.png */,
@@ -591,6 +594,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E75A4B187C162800FFE5AD /* InfoPlist.strings in Resources */,
+				03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */,
 				03ECD3D4188AB7D200802A1B /* submitQuestion@2x.png in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,
