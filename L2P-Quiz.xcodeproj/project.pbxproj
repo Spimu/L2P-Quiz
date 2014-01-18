@@ -7,16 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		03ECD3CA18896EF700802A1B /* logo_l2p@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3C918896EF700802A1B /* logo_l2p@2x.png */; };
-		03ECD3D018897BF500802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3CF18897BF500802A1B /* profile@2x.png */; };
+		03ECD3D4188AB7D200802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
-		409B1E8B18894E11006E7240 /* StatisticsPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */; };
-		409B1E8E18895579006E7240 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8D18895579006E7240 /* StatisticsViewController.m */; };
-		409B1E9318896C2F006E7240 /* CPDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9018896C2F006E7240 /* CPDConstants.m */; };
-		409B1E9418896C2F006E7240 /* CPDStockPriceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
@@ -65,6 +60,7 @@
 /* Begin PBXFileReference section */
 		03ECD3C918896EF700802A1B /* logo_l2p@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_l2p@2x.png"; sourceTree = "<group>"; };
 		03ECD3CF18897BF500802A1B /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
 		401EDA621887ECC10091AD0A /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		401EDA631887ECC10091AD0A /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		401EDA641887ECC10091AD0A /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -395,6 +391,7 @@
 				95DE358418858F5D00BF8CB3 /* sol_background.png */,
 				95DE3588188594F300BF8CB3 /* sol_background_correct.png */,
 				03ECD3CF18897BF500802A1B /* profile@2x.png */,
+				03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */,
 				95DE3589188594F300BF8CB3 /* sol_background_selected.png */,
 				03ECD3C918896EF700802A1B /* logo_l2p@2x.png */,
 				95DE358A188594F300BF8CB3 /* sol_background_wrong.png */,
@@ -594,6 +591,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				95E75A4B187C162800FFE5AD /* InfoPlist.strings in Resources */,
+				03ECD3D4188AB7D200802A1B /* submitQuestion@2x.png in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,
 				95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */,
