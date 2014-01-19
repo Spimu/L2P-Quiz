@@ -683,11 +683,11 @@
     </scenes>
     <resources>
         <image name="logo_l2p.png" width="181" height="75"/>
-        <image name="profile.png" width="102" height="107"/>
+        <image name="profile.png" width="112" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
         <image name="startQuiz.png" width="136" height="156"/>
-        <image name="submitQuestion.png" width="136" height="102"/>
+        <image name="submitQuestion.png" width="114" height="86"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
