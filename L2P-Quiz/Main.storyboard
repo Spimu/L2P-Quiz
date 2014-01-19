@@ -161,6 +161,9 @@
                                 <state key="normal" title="Start new">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="startMultiplayerGame:" destination="oaw-iP-aF6" eventType="touchUpInside" id="rnn-QK-IQN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iWY-gG-coM">
                                 <rect key="frame" x="178" y="230" width="85" height="84"/>

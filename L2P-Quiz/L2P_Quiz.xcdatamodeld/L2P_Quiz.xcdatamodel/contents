@@ -26,14 +26,13 @@
     </entity>
     <entity name="Stats" syncable="YES">
         <attribute name="answerDate" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="answered_correct" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
-        <attribute name="answered_wrong" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="answered_correct" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <relationship name="question" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Question" inverseName="stats" inverseEntity="Question" syncable="YES"/>
     </entity>
     <elements>
+        <element name="Courses" positionX="277" positionY="495" width="128" height="88"/>
         <element name="Question" positionX="198" positionY="180" width="128" height="178"/>
         <element name="Rating" positionX="385" positionY="182" width="128" height="133"/>
-        <element name="Stats" positionX="-9" positionY="185" width="128" height="118"/>
-        <element name="Courses" positionX="277" positionY="495" width="128" height="88"/>
+        <element name="Stats" positionX="-9" positionY="180" width="128" height="88"/>
     </elements>
 </model>
