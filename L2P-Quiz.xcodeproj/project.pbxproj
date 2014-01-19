@@ -18,11 +18,12 @@
 		75475619188BD5D4006B6DCB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75475618188BD5D4006B6DCB /* GameKit.framework */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
-		9569660D188BD9BC00B94176 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3CF18897BF500802A1B /* profile@2x.png */; };
-		9569660E188BD9BC00B94176 /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */; };
+		9569660D188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		9569660E188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3C918896EF700802A1B /* logo_l2p@2x.png */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
+		9582A723188C0EB2001E5082 /* ResultCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9582A722188C0EB2001E5082 /* ResultCell.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
 		958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF51885483500F87F00 /* StartQuizViewController.m */; };
 		958F8DF918854B2B00F87F00 /* SelectCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF818854B2B00F87F00 /* SelectCourseViewController.m */; };
@@ -173,6 +174,8 @@
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		9579AFB1187EF04100747EF6 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		9582A721188C0EB2001E5082 /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
+		9582A722188C0EB2001E5082 /* ResultCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultCell.m; sourceTree = "<group>"; };
 		958F8DF11885472A00F87F00 /* SingleGameManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleGameManager.h; sourceTree = "<group>"; };
 		958F8DF21885472A00F87F00 /* SingleGameManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleGameManager.m; sourceTree = "<group>"; };
 		958F8DF41885483400F87F00 /* StartQuizViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartQuizViewController.h; sourceTree = "<group>"; };
@@ -386,6 +389,8 @@
 				95F654131886952C00014005 /* RatingViewController.m */,
 				95EECE8C188AD5A80069CE74 /* ResultViewController.h */,
 				95EECE8D188AD5A80069CE74 /* ResultViewController.m */,
+				9582A721188C0EB2001E5082 /* ResultCell.h */,
+				9582A722188C0EB2001E5082 /* ResultCell.m */,
 			);
 			name = "Single Game";
 			sourceTree = "<group>";
@@ -636,8 +641,8 @@
 				03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */,
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
-				9569660D188BD9BC00B94176 /* profile@2x.png in Resources */,
-				9569660E188BD9BC00B94176 /* submitQuestion@2x.png in Resources */,
+				9569660D188BD9BC00B94176 /* (null) in Resources */,
+				9569660E188BD9BC00B94176 /* (null) in Resources */,
 				9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */,
 				95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */,
 			);
@@ -673,6 +678,7 @@
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
+				9582A723188C0EB2001E5082 /* ResultCell.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 				75475617188B2158006B6DCB /* GameCenterManager.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,

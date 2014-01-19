@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SolutionManager.h"
+#import "ResultCell.h"
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+
+@property (nonatomic) SolutionManager *solManager;
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
 @end

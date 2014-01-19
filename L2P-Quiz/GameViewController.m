@@ -367,22 +367,27 @@
 #pragma mark Timer
 //----------------------------------------------------------------------------------------
 
+
 - (void) startTimer
 {
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(secondPassed) userInfo:nil repeats:YES];
 }
 
+
+
 - (void) secondPassed
 {
     if ([_rightTopLabel.text isEqualToString:@"0"])
     {
-        //TODO: show results screen
+        [_timer invalidate];
+        [self performSegueWithIdentifier:@"resultSegue" sender:self];
     }
     else
     {
         [_rightTopLabel setText:[NSString stringWithFormat:@"%d",[[_rightTopLabel text] integerValue]-1]];
     }
 }
+
 
 
 -(void) pauseTimer:(NSTimer *)timer
@@ -395,11 +400,14 @@
 }
 
 
+
 -(void) resumeTimer:(NSTimer *)timer
 {
     float pauseTime = -1*[_pauseStart timeIntervalSinceNow];
     [timer setFireDate:[_previousFireDate initWithTimeInterval:pauseTime sinceDate:_previousFireDate]];
 }
+
+
 
 //----------------------------------------------------------------------------------------
 #pragma mark Button presses
@@ -447,6 +455,18 @@
                      cancelButtonTitle: @"Abort"
                      otherButtonTitles: @"Continue playing",nil];
     [alert show];
+}
+
+
+
+//----------------------------------------------------------------------------------------
+#pragma mark Segues
+//----------------------------------------------------------------------------------------
+
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    [[segue destinationViewController] setSolManager:_solManager];
 }
 
 
