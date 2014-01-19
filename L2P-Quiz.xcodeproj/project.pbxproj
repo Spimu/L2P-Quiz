@@ -12,6 +12,7 @@
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
 		75475617188B2158006B6DCB /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75475616188B2158006B6DCB /* GameCenterManager.m */; };
+		75475619188BD5D4006B6DCB /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75475618188BD5D4006B6DCB /* GameKit.framework */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
@@ -160,6 +161,7 @@
 		409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDStockPriceStore.m; sourceTree = "<group>"; };
 		75475615188B2158006B6DCB /* GameCenterManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameCenterManager.h; sourceTree = "<group>"; };
 		75475616188B2158006B6DCB /* GameCenterManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameCenterManager.m; sourceTree = "<group>"; };
+		75475618188BD5D4006B6DCB /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75475619188BD5D4006B6DCB /* GameKit.framework in Frameworks */,
 				401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */,
 				95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */,
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
@@ -444,6 +447,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75475618188BD5D4006B6DCB /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
 				95E75A40187C162800FFE5AD /* CoreGraphics.framework */,

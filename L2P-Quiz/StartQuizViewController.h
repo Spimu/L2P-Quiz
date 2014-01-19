@@ -10,6 +10,7 @@
 #import "SingleGameManager.h"
 #import "SelectCourseViewController.h"
 #import "GameCenterManager.h"
+#import <GameKit/GameKit.h>
 
 @interface StartQuizViewController : UIViewController <GameCenterManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *oneMinuteButton;

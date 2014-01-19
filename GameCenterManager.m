@@ -44,24 +44,33 @@
 
 
 -(void) authenticateLocalPlayer {
+    
+    NSLog(@"Authenticating local user...");
+    if ([GKLocalPlayer localPlayer].authenticated == NO) {
+        [[GKLocalPlayer localPlayer] authenticateWithCompletionHandler:nil];
+    } else {
+        NSLog(@"Already authenticated!");
+    }
 
     
-    GKLocalPlayer* localPlayer =
-    [GKLocalPlayer localPlayer];
+    //iOS 7 Code, not working yet
     
-    localPlayer.authenticateHandler =
-    ^(UIViewController *viewController,
-      NSError *error) {
-        
-        [self setLastError:error];
-        
-        if (localPlayer.authenticated) {
-            //gameCenterFeaturesEnabled = YES;
-        } else {
-            //gameCenterFeaturesEnabled = NO;
-        }
-        
-    };
+//    GKLocalPlayer* localPlayer =
+//    [GKLocalPlayer localPlayer];
+//    
+//    localPlayer.authenticateHandler =
+//    ^(UIViewController *viewController,
+//      NSError *error) {
+//        
+//        [self setLastError:error];
+//        
+//        if (localPlayer.authenticated) {
+//            //gameCenterFeaturesEnabled = YES;
+//        } else {
+//            //gameCenterFeaturesEnabled = NO;
+//        }
+//        
+//    };
 }
 
 @end
