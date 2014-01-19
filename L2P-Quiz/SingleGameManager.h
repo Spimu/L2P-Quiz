@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 typedef NS_ENUM(NSInteger, GameMode) {
     GameMode_1minute,
@@ -18,14 +19,12 @@ typedef NS_ENUM(NSInteger, GameMode) {
 
 + (id)sharedManager;
 
+- (void) filterAllPossibleQuestions;
+
+
 @property (nonatomic) NSInteger selectedGameMode;
 @property (nonatomic) NSMutableArray *selectedCourses;
 @property (nonatomic) NSArray *possibleQuestions;
 @property (nonatomic) NSManagedObject *currentQuestion;
-@property (nonatomic) int correctAnswersInCurrentRound;
-@property (nonatomic) int wrongAnswersInCurrentRound;
-
-- (void) incrementCorrectAnswer;
-- (void) incrementWrongAnswer;
 
 @end

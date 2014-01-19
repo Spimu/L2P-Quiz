@@ -10,6 +10,12 @@
 
 @interface GameViewController ()
 
+@property (nonatomic) SolutionManager *solManager;
+@property (nonatomic) UILabel *rightTopLabel;
+@property (nonatomic) NSTimer *timer;
+@property (nonatomic) NSDate *previousFireDate;
+@property (nonatomic) NSDate *pauseStart;
+
 @end
 
 @implementation GameViewController
@@ -57,12 +63,11 @@
 
 - (void) initSingleGame
 {
-    //Get all the questions depending on the courses we selected
-    [self getAllPossibleQuestions];
+    //Init the solutionmanager
+    _solManager = [[SolutionManager alloc] init];
     
-    //Init the integer values in the single game manager
-    [[SingleGameManager sharedManager] setCorrectAnswersInCurrentRound:0];
-    [[SingleGameManager sharedManager] setWrongAnswersInCurrentRound:0];
+    //Get all the questions depending on the courses we selected
+    [[SingleGameManager sharedManager] filterAllPossibleQuestions];
     
     //Align all the solutions to the center
     [_sol1_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -79,6 +84,42 @@
         self.navigationItem.leftBarButtonItem = backButton;
     }
     
+    //Add either a timer or the answered questions on the right top
+    [self addTimerOrAmountOfQuestions];
+    
+}
+
+
+
+- (void) addTimerOrAmountOfQuestions
+{
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions)
+    {
+        _rightTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,400,40)];
+        _rightTopLabel.backgroundColor = [UIColor clearColor];
+        _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
+        _rightTopLabel.adjustsFontSizeToFitWidth = NO;
+        _rightTopLabel.text = @"0/10";
+        _rightTopLabel.textAlignment = NSTextAlignmentRight;
+        _rightTopLabel.textColor = [UIColor blackColor];
+        
+        self.navigationItem.titleView = _rightTopLabel;
+    }
+    
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_1minute)
+    {
+        _rightTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,400,40)];
+        _rightTopLabel.backgroundColor = [UIColor clearColor];
+        _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
+        _rightTopLabel.adjustsFontSizeToFitWidth = NO;
+        _rightTopLabel.text = @"60";
+        _rightTopLabel.textAlignment = NSTextAlignmentRight;
+        _rightTopLabel.textColor = [UIColor blackColor];
+        
+        self.navigationItem.titleView = _rightTopLabel;
+        
+        [self startTimer];
+    }
 }
 
 
@@ -88,14 +129,19 @@
 // At the end it jumps to the next question
 - (void)proceed:(id)sender
 {
+    //Pause the timer if we are in minute_mode
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_1minute)
+    {
+        [self pauseTimer:_timer];
+    }
+    
+    
     //Checks if the answer was right
     [self performSelector:@selector(checkIfRight:) withObject:sender afterDelay:1.0];
     
     //Show the next question
-    NSTimeInterval delay = 4.0;
-    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_1minute) {
-        delay = 0.3;
-    }
+    NSTimeInterval delay = 3.0;
+
     [self performSelector:@selector(hideQuestion) withObject:self afterDelay:delay];
     
     [self.view setUserInteractionEnabled:YES];
@@ -103,43 +149,34 @@
 
 
 
-//TODO: submit the result to our SingleGameManager
 - (void) checkIfRight:(id)sender
 {
     BOOL answerWasCorrect = NO;
     UIButton *senderButton = (UIButton *)sender;
     NSString *correctSolution = [[[SingleGameManager sharedManager] currentQuestion] valueForKey:@"corr_sol"];
     
-    if ([senderButton.titleLabel.text isEqualToString:correctSolution])
+
+    //Inform the SolutionManager about the answer
+    [_solManager answeredQuestion:[[SingleGameManager sharedManager] currentQuestion] withOwnSolution:senderButton.titleLabel.text];
+
+ 
+    //Displays the right answer
+    int senderTag = [senderButton tag];
+    UIImageView *correctIV = (UIImageView *)[self.view viewWithTag:senderTag-10];
+    if (answerWasCorrect)
     {
-        answerWasCorrect = YES;
-        [[SingleGameManager sharedManager] incrementCorrectAnswer];
+        [correctIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
     }
     else
     {
-        [[SingleGameManager sharedManager] incrementWrongAnswer];
-    }
- 
-    //Displays the right answer if the user is not im 1minMadnessMode
-    if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_1minute)
-    {
-        int senderTag = [senderButton tag];
-        UIImageView *correctIV = (UIImageView *)[self.view viewWithTag:senderTag-10];
-        if (answerWasCorrect)
+        [correctIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
+        for (int i = 11; i < 15; i++)
         {
-            [correctIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
-        }
-        else
-        {
-            [correctIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
-            for (int i = 11; i < 15; i++)
+            UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
+            if ([tempButton.titleLabel.text isEqualToString:correctSolution])
             {
-                UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
-                if ([tempButton.titleLabel.text isEqualToString:correctSolution])
-                {
-                    UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
-                    [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
-                }
+                UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
+                [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
             }
         }
     }
@@ -151,41 +188,11 @@
 - (void) checkIfLastQuestion
 {
     if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions) {
-        if ([[SingleGameManager sharedManager] correctAnswersInCurrentRound] + [[SingleGameManager sharedManager] wrongAnswersInCurrentRound] == 10) {
+        if ([_solManager correctAnswersInCurrentRound] + [_solManager wrongAnswersInCurrentRound] == 10) {
             //TODO
             NSLog(@"Switch to result screen");
         }
     }
-}
-
-
-
-- (void) getAllPossibleQuestions
-{
-    NSError *error = nil;
-    
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    NSManagedObjectContext *context = [appDelegate managedObjectContext];
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
-
-    // Looking for all the course entities
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
-    [fetchRequest setEntity:entity];
-    
-    // Filter all the courses we selected
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", [[SingleGameManager sharedManager] selectedCourses]];
-    [fetchRequest setPredicate:predicate];
-    
-    //Get all the possible questions and save them in our sanglegamemanager
-    NSArray *fetchedCourses = [context executeFetchRequest:fetchRequest error:&error];
-    NSMutableSet *questions = [[NSMutableSet alloc] init];
-    for (NSManagedObject *course in fetchedCourses)
-    {
-        NSSet *set = [course valueForKeyPath:@"questions"];
-        [questions unionSet:set];
-    }
-    
-    [[SingleGameManager sharedManager] setPossibleQuestions:[questions allObjects]];
 }
 
 
@@ -238,8 +245,6 @@
 
 - (void) hideQuestion
 {
-    //TODO: stop timer
-    
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseOut];
@@ -275,6 +280,18 @@
 {
     //Check if we reached the last question in ?/10
     [self checkIfLastQuestion];
+    
+    //Resume if we are in 1min_mode
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_1minute)
+    {
+        [self resumeTimer:_timer];
+    }
+    
+    //Increment if we are in 10question_mode
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions)
+    {
+        [_rightTopLabel setText:[NSString stringWithFormat:@"%d/10",(_solManager.wrongAnswersInCurrentRound+_solManager.correctAnswersInCurrentRound)]];
+    }
     
     //deselect all answers
     [_sol1_IV setImage:[UIImage imageNamed:@"sol_background"]];
@@ -345,6 +362,44 @@
 }
 
 
+
+//----------------------------------------------------------------------------------------
+#pragma mark Timer
+//----------------------------------------------------------------------------------------
+
+- (void) startTimer
+{
+    _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(secondPassed) userInfo:nil repeats:YES];
+}
+
+- (void) secondPassed
+{
+    if ([_rightTopLabel.text isEqualToString:@"0"])
+    {
+        //TODO: show results screen
+    }
+    else
+    {
+        [_rightTopLabel setText:[NSString stringWithFormat:@"%d",[[_rightTopLabel text] integerValue]-1]];
+    }
+}
+
+
+-(void) pauseTimer:(NSTimer *)timer
+{
+    
+    _pauseStart = [NSDate dateWithTimeIntervalSinceNow:0];
+    _previousFireDate = [timer fireDate];
+    
+    [timer setFireDate:[NSDate distantFuture]];
+}
+
+
+-(void) resumeTimer:(NSTimer *)timer
+{
+    float pauseTime = -1*[_pauseStart timeIntervalSinceNow];
+    [timer setFireDate:[_previousFireDate initWithTimeInterval:pauseTime sinceDate:_previousFireDate]];
+}
 
 //----------------------------------------------------------------------------------------
 #pragma mark Button presses

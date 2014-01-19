@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "SingleGameManager.h"
 #import "RatingViewController.h"
+#import "SolutionManager.h"
 #import "AppDelegate.h"
 
 @interface GameViewController : UIViewController

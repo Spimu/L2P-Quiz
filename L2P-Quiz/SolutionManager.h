@@ -9,9 +9,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AppDelegate.h"
 
 @interface SolutionManager : NSObject
 
-- (void) answeredQuestion:(NSManagedObject*)question wasCorrect:(BOOL)correct;
+@property (nonatomic) int correctAnswersInCurrentRound;
+@property (nonatomic) int wrongAnswersInCurrentRound;
+@property (nonatomic) NSMutableArray *questionsWithSolutions;
+
+- (void) answeredQuestion:(NSManagedObject*)question withOwnSolution:(NSString*)ownSolution;
 
 @end

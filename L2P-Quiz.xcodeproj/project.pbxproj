@@ -14,6 +14,10 @@
 		75475617188B2158006B6DCB /* GameCenterManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75475616188B2158006B6DCB /* GameCenterManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
+		9569660D188BD9BC00B94176 /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3CF18897BF500802A1B /* profile@2x.png */; };
+		9569660E188BD9BC00B94176 /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D3188AB7D200802A1B /* submitQuestion@2x.png */; };
+		9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
+		95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3C918896EF700802A1B /* logo_l2p@2x.png */; };
 		9579AFB2187EF04100747EF6 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 9579AFB1187EF04100747EF6 /* Question.m */; };
 		958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF21885472A00F87F00 /* SingleGameManager.m */; };
 		958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF51885483500F87F00 /* StartQuizViewController.m */; };
@@ -622,6 +626,10 @@
 				95DE358518858F5D00BF8CB3 /* sol_background.png in Resources */,
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
+				9569660D188BD9BC00B94176 /* profile@2x.png in Resources */,
+				9569660E188BD9BC00B94176 /* submitQuestion@2x.png in Resources */,
+				9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */,
+				95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
