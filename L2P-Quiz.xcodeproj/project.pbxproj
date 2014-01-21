@@ -596,6 +596,7 @@
 				ORGANIZATIONNAME = RWTHi10;
 				TargetAttributes = {
 					95E75A3A187C162800FFE5AD = {
+						DevelopmentTeam = W88773838E;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
