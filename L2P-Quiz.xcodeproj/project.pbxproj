@@ -14,6 +14,12 @@
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
+		757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757862BA188ED40D00F21292 /* GameKit.framework */; };
+		757862BF188ED4AA00F21292 /* MatchmakingServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 757862BE188ED4AA00F21292 /* MatchmakingServer.m */; };
+		757862C2188ED70B00F21292 /* MatchmakingClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 757862C1188ED70B00F21292 /* MatchmakingClient.m */; };
+		75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */; };
+		75D6B2CD188EBE2F00FE6FEF /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2CC188EBE2F00FE6FEF /* HostViewController.m */; };
+		75D6B2D0188EC59600FE6FEF /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2CF188EC59600FE6FEF /* JoinViewController.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9569660D188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -165,6 +171,17 @@
 		409B1E9018896C2F006E7240 /* CPDConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDConstants.m; sourceTree = "<group>"; };
 		409B1E9118896C2F006E7240 /* CPDStockPriceStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPDStockPriceStore.h; sourceTree = "<group>"; };
 		409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CPDStockPriceStore.m; sourceTree = "<group>"; };
+		757862BA188ED40D00F21292 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		757862BD188ED4AA00F21292 /* MatchmakingServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingServer.h; sourceTree = "<group>"; };
+		757862BE188ED4AA00F21292 /* MatchmakingServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingServer.m; sourceTree = "<group>"; };
+		757862C0188ED70B00F21292 /* MatchmakingClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchmakingClient.h; sourceTree = "<group>"; };
+		757862C1188ED70B00F21292 /* MatchmakingClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MatchmakingClient.m; sourceTree = "<group>"; };
+		75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerMenuViewController.h; sourceTree = "<group>"; };
+		75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerMenuViewController.m; sourceTree = "<group>"; };
+		75D6B2CB188EBE2F00FE6FEF /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		75D6B2CC188EBE2F00FE6FEF /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		75D6B2CE188EC59600FE6FEF /* JoinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinViewController.h; sourceTree = "<group>"; };
+		75D6B2CF188EC59600FE6FEF /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -224,6 +241,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */,
 				401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */,
 				95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */,
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
@@ -361,6 +379,31 @@
 			name = "Example Data for Plots";
 			sourceTree = "<group>";
 		};
+		757862BC188ED49600F21292 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				757862BD188ED4AA00F21292 /* MatchmakingServer.h */,
+				757862BE188ED4AA00F21292 /* MatchmakingServer.m */,
+				757862C0188ED70B00F21292 /* MatchmakingClient.h */,
+				757862C1188ED70B00F21292 /* MatchmakingClient.m */,
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		75D6B2C7188EBA5600FE6FEF /* Multiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				757862BC188ED49600F21292 /* Networking */,
+				75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */,
+				75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */,
+				75D6B2CB188EBE2F00FE6FEF /* HostViewController.h */,
+				75D6B2CC188EBE2F00FE6FEF /* HostViewController.m */,
+				75D6B2CE188EC59600FE6FEF /* JoinViewController.h */,
+				75D6B2CF188EC59600FE6FEF /* JoinViewController.m */,
+			);
+			name = Multiplayer;
+			sourceTree = "<group>";
+		};
 		951762691889932A00730C0F /* Single Game */ = {
 			isa = PBXGroup;
 			children = (
@@ -443,6 +486,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				757862BA188ED40D00F21292 /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
 				95E75A40187C162800FFE5AD /* CoreGraphics.framework */,
@@ -504,6 +548,7 @@
 		95E75AFA187C246F00FFE5AD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				75D6B2C7188EBA5600FE6FEF /* Multiplayer */,
 				951762691889932A00730C0F /* Single Game */,
 				9517626A1889935000730C0F /* Statistics */,
 				95E75A73187C1A0C00FFE5AD /* LoginViewController.h */,
@@ -650,6 +695,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */,
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,
 				401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */,
@@ -658,15 +704,19 @@
 				958F8DF918854B2B00F87F00 /* SelectCourseViewController.m in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				958F8DFC1885563800F87F00 /* GameViewController.m in Sources */,
+				757862BF188ED4AA00F21292 /* MatchmakingServer.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
 				401EDABD188817D40091AD0A /* Courses.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
+				75D6B2D0188EC59600FE6FEF /* JoinViewController.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
+				757862C2188ED70B00F21292 /* MatchmakingClient.m in Sources */,
 				9582A723188C0EB2001E5082 /* ResultCell.m in Sources */,
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
+				75D6B2CD188EBE2F00FE6FEF /* HostViewController.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
 				95EECE8E188AD5A80069CE74 /* ResultViewController.m in Sources */,
 				95EECE91188AD8270069CE74 /* SolutionManager.m in Sources */,

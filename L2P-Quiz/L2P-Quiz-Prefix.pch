@@ -15,4 +15,17 @@
     #import <Foundation/Foundation.h>
     #import <CoreData/CoreData.h>
     #import "CorePlot-CocoaTouch.h"
+    #import <GameKit/GameKit.h>
 #endif
+
+// The name of the GameKit session.
+#define SESSION_ID @"L2PExaminer!"
+
+typedef enum
+{
+	QuitReasonNoNetwork,          // no Wi-Fi or Bluetooth
+	QuitReasonConnectionDropped,  // communication failure with server
+	QuitReasonUserQuit,           // the user terminated the connection
+	QuitReasonServerQuit,         // the server quit the game (on purpose)
+}
+QuitReason;
