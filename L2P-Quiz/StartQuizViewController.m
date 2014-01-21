@@ -7,7 +7,6 @@
 //
 
 #import "StartQuizViewController.h"
-#import "GameCenterManager.h"
 
 @interface StartQuizViewController ()
 
@@ -15,7 +14,6 @@
 
 @implementation StartQuizViewController
 
-@synthesize gameCenterManager;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
