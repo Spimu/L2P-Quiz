@@ -60,20 +60,4 @@
         [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_Infinity];
     }
 }
-- (IBAction)startMultiplayerGame:(id)sender {
-    
-    if([GameCenterManager isGameCenterAvailable])
-	{
-		self.gameCenterManager= [[GameCenterManager alloc] init];
-		[self.gameCenterManager setDelegate: self];
-		[self.gameCenterManager authenticateLocalPlayer];
-		
-	}
-	else
-	{
-        NSLog(@"%@", @"Game Center support required");
-	}
-
-}
-
 @end
