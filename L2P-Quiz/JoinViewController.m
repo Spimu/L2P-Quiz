@@ -14,6 +14,7 @@
 
 @implementation JoinViewController {
     MatchmakingClient *_matchmakingClient;
+    QuitReason _quitReason;
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -46,6 +47,7 @@
     
 	if (_matchmakingClient == nil)
 	{
+        _quitReason = QuitReasonConnectionDropped;
 		_matchmakingClient = [[MatchmakingClient alloc] init];
         _matchmakingClient.delegate = self;
 		[_matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
@@ -56,7 +58,9 @@
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-
+    _quitReason = QuitReasonUserQuit;
+	[_matchmakingClient disconnectFromServer];
+	[self.delegate joinViewControllerDidCancel:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -114,6 +118,32 @@
 	return cell;
 }
 
+- (void)matchmakingClient:(MatchmakingClient *)client didDisconnectFromServer:(NSString *)peerID
+{
+	_matchmakingClient.delegate = nil;
+	_matchmakingClient = nil;
+	[self.tableView reloadData];
+	[self.delegate joinViewController:self didDisconnectWithReason:_quitReason];
+}
+
+- (void)matchmakingClientNoNetwork:(MatchmakingClient *)client
+{
+	_quitReason = QuitReasonNoNetwork;
+}
+
+
+
+#pragma mark - MatchmakingClientDelegate
+
+- (void)matchmakingClient:(MatchmakingClient *)client serverBecameAvailable:(NSString *)peerID
+{
+	[self.tableView reloadData];
+}
+
+- (void)matchmakingClient:(MatchmakingClient *)client serverBecameUnavailable:(NSString *)peerID
+{
+	[self.tableView reloadData];
+}
 
 
 @end

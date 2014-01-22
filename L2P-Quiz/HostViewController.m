@@ -14,6 +14,7 @@
 
 @implementation HostViewController {
     MatchmakingServer *_matchmakingServer;
+    QuitReason _quitReason;
 }
 
 
@@ -61,13 +62,17 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillDisappear:(BOOL)animated{
+    
+    _quitReason = QuitReasonUserQuit;
+	[_matchmakingServer endSession];
+	[self.delegate hostViewControllerDidCancel:self];
+}
+
 - (IBAction)startAction:(id)sender
 {
 }
 
-- (IBAction)exitAction:(id)sender
-{
-}
 
 #pragma mark - UITableViewDataSource
 
@@ -126,4 +131,16 @@
 	[self.tableView reloadData];
 }
 
+- (void)matchmakingServerSessionDidEnd:(MatchmakingServer *)server
+{
+	_matchmakingServer.delegate = nil;
+	_matchmakingServer = nil;
+	[self.tableView reloadData];
+	[self.delegate hostViewController:self didEndSessionWithReason:_quitReason];
+}
+
+- (void)matchmakingServerNoNetwork:(MatchmakingServer *)server
+{
+	_quitReason = QuitReasonNoNetwork;
+}
 @end

@@ -93,17 +93,29 @@ ClientState;
 					[self.delegate matchmakingClient:self serverBecameUnavailable:peerID];
 				}
 			}
+            
+            // Is this the server we're currently trying to connect with?
+			if (_clientState == ClientStateConnecting && [peerID isEqualToString:_serverPeerID])
+			{
+				[self disconnectFromServer];
+			}
 			break;
             
-        case GKPeerStateConnected:
-
+            // You're now connected to the server.
+		case GKPeerStateConnected:
+			if (_clientState == ClientStateConnecting)
+			{
+				_clientState = ClientStateConnected;
+			}
 			break;
             
-            
+            // You're now no longer connected to the server.
 		case GKPeerStateDisconnected:
-
+			if (_clientState == ClientStateConnected)
+			{
+				[self disconnectFromServer];
+			}
 			break;
-            
             
 		case GKPeerStateConnecting:
 			break;
@@ -122,14 +134,24 @@ ClientState;
     #ifdef DEBUG
         NSLog(@"MatchmakingClient: connection with peer %@ failed %@", peerID, error);
     #endif
-    }
+    
+    [self disconnectFromServer];
+}
 
 - (void)session:(GKSession *)session didFailWithError:(NSError *)error
 {
-    #ifdef DEBUG
-        NSLog(@"MatchmakingClient: session failed %@", error);
-    #endif
-
+#ifdef DEBUG
+	NSLog(@"MatchmakingClient: session failed %@", error);
+#endif
+    
+	if ([[error domain] isEqualToString:GKSessionErrorDomain])
+	{
+		if ([error code] == GKSessionCannotEnableError)
+		{
+			[self.delegate matchmakingClientNoNetwork:self];
+			[self disconnectFromServer];
+		}
+	}
 }
 
 - (NSUInteger)availableServerCount
@@ -146,6 +168,25 @@ ClientState;
 {
 	return [_session displayNameForPeer:peerID];
 }
+
+- (void)disconnectFromServer
+{
+	NSAssert(_clientState != ClientStateIdle, @"Wrong state");
+    
+	_clientState = ClientStateIdle;
+    
+	[_session disconnectFromAllPeers];
+	_session.available = NO;
+	_session.delegate = nil;
+	_session = nil;
+    
+	_availableServers = nil;
+    
+	[self.delegate matchmakingClient:self didDisconnectFromServer:_serverPeerID];
+	_serverPeerID = nil;
+}
+
+
 
 
 @end

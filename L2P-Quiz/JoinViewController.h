@@ -14,6 +14,7 @@
 @protocol JoinViewControllerDelegate <NSObject>
 
 - (void)joinViewControllerDidCancel:(JoinViewController *)controller;
+- (void)joinViewController:(JoinViewController *)controller didDisconnectWithReason:(QuitReason)reason;
 
 @end
 
@@ -31,8 +32,6 @@
 @property (strong, nonatomic) IBOutlet UIView *waitView;
 @property (weak, nonatomic) IBOutlet UILabel *waitLabel;
 
-
-- (void)disconnectFromServer;
 
 
 
