@@ -239,43 +239,43 @@
 //API calls
 -(void)obtainUserCode:(UIButton*)sender
 {
-    NSString *url = OAUTH_CODE_ENDPOINT;
-    
-    NSString *body = [NSString stringWithFormat:@"client_id=%@&scope=l2p.rwth userinfo.rwth", OAUTH_KEY];
-    
-    NSMutableURLRequest *userCodeRequest = [self requestWithURL:url body:body];
-    
-    self.userCodeURLConnection = [[NSURLConnection alloc]
-                                  initWithRequest:userCodeRequest
-                                  delegate:self
-                                  startImmediately:YES];
+//    NSString *url = OAUTH_CODE_ENDPOINT;
+//    
+//    NSString *body = [NSString stringWithFormat:@"client_id=%@&scope=l2p.rwth userinfo.rwth", OAUTH_KEY];
+//    
+//    NSMutableURLRequest *userCodeRequest = [self requestWithURL:url body:body];
+//    
+//    self.userCodeURLConnection = [[NSURLConnection alloc]
+//                                  initWithRequest:userCodeRequest
+//                                  delegate:self
+//                                  startImmediately:YES];
 }
 
 -(void) obtainAcessToken:(UIButton*)sender
 {
-    NSString *url = OAUTH_TOKEN_ENDPOINT;
-    NSString *body = [NSString stringWithFormat:@"client_id=%@&code=%@&grant_type=device", OAUTH_KEY, self.deviceCode];
-    
-    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
-    
-    self.tokenURLConnection = [[NSURLConnection alloc]
-                               initWithRequest:tokenRequest
-                               delegate:self
-                               startImmediately:YES];
+//    NSString *url = OAUTH_TOKEN_ENDPOINT;
+//    NSString *body = [NSString stringWithFormat:@"client_id=%@&code=%@&grant_type=device", OAUTH_KEY, self.deviceCode];
+//    
+//    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
+//    
+//    self.tokenURLConnection = [[NSURLConnection alloc]
+//                               initWithRequest:tokenRequest
+//                               delegate:self
+//                               startImmediately:YES];
 }
 
 -(void)
 refreshAccessToken:(UIButton*)button
 {
-    
-    NSString *url = OAUTH_TOKEN_ENDPOINT;
-    NSString *body = [NSString stringWithFormat: @"client_id=%@&refresh_token=%@&grant_type=refresh_token",OAUTH_KEY, self.refreshToken];
-    
-    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
-    self.refreshTokenURLConnection = [[NSURLConnection alloc]
-                                      initWithRequest:tokenRequest
-                                      delegate:self
-                                      startImmediately:YES];
+//    
+//    NSString *url = OAUTH_TOKEN_ENDPOINT;
+//    NSString *body = [NSString stringWithFormat: @"client_id=%@&refresh_token=%@&grant_type=refresh_token",OAUTH_KEY, self.refreshToken];
+//    
+//    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
+//    self.refreshTokenURLConnection = [[NSURLConnection alloc]
+//                                      initWithRequest:tokenRequest
+//                                      delegate:self
+//                                      startImmediately:YES];
     
 }
 

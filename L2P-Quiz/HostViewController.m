@@ -2,7 +2,7 @@
 //  HostViewController.m
 //  L2P-Quiz
 //
-//  Created by Michael Bertenburg on 21.01.14.
+//  Created by Michael Bertenburg on 22.01.14.
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
@@ -12,12 +12,7 @@
 
 @end
 
-@implementation HostViewController {
-    MatchmakingServer *_matchmakingServer;
-    QuitReason _quitReason;
-}
-
-
+@implementation HostViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -32,28 +27,13 @@
 {
     [super viewDidLoad];
 	
-    
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self
-                                   action:@selector(dismissKeyboard)];
-    
-    [self.view addGestureRecognizer:tap];
+    server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
+	[server setDelegate:self];
+	[server start];
 }
 
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-    
-	if (_matchmakingServer == nil)
-	{
-		_matchmakingServer = [[MatchmakingServer alloc] init];
-        _matchmakingServer.delegate = self;
-		_matchmakingServer.maxClients = 1;
-		[_matchmakingServer startAcceptingConnectionsForSessionID:SESSION_ID];
-        
-		self.nameTextField.placeholder = _matchmakingServer.session.displayName;
-		[self.tableView reloadData];
-	}
+-(void)viewDidDisappear:(BOOL)animated {
+    [server stop];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,85 +42,32 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)viewWillDisappear:(BOOL)animated{
+#pragma mark delegate methods
+
+/// Connection notification (optional)
+- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
     
-    _quitReason = QuitReasonUserQuit;
-	[_matchmakingServer endSession];
-	[self.delegate hostViewControllerDidCancel:self];
 }
 
-- (IBAction)startAction:(id)sender
-{
-}
-
-
-#pragma mark - UITableViewDataSource
+#pragma mark table view delegate methods
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	if (_matchmakingServer != nil)
-		return [_matchmakingServer connectedClientCount];
-	else
-		return 0;
+    return [server.connectedClients count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *CellIdentifier = @"CellIdentifier";
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
     
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     
-	NSString *peerID = [_matchmakingServer peerIDForConnectedClientAtIndex:indexPath.row];
-	cell.textLabel.text = [_matchmakingServer displayNameForPeerID:peerID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
     
-	return cell;
+    cell.textLabel.text = [server.connectedClients objectAtIndex:indexPath.row];
+    return cell;
 }
 
-#pragma mark - UITableViewDelegate
-
-- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	return nil;
-}
-
-#pragma mark - UITextFieldDelegate
-
-- (void) dismissKeyboard
-{
-    [_nameTextField resignFirstResponder];
-
-}
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-	[textField resignFirstResponder];
-	return NO;
-}
-
-#pragma mark - MatchmakingServerDelegate
-
-- (void)matchmakingServer:(MatchmakingServer *)server clientDidConnect:(NSString *)peerID
-{
-	[self.tableView reloadData];
-}
-
-- (void)matchmakingServer:(MatchmakingServer *)server clientDidDisconnect:(NSString *)peerID
-{
-	[self.tableView reloadData];
-}
-
-- (void)matchmakingServerSessionDidEnd:(MatchmakingServer *)server
-{
-	_matchmakingServer.delegate = nil;
-	_matchmakingServer = nil;
-	[self.tableView reloadData];
-	[self.delegate hostViewController:self didEndSessionWithReason:_quitReason];
-}
-
-- (void)matchmakingServerNoNetwork:(MatchmakingServer *)server
-{
-	_quitReason = QuitReasonNoNetwork;
-}
 @end

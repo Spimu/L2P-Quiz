@@ -2,20 +2,19 @@
 //  JoinViewController.m
 //  L2P-Quiz
 //
-//  Created by Michael Bertenburg on 21.01.14.
+//  Created by Michael Bertenburg on 22.01.14.
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
 #import "JoinViewController.h"
 
-@interface JoinViewController ()
+@interface JoinViewController () {
+    BOOL connected;
+}
 
 @end
 
-@implementation JoinViewController {
-    MatchmakingClient *_matchmakingClient;
-    QuitReason _quitReason;
-}
+@implementation JoinViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,37 +29,15 @@
 {
     [super viewDidLoad];
     
-    UITapGestureRecognizer *gestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self.nameTextField action:@selector(resignFirstResponder)];
-	gestureRecognizer.cancelsTouchesInView = NO;
-	[self.view addGestureRecognizer:gestureRecognizer];
+    client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
+	[client setDelegate:self];
+	[client start];
+    connected = false;
 }
 
-- (void)viewDidUnload
-{
-	[super viewDidUnload];
-	self.waitView = nil;
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-	[super viewDidAppear:animated];
-    
-	if (_matchmakingClient == nil)
-	{
-        _quitReason = QuitReasonConnectionDropped;
-		_matchmakingClient = [[MatchmakingClient alloc] init];
-        _matchmakingClient.delegate = self;
-		[_matchmakingClient startSearchingForServersWithSessionID:SESSION_ID];
-        
-		self.nameTextField.placeholder = _matchmakingClient.session.displayName;
-		[self.tableView reloadData];
-	}
-}
-
--(void)viewWillDisappear:(BOOL)animated {
-    _quitReason = QuitReasonUserQuit;
-	[_matchmakingClient disconnectFromServer];
-	[self.delegate joinViewControllerDidCancel:self];
+-(void)viewDidDisappear:(BOOL)animated {
+    [client stop];
+    connected = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -69,81 +46,31 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-#pragma mark - UITextFieldDelegate
-
-- (BOOL)textFieldShouldReturn:(UITextField *)textField
-{
-	[textField resignFirstResponder];
-	return NO;
-}
-
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	[tableView deselectRowAtIndexPath:indexPath animated:YES];
+-(void) updateButton {
     
-	if (_matchmakingClient != nil)
-	{
-		[self.view addSubview:self.waitView];
-        
-		NSString *peerID = [_matchmakingClient peerIDForAvailableServerAtIndex:indexPath.row];
-		[_matchmakingClient connectToServerWithPeerID:peerID];
-	}
+    if (!([self.nameTextField.text isEqualToString:@""]) && connected==true) {
+        self.joinGameButton.enabled = true;
+    } else {
+        self.joinGameButton.enabled = false;
+    }
 }
 
-#pragma mark - UITableViewDataSource
+#pragma mark delegate methods
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	if (_matchmakingClient != nil)
-		return [_matchmakingClient availableServerCount];
-	else
-		return 0;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-	static NSString *CellIdentifier = @"CellIdentifier";
+- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
     
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-	if (cell == nil)
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    self.statusLabel.textColor = [UIColor greenColor];
+    self.statusLabel.text = @"Connected to Examiner";
+    connected = true;
+    [self updateButton];
     
-	NSString *peerID = [_matchmakingClient peerIDForAvailableServerAtIndex:indexPath.row];
-	cell.textLabel.text = [_matchmakingClient displayNameForPeerID:peerID];
+}
+
+- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage {
     
-	return cell;
+    self.statusLabel.textColor = [UIColor redColor];
+    self.statusLabel.text = @"Disconnected";
+    [self updateButton];
 }
-
-- (void)matchmakingClient:(MatchmakingClient *)client didDisconnectFromServer:(NSString *)peerID
-{
-	_matchmakingClient.delegate = nil;
-	_matchmakingClient = nil;
-	[self.tableView reloadData];
-	[self.delegate joinViewController:self didDisconnectWithReason:_quitReason];
-}
-
-- (void)matchmakingClientNoNetwork:(MatchmakingClient *)client
-{
-	_quitReason = QuitReasonNoNetwork;
-}
-
-
-
-#pragma mark - MatchmakingClientDelegate
-
-- (void)matchmakingClient:(MatchmakingClient *)client serverBecameAvailable:(NSString *)peerID
-{
-	[self.tableView reloadData];
-}
-
-- (void)matchmakingClient:(MatchmakingClient *)client serverBecameUnavailable:(NSString *)peerID
-{
-	[self.tableView reloadData];
-}
-
 
 @end

@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <ThoMoNetworking/ThoMoNetworking.h>
 #import "HostViewController.h"
 #import "JoinViewController.h"
 
-@interface MultiplayerMenuViewController : UIViewController <HostViewControllerDelegate, JoinViewControllerDelegate>
-
+@interface MultiplayerMenuViewController : UIViewController
 @end

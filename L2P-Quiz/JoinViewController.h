@@ -2,37 +2,19 @@
 //  JoinViewController.h
 //  L2P-Quiz
 //
-//  Created by Michael Bertenburg on 21.01.14.
+//  Created by Michael Bertenburg on 22.01.14.
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MatchmakingClient.h"
+#import <ThoMoNetworking/ThoMoNetworking.h>
 
-@class JoinViewController;
+@interface JoinViewController : UIViewController <ThoMoClientDelegateProtocol> {
+    ThoMoClientStub	*client;
+}
 
-@protocol JoinViewControllerDelegate <NSObject>
-
-- (void)joinViewControllerDidCancel:(JoinViewController *)controller;
-- (void)joinViewController:(JoinViewController *)controller didDisconnectWithReason:(QuitReason)reason;
-
-@end
-
-@interface JoinViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MatchmakingClientDelegate>
-
-
-@property (nonatomic, weak) id <JoinViewControllerDelegate> delegate;
-
-@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
-@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-
-@property (strong, nonatomic) IBOutlet UIView *waitView;
-@property (weak, nonatomic) IBOutlet UILabel *waitLabel;
-
-
-
+@property (weak, nonatomic) IBOutlet UIButton *joinGameButton;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
 @end

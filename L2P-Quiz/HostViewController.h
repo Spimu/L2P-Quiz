@@ -2,31 +2,17 @@
 //  HostViewController.h
 //  L2P-Quiz
 //
-//  Created by Michael Bertenburg on 21.01.14.
+//  Created by Michael Bertenburg on 22.01.14.
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
-#import "MatchmakingServer.h"
+#import <ThoMoNetworking/ThoMoNetworking.h>
 
-@class HostViewController;
-
-@protocol HostViewControllerDelegate <NSObject>
-
-- (void)hostViewControllerDidCancel:(HostViewController *)controller;
-- (void)hostViewController:(HostViewController *)controller didEndSessionWithReason:(QuitReason)reason;
-
-@end
-
-@interface HostViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate, MatchmakingServerDelegate>
-
-@property (nonatomic, weak) id <HostViewControllerDelegate> delegate;
-
-@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@interface HostViewController : UIViewController <ThoMoServerDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
+{
+    ThoMoServerStub	*server;
+}
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
-@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
 
 @end
