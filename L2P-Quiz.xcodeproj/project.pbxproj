@@ -7,9 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03156E9418902F26006D04FC /* statistic@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03156E9318902F26006D04FC /* statistic@2x.png */; };
+		03156E98189032AC006D04FC /* highscore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03156E97189032AC006D04FC /* highscore@2x.png */; };
 		03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */; };
 		03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3E9188BF85300802A1B /* profile@2x.png */; };
+		2078D1E4188F417B005C60E6 /* APIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E2188F417B005C60E6 /* APIViewController.m */; };
+		2078D1E5188F417B005C60E6 /* APIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2078D1E3188F417B005C60E6 /* APIViewController.xib */; };
+		2078D1E9188F41E7005C60E6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E7188F41E7005C60E6 /* WebViewController.m */; };
+		2078D1EA188F41E7005C60E6 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2078D1E8188F41E7005C60E6 /* WebViewController.xib */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
@@ -73,10 +79,20 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		03156E9318902F26006D04FC /* statistic@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "statistic@2x.png"; sourceTree = "<group>"; };
+		03156E97189032AC006D04FC /* highscore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highscore@2x.png"; sourceTree = "<group>"; };
 		03ECD3C918896EF700802A1B /* logo_l2p@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_l2p@2x.png"; sourceTree = "<group>"; };
 		03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startQuiz@2x.png"; sourceTree = "<group>"; };
 		03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
 		03ECD3E9188BF85300802A1B /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		2078D1DF188F298A005C60E6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServicesConstants.h; sourceTree = "<group>"; };
+		2078D1E1188F417B005C60E6 /* APIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIViewController.h; sourceTree = "<group>"; };
+		2078D1E2188F417B005C60E6 /* APIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIViewController.m; sourceTree = "<group>"; };
+		2078D1E3188F417B005C60E6 /* APIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APIViewController.xib; sourceTree = "<group>"; };
+		2078D1E6188F41E7005C60E6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
+		2078D1E7188F41E7005C60E6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
+		2078D1E8188F41E7005C60E6 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
 		401EDA621887ECC10091AD0A /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		401EDA631887ECC10091AD0A /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		401EDA641887ECC10091AD0A /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -450,7 +466,9 @@
 		95978C1E187F4AFF00F68638 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				03156E9318902F26006D04FC /* statistic@2x.png */,
 				95DE35861885901A00BF8CB3 /* question_background.png */,
+				03156E97189032AC006D04FC /* highscore@2x.png */,
 				95DE358418858F5D00BF8CB3 /* sol_background.png */,
 				95DE3588188594F300BF8CB3 /* sol_background_correct.png */,
 				03ECD3E9188BF85300802A1B /* profile@2x.png */,
@@ -466,6 +484,14 @@
 		95E75A32187C162800FFE5AD = {
 			isa = PBXGroup;
 			children = (
+				2078D1E6188F41E7005C60E6 /* WebViewController.h */,
+				2078D1E7188F41E7005C60E6 /* WebViewController.m */,
+				2078D1E8188F41E7005C60E6 /* WebViewController.xib */,
+				2078D1E1188F417B005C60E6 /* APIViewController.h */,
+				2078D1E2188F417B005C60E6 /* APIViewController.m */,
+				2078D1E3188F417B005C60E6 /* APIViewController.xib */,
+				2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */,
+				2078D1DF188F298A005C60E6 /* Constants.h */,
 				401EDA601887EC6F0091AD0A /* CorePlot */,
 				95E75A46187C162800FFE5AD /* L2P-Quiz */,
 				95E75A63187C162800FFE5AD /* L2P-QuizTests */,
@@ -674,9 +700,13 @@
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
 				9569660D188BD9BC00B94176 /* (null) in Resources */,
+				03156E9418902F26006D04FC /* statistic@2x.png in Resources */,
+				2078D1EA188F41E7005C60E6 /* WebViewController.xib in Resources */,
 				9569660E188BD9BC00B94176 /* (null) in Resources */,
+				03156E98189032AC006D04FC /* highscore@2x.png in Resources */,
 				9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */,
 				95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */,
+				2078D1E5188F417B005C60E6 /* APIViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -710,6 +740,7 @@
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
+				2078D1E9188F41E7005C60E6 /* WebViewController.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
 				75D6B2D0188EC59600FE6FEF /* JoinViewController.m in Sources */,
 				958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */,
@@ -719,6 +750,7 @@
 				75D6B2CD188EBE2F00FE6FEF /* HostViewController.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
 				95EECE8E188AD5A80069CE74 /* ResultViewController.m in Sources */,
+				2078D1E4188F417B005C60E6 /* APIViewController.m in Sources */,
 				95EECE91188AD8270069CE74 /* SolutionManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -855,22 +855,22 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSc-td-Pux">
-                                <rect key="frame" x="178" y="255" width="129" height="130"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lSc-td-Pux">
+                                <rect key="frame" x="175" y="255" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="View Stats">
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" image="statistic.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="ZYR-nm-0Y3" kind="push" id="HXy-N7-eRR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhj-wY-x31">
-                                <rect key="frame" x="20" y="255" width="129" height="130"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hhj-wY-x31">
+                                <rect key="frame" x="20" y="255" width="130" height="130"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="View Highscore">
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
+                                <state key="normal" image="highscore.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
@@ -999,11 +999,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="highscore.png" width="91" height="88"/>
         <image name="logo_l2p.png" width="181" height="75"/>
         <image name="profile.png" width="112" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="sol_background.png" width="640" height="114"/>
         <image name="startQuiz.png" width="136" height="156"/>
+        <image name="statistic.png" width="95" height="101"/>
         <image name="submitQuestion.png" width="114" height="86"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
