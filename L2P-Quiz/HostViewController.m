@@ -32,7 +32,10 @@
 	[server start];
 }
 
--(void)viewDidDisappear:(BOOL)animated {
+-(void)viewWillDisappear:(BOOL)animated {
+    [server stop];
+}
+- (IBAction)stopServer:(id)sender {
     [server stop];
 }
 
@@ -68,6 +71,20 @@
     
     cell.textLabel.text = [server.connectedClients objectAtIndex:indexPath.row];
     return cell;
+}
+
+- (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString{
+    
+    [self.tableView reloadData];
+}
+
+- (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage{
+    [self.tableView reloadData];
+    
+}
+
+- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
+    NSLog(@"%@", @"Server Shutdown");
 }
 
 @end

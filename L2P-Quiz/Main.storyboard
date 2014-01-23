@@ -229,17 +229,24 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HQI-wv-YNp">
+                                <rect key="frame" x="205" y="155" width="86" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="StoppServer">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopServer:" destination="wVI-dl-y4f" eventType="touchUpInside" id="5Or-12-7fz"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.28627452250000002" green="0.63137257099999999" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
                     </view>
                     <navigationItem key="navigationItem" id="199-4i-tPF"/>
                     <connections>
-                        <outlet property="headingLabel" destination="nFo-Bc-4lX" id="NxL-fa-9wz"/>
-                        <outlet property="nameLabel" destination="m4o-D5-jaN" id="DYY-cU-sHZ"/>
                         <outlet property="nameTextField" destination="j2I-yf-AQQ" id="wNt-QV-gnm"/>
-                        <outlet property="startButton" destination="NgJ-rL-7uE" id="NAi-mn-zBB"/>
-                        <outlet property="statusLabel" destination="3z9-qQ-kDF" id="ITE-Nb-LSy"/>
-                        <outlet property="tableView" destination="8nV-sK-r7T" id="tG3-7G-LoB"/>
+                        <outlet property="tableView" destination="Yh6-bi-a3q" id="xdM-nZ-1iZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NB7-MD-C8E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -259,7 +266,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Join a game" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5aA-Pa-FfB">
-                                <rect key="frame" x="93" y="72" width="115" height="28"/>
+                                <rect key="frame" x="97" y="72" width="115" height="28"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -312,9 +319,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Bfn-x8-kVl"/>
                     <connections>
-                        <outlet property="headingLabel" destination="5aA-Pa-FfB" id="Doz-WZ-Ons"/>
                         <outlet property="joinGameButton" destination="wLD-AL-TcS" id="3Du-T4-hV4"/>
-                        <outlet property="nameLabel" destination="suF-vD-qdu" id="59d-Ai-MkR"/>
                         <outlet property="nameTextField" destination="Jiy-RP-y0X" id="xC3-FI-cvr"/>
                         <outlet property="statusLabel" destination="MvC-nw-8iW" id="vS8-KZ-ery"/>
                     </connections>
