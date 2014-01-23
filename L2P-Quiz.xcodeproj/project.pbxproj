@@ -24,9 +24,10 @@
 		401EDABD188817D40091AD0A /* Courses.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDABC188817D40091AD0A /* Courses.m */; };
 		750496361890541D00FD8C76 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496351890541D00FD8C76 /* JoinViewController.m */; };
 		750496391890542C00FD8C76 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496381890542C00FD8C76 /* HostViewController.m */; };
-		7504963B189054B500FD8C76 /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7504963A189054B500FD8C76 /* ThoMoNetworking.framework */; };
 		757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757862BA188ED40D00F21292 /* GameKit.framework */; };
 		75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */; };
+		9505F335189155B100A1858F /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9505F334189155B100A1858F /* ThoMoNetworking.framework */; };
+		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9569660D188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -194,10 +195,12 @@
 		750496351890541D00FD8C76 /* JoinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinViewController.m; sourceTree = "<group>"; };
 		750496371890542C00FD8C76 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		750496381890542C00FD8C76 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
-		7504963A189054B500FD8C76 /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ThoMoNetworking.framework; path = "../../ThoMo Networking/iPhoneFramework/ThoMoNetworking.framework"; sourceTree = "<group>"; };
 		757862BA188ED40D00F21292 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerMenuViewController.h; sourceTree = "<group>"; };
 		75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerMenuViewController.m; sourceTree = "<group>"; };
+		9505F334189155B100A1858F /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
+		9505F3361891599400A1858F /* MultiplayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerManager.h; sourceTree = "<group>"; };
+		9505F3371891599400A1858F /* MultiplayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
@@ -257,11 +260,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7504963B189054B500FD8C76 /* ThoMoNetworking.framework in Frameworks */,
 				757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */,
 				401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */,
 				95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */,
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
+				9505F335189155B100A1858F /* ThoMoNetworking.framework in Frameworks */,
 				95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */,
 				95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */,
 				9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
@@ -503,7 +506,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7504963A189054B500FD8C76 /* ThoMoNetworking.framework */,
+				9505F334189155B100A1858F /* ThoMoNetworking.framework */,
 				757862BA188ED40D00F21292 /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
@@ -590,6 +593,8 @@
 				958F8DF21885472A00F87F00 /* SingleGameManager.m */,
 				95EECE8F188AD8270069CE74 /* SolutionManager.h */,
 				95EECE90188AD8270069CE74 /* SolutionManager.m */,
+				9505F3361891599400A1858F /* MultiplayerManager.h */,
+				9505F3371891599400A1858F /* MultiplayerManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				750496391890542C00FD8C76 /* HostViewController.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
+				9505F3381891599400A1858F /* MultiplayerManager.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				2078D1E9188F41E7005C60E6 /* WebViewController.m in Sources */,
 				401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */,
@@ -867,7 +873,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/michaelbertenburg/Desktop/ThoMo\\ Networking/iPhoneFramework",
+					"/Users/claudebemtgen/iPhone/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";
@@ -897,7 +903,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/michaelbertenburg/Desktop/ThoMo\\ Networking/iPhoneFramework",
+					"/Users/claudebemtgen/iPhone/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";

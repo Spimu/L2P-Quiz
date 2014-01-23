@@ -43,7 +43,7 @@
     [fetchRequest setEntity:entity];
     
     // Filter all the courses we selected
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", [[SingleGameManager sharedManager] selectedCourses]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", _selectedCourses];
     [fetchRequest setPredicate:predicate];
     
     //Get all the possible questions and save them in our singlegamemanager
