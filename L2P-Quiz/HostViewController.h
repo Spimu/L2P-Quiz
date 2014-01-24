@@ -11,10 +11,11 @@
 #import "NetworkManager.h"
 
 
-@interface HostViewController : UIViewController
+@interface HostViewController : UIViewController <NetworkManagerDelegate>
 {
     
 }
+
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 

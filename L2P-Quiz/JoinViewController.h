@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 
-@interface JoinViewController : UIViewController
+@interface JoinViewController : UIViewController <NetworkManagerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinGameButton;

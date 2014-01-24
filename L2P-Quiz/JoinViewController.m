@@ -31,6 +31,7 @@
     [super viewDidLoad];
     
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"client"];
+    [appDelegate.networkManager.delegate self];
     
 }
 

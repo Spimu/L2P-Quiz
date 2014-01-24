@@ -32,6 +32,7 @@
     [super viewDidLoad];
     
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server"];
+    [appDelegate.networkManager.delegate self];
     [self.tableView setDelegate:appDelegate.networkManager];
     [self.tableView setDataSource:appDelegate.networkManager];
 	
@@ -44,6 +45,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Network delegate implementation
+-(void)updateTableView {
+    [self.tableView reloadData];
 }
 
 @end

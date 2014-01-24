@@ -19,46 +19,73 @@
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         
         if ([role isEqualToString:@"server"]) {
+            appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
             [appDelegate.server start];
             [appDelegate.server setDelegate:self];
+            NSLog(@"%@",@"Server gestartet");
         } else if ([role isEqualToString:@"client"]){
+            appDelegate.client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
             [appDelegate.client start];
             [appDelegate.client setDelegate:self];
+            NSLog(@"%@",@"Client gestartet");
         }
 
     }
     return self;
 }
 
-#pragma mark TableView Delegate
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellId = @"identifier";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: cellId];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero reuseIdentifier:cellId];
-    }
-    //[cell setText:[NSString stringWithFormat:@"e%i",indexPath:[indexPath row]];
-     return cell;
-     }
-
 
 #pragma Server Delegate Implementations
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
+    [self.delegate updateTableView];
+}
+
+- (void)netServiceProblemEncountered:(NSString *)errorMessage onServer:(ThoMoServerStub *)theServer{
+    NSLog(@"Serverfehler entdeckt: %@", errorMessage);
+}
+
+-(void)server:(ThoMoServerStub *)theServer didReceiveData:(id)theData fromClient:(NSString *)aClientIdString {
     
 }
 
+
+
+
+
 #pragma Client Delegate Implementations
 
+- (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
+        NSLog(@"Clientfehler entdeckt: %@", errorMessage);
+}
+
+-(void)client:(ThoMoClientStub *)theClient didReceiveData:(id)theData fromServer:(NSString *)aServerIdString {
+    
+}
+
+
+
+
+#pragma mark TableView Delegate Implementations
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [appDelegate.server.connectedClients count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    cell.textLabel.text = [appDelegate.server.connectedClients objectAtIndex:indexPath.row];
+    return cell;
+}
 
 
 @end
