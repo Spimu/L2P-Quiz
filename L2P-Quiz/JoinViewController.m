@@ -10,6 +10,7 @@
 
 @interface JoinViewController () {
     BOOL connected;
+    AppDelegate *appDelegate;
 }
 
 @end
@@ -20,7 +21,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -29,15 +30,11 @@
 {
     [super viewDidLoad];
     
-    client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
-	[client setDelegate:self];
-	[client start];
-    connected = false;
+    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"client"];
+    
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [client stop];
-    connected = false;
 }
 
 - (void)didReceiveMemoryWarning
@@ -54,23 +51,4 @@
         self.joinGameButton.enabled = false;
     }
 }
-
-#pragma mark delegate methods
-
-- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
-    
-    self.statusLabel.textColor = [UIColor greenColor];
-    self.statusLabel.text = @"Connected to Examiner";
-    connected = true;
-    [self updateButton];
-    
-}
-
-- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage {
-    
-    self.statusLabel.textColor = [UIColor redColor];
-    self.statusLabel.text = @"Disconnected";
-    [self updateButton];
-}
-
 @end

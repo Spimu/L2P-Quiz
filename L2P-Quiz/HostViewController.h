@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ThoMoNetworking/ThoMoNetworking.h>
+#import "AppDelegate.h"
+#import "NetworkManager.h"
 
-@interface HostViewController : UIViewController <ThoMoServerDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
+
+@interface HostViewController : UIViewController
 {
-    ThoMoServerStub	*server;
+    
 }
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

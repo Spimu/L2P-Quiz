@@ -8,7 +8,11 @@
 
 #import "HostViewController.h"
 
-@interface HostViewController ()
+@interface HostViewController () {
+    
+    AppDelegate *appDelegate;
+    
+}
 
 @end
 
@@ -18,7 +22,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     }
     return self;
 }
@@ -26,65 +30,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server"];
+    [self.tableView setDelegate:appDelegate.networkManager];
+    [self.tableView setDataSource:appDelegate.networkManager];
 	
-    server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
-	[server setDelegate:self];
-	[server start];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [server stop];
-}
-- (IBAction)stopServer:(id)sender {
-    [server stop];
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
-#pragma mark delegate methods
-
-/// Connection notification (optional)
-- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
-    
-}
-
-#pragma mark table view delegate methods
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [server.connectedClients count];
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-    }
-    
-    cell.textLabel.text = [server.connectedClients objectAtIndex:indexPath.row];
-    return cell;
-}
-
-- (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString{
-    
-    [self.tableView reloadData];
-}
-
-- (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage{
-    [self.tableView reloadData];
-    
-}
-
-- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
-    NSLog(@"%@", @"Server Shutdown");
 }
 
 @end
