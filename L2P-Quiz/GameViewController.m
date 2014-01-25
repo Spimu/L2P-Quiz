@@ -187,10 +187,12 @@
 //TODO: check if we are in ?/10-mode and if we reached the last question
 - (void) checkIfLastQuestion
 {
-    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions) {
-        if ([_solManager correctAnswersInCurrentRound] + [_solManager wrongAnswersInCurrentRound] == 10) {
-            //TODO
-            NSLog(@"Switch to result screen");
+    if ([[SingleGameManager sharedManager] selectedGameMode] == GameMode_10questions)
+    {
+        if ([_solManager correctAnswersInCurrentRound] + [_solManager wrongAnswersInCurrentRound] == 10)
+        {
+            [_timer invalidate];
+            [self performSegueWithIdentifier:@"resultSegue" sender:self];
         }
     }
 }
