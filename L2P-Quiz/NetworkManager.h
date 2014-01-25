@@ -15,7 +15,6 @@
 @end
 
 @interface NetworkManager : NSObject <ThoMoServerDelegateProtocol, ThoMoClientDelegateProtocol, UITableViewDelegate, UITableViewDataSource>{
-    id <NetworkManagerDelegate> delegate;
 }
 
 

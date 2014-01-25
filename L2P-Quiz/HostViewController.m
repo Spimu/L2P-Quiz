@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server"];
-    [appDelegate.networkManager.delegate self];
+    appDelegate.networkManager.delegate = self;
     [self.tableView setDelegate:appDelegate.networkManager];
     [self.tableView setDataSource:appDelegate.networkManager];
 	

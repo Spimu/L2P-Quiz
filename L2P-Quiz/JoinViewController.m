@@ -31,7 +31,7 @@
     [super viewDidLoad];
     
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"client"];
-    [appDelegate.networkManager.delegate self];
+    appDelegate.networkManager.delegate = self;
     
 }
 
@@ -44,12 +44,4 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) updateButton {
-    
-    if (!([self.nameTextField.text isEqualToString:@""]) && connected==true) {
-        self.joinGameButton.enabled = true;
-    } else {
-        self.joinGameButton.enabled = false;
-    }
-}
 @end

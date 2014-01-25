@@ -20,13 +20,13 @@
         
         if ([role isEqualToString:@"server"]) {
             appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
-            [appDelegate.server start];
             [appDelegate.server setDelegate:self];
+            [appDelegate.server start];
             NSLog(@"%@",@"Server gestartet");
         } else if ([role isEqualToString:@"client"]){
             appDelegate.client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
-            [appDelegate.client start];
             [appDelegate.client setDelegate:self];
+            [appDelegate.client start];
             NSLog(@"%@",@"Client gestartet");
         }
 
@@ -38,6 +38,7 @@
 #pragma Server Delegate Implementations
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
+    NSLog(@"%@", @"Client connected");
     [self.delegate updateTableView];
 }
 
@@ -54,6 +55,10 @@
 
 
 #pragma Client Delegate Implementations
+
+- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
+    NSLog(@"%@", @"Mit Server verbunden");
+}
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
         NSLog(@"Clientfehler entdeckt: %@", errorMessage);
