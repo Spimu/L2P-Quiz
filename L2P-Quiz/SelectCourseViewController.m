@@ -7,10 +7,10 @@
 //
 
 #import "SelectCourseViewController.h"
+#import "UserManager.h"
 
 @interface SelectCourseViewController ()
 
-@property (nonatomic) NSArray *allCourses;
 @property (nonatomic) NSMutableArray *allSelectedCourses;
 
 @end
@@ -33,8 +33,7 @@
     //TODO:
     //_allCourses = [L2PManager getAllCoursesOfThisYear];
     
-    _allCourses = [[NSArray alloc] init];
-    _allCourses = @[@"DIS", @"Current topics", @"iPhone"];
+    [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
     
     _allSelectedCourses = [[NSMutableArray alloc] init];
 }
@@ -75,7 +74,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     
-    return [_allCourses count]; 
+    return [[[UserManager sharedManager] courses] count];
 }
 
 
@@ -92,7 +91,7 @@
                                        reuseIdentifier:MyIdentifier] ;
     }
     
-    cell.textLabel.text = _allCourses[indexPath.row];
+    cell.textLabel.text = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
     return cell;
 }
 

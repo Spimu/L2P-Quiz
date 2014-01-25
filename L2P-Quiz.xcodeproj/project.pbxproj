@@ -40,6 +40,7 @@
 		958F8DF61885483500F87F00 /* StartQuizViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF51885483500F87F00 /* StartQuizViewController.m */; };
 		958F8DF918854B2B00F87F00 /* SelectCourseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DF818854B2B00F87F00 /* SelectCourseViewController.m */; };
 		958F8DFC1885563800F87F00 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 958F8DFB1885563800F87F00 /* GameViewController.m */; };
+		959A2DDA18940B4F0036586A /* UserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 959A2DD918940B4F0036586A /* UserManager.m */; };
 		95DE358518858F5D00BF8CB3 /* sol_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DE358418858F5D00BF8CB3 /* sol_background.png */; };
 		95DE35871885901A00BF8CB3 /* question_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DE35861885901A00BF8CB3 /* question_background.png */; };
 		95DE358B188594F300BF8CB3 /* sol_background_correct.png in Resources */ = {isa = PBXBuildFile; fileRef = 95DE3588188594F300BF8CB3 /* sol_background_correct.png */; };
@@ -215,6 +216,8 @@
 		958F8DF818854B2B00F87F00 /* SelectCourseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectCourseViewController.m; sourceTree = "<group>"; };
 		958F8DFA1885563800F87F00 /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		958F8DFB1885563800F87F00 /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		959A2DD818940B4F0036586A /* UserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserManager.h; sourceTree = "<group>"; };
+		959A2DD918940B4F0036586A /* UserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserManager.m; sourceTree = "<group>"; };
 		95DE358418858F5D00BF8CB3 /* sol_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sol_background.png; sourceTree = "<group>"; };
 		95DE35861885901A00BF8CB3 /* question_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question_background.png; sourceTree = "<group>"; };
 		95DE3588188594F300BF8CB3 /* sol_background_correct.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sol_background_correct.png; sourceTree = "<group>"; };
@@ -589,6 +592,8 @@
 				95E75AFD187C24A900FFE5AD /* BackgroundFetchManager.m */,
 				953017B5187E973F00917C7C /* ParseManager.h */,
 				953017B6187E973F00917C7C /* ParseManager.m */,
+				959A2DD818940B4F0036586A /* UserManager.h */,
+				959A2DD918940B4F0036586A /* UserManager.m */,
 				958F8DF11885472A00F87F00 /* SingleGameManager.h */,
 				958F8DF21885472A00F87F00 /* SingleGameManager.m */,
 				95EECE8F188AD8270069CE74 /* SolutionManager.h */,
@@ -734,6 +739,7 @@
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				958F8DFC1885563800F87F00 /* GameViewController.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
+				959A2DDA18940B4F0036586A /* UserManager.m in Sources */,
 				401EDABD188817D40091AD0A /* Courses.m in Sources */,
 				750496391890542C00FD8C76 /* HostViewController.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
