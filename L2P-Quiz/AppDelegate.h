@@ -21,9 +21,9 @@
 @property (readonly, strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 
-@property (nonatomic, retain) ThoMoClientStub *client;
-@property (nonatomic, retain) ThoMoServerStub *server;
-@property (nonatomic) NetworkManager *networkManager;
+@property ThoMoClientStub *client;
+@property ThoMoServerStub *server;
+@property NetworkManager *networkManager;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
