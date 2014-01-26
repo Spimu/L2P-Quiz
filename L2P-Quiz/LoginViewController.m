@@ -318,7 +318,8 @@ refreshAccessToken
                 //MAKE requests here ... the API is set!
                 //[self.apiVC setAccessToken:self.accessToken];
                 self.apiVC.accessToken = self.accessToken;
-                [self.apiVC getL2PCourseRooms];
+//                [self.apiVC getL2PCourseRooms];
+                [self performSegueWithIdentifier:@"login" sender:sender];
                 
             }
         }

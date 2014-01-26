@@ -192,10 +192,6 @@ typedef enum _requestState requestState;
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
 {
-    
-    NSString* str = [NSString stringWithUTF8String:[data bytes]];
-    NSLog(@"DAta: %@", str);
-    
     if (parseData) {
         self.xmlParser = [[NSXMLParser alloc] initWithData:data];
         [self.xmlParser setDelegate:self];
