@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MainMenuViewController : UIViewController
+- (IBAction)onLogout:(id)sender;
 
 @end

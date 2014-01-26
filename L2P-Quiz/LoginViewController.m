@@ -294,5 +294,10 @@ refreshAccessToken:(UIButton*)button
     return request;
 }
 
+- (IBAction)onLogin:(id)sender {
+    
+    // do manual seguey
+    [self performSegueWithIdentifier:@"login" sender:sender];
+}
 @end
 

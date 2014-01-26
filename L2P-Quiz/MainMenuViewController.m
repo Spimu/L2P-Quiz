@@ -47,4 +47,8 @@
     [super viewWillDisappear:animated];
 }
 
+- (IBAction)onLogout:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 @end
