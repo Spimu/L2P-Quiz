@@ -17,22 +17,23 @@
 
 @implementation JoinViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"client"];
-    appDelegate.networkManager.delegate = self;
+    appDelegate.networkManager.clientDelegate = self;
     
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(stopClient:)];
+    self.navigationItem.leftBarButtonItem=newBackButton;
+    
+}
+
+-(void)stopClient:(UIBarButtonItem *)sender {
+    [appDelegate.networkManager stopClient];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
@@ -42,6 +43,16 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark Implementation of NetworkManagerClientDelegate methods
+
+-(void)connectionToServerEstablished{
+    
+}
+
+-(void)connectionToServerAborted{
+    
 }
 
 @end

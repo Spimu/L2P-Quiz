@@ -39,7 +39,12 @@
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
     NSLog(@"%@", @"Client connected");
-    [self.delegate updateTableView];
+    [self.serverDelegate updateTableView];
+}
+
+- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage{
+    NSLog(@"%@", @"Client disconnected from server");
+    [self.serverDelegate updateTableView];
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onServer:(ThoMoServerStub *)theServer{
@@ -52,15 +57,16 @@
 
 
 
-
-
 #pragma Client Delegate Implementations
 
 - (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
+    [self.clientDelegate connectionToServerEstablished];
     NSLog(@"%@", @"Client connected to server");
+    
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
+    [self.clientDelegate connectionToServerAborted];
         NSLog(@"Error on client: %@", errorMessage);
 }
 
@@ -90,6 +96,12 @@
     
     cell.textLabel.text = [appDelegate.server.connectedClients objectAtIndex:indexPath.row];
     return cell;
+}
+
+#pragma mark Easy ThoMo Actions
+
+-(void)stopClient{
+    [appDelegate.client stop];
 }
 
 

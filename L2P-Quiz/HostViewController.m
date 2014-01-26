@@ -18,21 +18,15 @@
 
 @implementation HostViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
     appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server"];
-    appDelegate.networkManager.delegate = self;
+    appDelegate.networkManager.serverDelegate = self;
     [self.tableView setDelegate:appDelegate.networkManager];
     [self.tableView setDataSource:appDelegate.networkManager];
 	

@@ -11,7 +11,7 @@
 #import "NetworkManager.h"
 
 
-@interface HostViewController : UIViewController <NetworkManagerDelegate>
+@interface HostViewController : UIViewController <NetworkManagerServerDelegate>
 {
     
 }

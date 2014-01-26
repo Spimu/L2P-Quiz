@@ -10,17 +10,28 @@
 #import "AppDelegate.h"
 #import <ThoMoNetworking/ThoMoNetworking.h>
 
-@protocol NetworkManagerDelegate <NSObject>
+@protocol NetworkManagerServerDelegate <NSObject>
 -(void)updateTableView;
 @end
+
+@protocol NetworkManagerClientDelegate <NSObject>
+-(void)connectionToServerEstablished;
+-(void)connectionToServerAborted;
+
+
+@end
+
+
 
 @interface NetworkManager : NSObject <ThoMoServerDelegateProtocol, ThoMoClientDelegateProtocol, UITableViewDelegate, UITableViewDataSource>{
 }
 
 
-@property (assign) id<NetworkManagerDelegate> delegate;
+@property (assign) id<NetworkManagerServerDelegate> serverDelegate;
+@property (assign) id<NetworkManagerClientDelegate> clientDelegate;
 
 -(id)initWithRole:(NSString*)role;
+-(void)stopClient;
 
 
 @end
