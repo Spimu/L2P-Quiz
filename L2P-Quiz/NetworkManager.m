@@ -43,7 +43,7 @@
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onServer:(ThoMoServerStub *)theServer{
-    NSLog(@"Serverfehler entdeckt: %@", errorMessage);
+    NSLog(@"Error on server: %@", errorMessage);
 }
 
 -(void)server:(ThoMoServerStub *)theServer didReceiveData:(id)theData fromClient:(NSString *)aClientIdString {
@@ -57,11 +57,11 @@
 #pragma Client Delegate Implementations
 
 - (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
-    NSLog(@"%@", @"Mit Server verbunden");
+    NSLog(@"%@", @"Client connected to server");
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
-        NSLog(@"Clientfehler entdeckt: %@", errorMessage);
+        NSLog(@"Error on client: %@", errorMessage);
 }
 
 -(void)client:(ThoMoClientStub *)theClient didReceiveData:(id)theData fromServer:(NSString *)aServerIdString {
