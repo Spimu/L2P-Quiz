@@ -9,17 +9,21 @@
 #import "WebViewController.h"
 
 @interface WebViewController ()
+{
+    id<L2PLoginDelegate> l2pDelegate;
+}
 
 @end
 
 @implementation WebViewController
+
+@synthesize webView = _webView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        [(UIWebView*)self.view setDelegate:self];
     }
     return self;
 }
@@ -39,8 +43,8 @@
 -(void)setVerificationURL:(NSURL *)url
 {
     NSURLRequest *verificationRequest = [NSURLRequest requestWithURL:url];
-    
-    [(UIWebView*)self.view loadRequest:verificationRequest];
+    [self.webView setDelegate:self];
+    [self.webView loadRequest:verificationRequest];
 }
 
 #pragma mark WebViewDelegate
@@ -51,8 +55,27 @@
     NSRange rangeOfString = [url rangeOfString:@"q=authorized"];
     
     if (rangeOfString.location != NSNotFound) {
+        if(l2pDelegate) {
+            [l2pDelegate loginSucessful];
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    }
+    
+//
+}
+
+-(void) setL2PLoginDelegate:(id<L2PLoginDelegate>) delegate
+{
+    l2pDelegate = delegate;
+}
+
+- (IBAction)onClose:(id)sender
+{
+    if(l2pDelegate) {
+        [l2pDelegate loginError:@"Unable to login."];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
+
 }
 
 @end

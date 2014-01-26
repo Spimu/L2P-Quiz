@@ -19,4 +19,12 @@
 -(IBAction)wikiPageButtonPressed:(UIButton*)sender;
 -(IBAction)pdfButtonPressed:(UIButton*)sender;
 
+
+//expose some functions, so we can see that the l2P API is working proeprly
+-(void)getL2PCourseRooms;
+-(void)getWikiPages;
+-(void)getDiscussions;
+-(void)getDocuments;
+-(void)getPDFWithID:(NSString*)documentID;
+
 @end

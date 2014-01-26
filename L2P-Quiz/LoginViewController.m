@@ -38,6 +38,8 @@
 //controller needed to display a web-view
 @property(retain) APIViewController *apiVC;
 
+@property(nonatomic, assign) BOOL isLogged;
+
 @end
 
 @implementation LoginViewController
@@ -56,12 +58,14 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     self.apiVC = [[APIViewController alloc] initWithNibName:@"APIViewController" bundle:Nil];
+    [self loadUserDefaults];
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [self.navigationController setNavigationBarHidden:YES animated:animated];
     [super viewWillAppear:animated];
+    
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -108,15 +112,12 @@
     //obtaining access token
     else if (connection == self.tokenURLConnection || connection == self.refreshTokenURLConnection)
     {
-        [self handleAccessTokenResponseDictionary:dataDictionary];
-        
-        //present api view controller
         if (connection == self.tokenURLConnection)
         {
             self.refreshToken = [dataDictionary objectForKey:@"refresh_token"];
-            
-            [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(updateTimeTillRefreshLabel:) userInfo:Nil repeats:YES];
         }
+        
+        [self handleAccessTokenResponseDictionary:dataDictionary];
         
         [self.apiVC setAccessToken:self.accessToken];
     }
@@ -124,7 +125,7 @@
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
-    //NSLog(@"Recieved response: %@", response);
+    NSLog(@"Recieved response: %@", response);
 }
 
 
@@ -147,6 +148,7 @@
     if (secondsTillNextRequest < 0) {
 //        [self.timeTillRefreshLabel setText:@"Obtain new user code"];
         NSLog(@"Obtain new user code.");
+        [self refreshAccessToken];
     }
 }
 
@@ -169,7 +171,10 @@
     //present web view
     NSString *pathComponent = [NSString stringWithFormat:@"?q=verify&d=%@", self.userCode];
     NSURL *verficationURLWithCode = [self.verificationURL URLByAppendingPathComponent:pathComponent];
+    
     WebViewController *webVC = [[WebViewController alloc] initWithNibName:@"WebViewController" bundle:Nil];
+    [webVC setL2PLoginDelegate:self];
+    
     [self presentViewController:webVC animated:YES completion:nil];
     [webVC setVerificationURL:verficationURLWithCode];
 }
@@ -214,9 +219,9 @@
     self.refreshToken = [userDefaults objectForKey:@"refreshToken"];
     self.lastTokenRequestDate = [userDefaults objectForKey:@"lastTokenRequestDate"];
     self.accessExpiresAtDate = [userDefaults objectForKey:@"accessExpiresAtDate"];
-    if (self.lastTokenRequestDate != nil && self.accessExpiresAtDate != nil) {
-        [self updateTimeTillRefreshLabel:nil];
-    }
+//    if (self.lastTokenRequestDate != nil && self.accessExpiresAtDate != nil) {
+//        [self updateTimeTillRefreshLabel:nil];
+//    }
 }
 
 -(void)saveUserDefaults
@@ -237,45 +242,45 @@
 
 
 //API calls
--(void)obtainUserCode:(UIButton*)sender
+-(void)obtainUserCode
 {
-//    NSString *url = OAUTH_CODE_ENDPOINT;
-//    
-//    NSString *body = [NSString stringWithFormat:@"client_id=%@&scope=l2p.rwth userinfo.rwth", OAUTH_KEY];
-//    
-//    NSMutableURLRequest *userCodeRequest = [self requestWithURL:url body:body];
-//    
-//    self.userCodeURLConnection = [[NSURLConnection alloc]
-//                                  initWithRequest:userCodeRequest
-//                                  delegate:self
-//                                  startImmediately:YES];
+    NSString *url = OAUTH_CODE_ENDPOINT;
+    
+    NSString *body = [NSString stringWithFormat:@"client_id=%@&scope=l2p.rwth userinfo.rwth", OAUTH_KEY];
+    
+    NSMutableURLRequest *userCodeRequest = [self requestWithURL:url body:body];
+    
+    self.userCodeURLConnection = [[NSURLConnection alloc]
+                                  initWithRequest:userCodeRequest
+                                  delegate:self
+                                  startImmediately:YES];
 }
 
--(void) obtainAcessToken:(UIButton*)sender
+-(void) obtainAcessToken
 {
-//    NSString *url = OAUTH_TOKEN_ENDPOINT;
-//    NSString *body = [NSString stringWithFormat:@"client_id=%@&code=%@&grant_type=device", OAUTH_KEY, self.deviceCode];
-//    
-//    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
-//    
-//    self.tokenURLConnection = [[NSURLConnection alloc]
-//                               initWithRequest:tokenRequest
-//                               delegate:self
-//                               startImmediately:YES];
+    NSString *url = OAUTH_TOKEN_ENDPOINT;
+    NSString *body = [NSString stringWithFormat:@"client_id=%@&code=%@&grant_type=device", OAUTH_KEY, self.deviceCode];
+    
+    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
+    
+    self.tokenURLConnection = [[NSURLConnection alloc]
+                               initWithRequest:tokenRequest
+                               delegate:self
+                               startImmediately:YES];
 }
 
 -(void)
-refreshAccessToken:(UIButton*)button
+refreshAccessToken
 {
-//    
-//    NSString *url = OAUTH_TOKEN_ENDPOINT;
-//    NSString *body = [NSString stringWithFormat: @"client_id=%@&refresh_token=%@&grant_type=refresh_token",OAUTH_KEY, self.refreshToken];
-//    
-//    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
-//    self.refreshTokenURLConnection = [[NSURLConnection alloc]
-//                                      initWithRequest:tokenRequest
-//                                      delegate:self
-//                                      startImmediately:YES];
+    
+    NSString *url = OAUTH_TOKEN_ENDPOINT;
+    NSString *body = [NSString stringWithFormat: @"client_id=%@&refresh_token=%@&grant_type=refresh_token",OAUTH_KEY, self.refreshToken];
+    
+    NSMutableURLRequest *tokenRequest = [self requestWithURL:url body:body];
+    self.refreshTokenURLConnection = [[NSURLConnection alloc]
+                                      initWithRequest:tokenRequest
+                                      delegate:self
+                                      startImmediately:YES];
     
 }
 
@@ -297,7 +302,58 @@ refreshAccessToken:(UIButton*)button
 - (IBAction)onLogin:(id)sender {
     
     // do manual seguey
-    [self performSegueWithIdentifier:@"login" sender:sender];
+//    [self performSegueWithIdentifier:@"login" sender:sender];
+    if(!self.isLogged && !self.deviceCode) {
+        [self obtainUserCode];
+    } else {
+        //ask for token
+        if(!self.accessToken) {
+            [self obtainAcessToken];
+        } else {
+            
+            if([self isTokenExpired]) {
+                //refresh the token, which we have already
+                [self refreshAccessToken];
+            } else {
+                //MAKE requests here ... the API is set!
+                //[self.apiVC setAccessToken:self.accessToken];
+                self.apiVC.accessToken = self.accessToken;
+                [self.apiVC getL2PCourseRooms];
+                
+            }
+        }
+    }
 }
+
+-(BOOL) isTokenExpired
+{
+    //access token time
+    NSInteger currentTimeInterval = [NSDate date].timeIntervalSince1970;
+    NSInteger timeIntervalOfNextRequest = self.accessExpiresAtDate.timeIntervalSince1970;
+    NSInteger secondsTillNextRequest = timeIntervalOfNextRequest - currentTimeInterval;
+    
+    return secondsTillNextRequest < 0;
+}
+
+#pragma mark - login delegate
+
+-(void) loginSucessful
+{
+    self.isLogged = YES;
+}
+
+-(void) loginError: (NSString *) error
+{
+    self.isLogged = NO;
+}
+/**
+ * Call this method when user decideds to logout of the app. He must login back using the l2p site.
+ **/
+-(void) logout
+{
+    self.isLogged = NO;
+    self.deviceCode  = nil;
+}
+
 @end
 

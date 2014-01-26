@@ -90,6 +90,7 @@
 		03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startQuiz@2x.png"; sourceTree = "<group>"; };
 		03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
 		03ECD3E9188BF85300802A1B /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
+		206DC713189595930097DF7D /* L2PLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L2PLoginDelegate.h; sourceTree = "<group>"; };
 		2078D1DF188F298A005C60E6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServicesConstants.h; sourceTree = "<group>"; };
 		2078D1E1188F417B005C60E6 /* APIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIViewController.h; sourceTree = "<group>"; };
@@ -481,6 +482,7 @@
 		95E75A32187C162800FFE5AD = {
 			isa = PBXGroup;
 			children = (
+				206DC713189595930097DF7D /* L2PLoginDelegate.h */,
 				2078D1E6188F41E7005C60E6 /* WebViewController.h */,
 				2078D1E7188F41E7005C60E6 /* WebViewController.m */,
 				2078D1E8188F41E7005C60E6 /* WebViewController.xib */,

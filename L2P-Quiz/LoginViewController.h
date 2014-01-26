@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "L2PLoginDelegate.h"
 
-@interface LoginViewController : UIViewController
+@interface LoginViewController : UIViewController <L2PLoginDelegate>
 - (IBAction)onLogin:(id)sender;
 
 @end
