@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "NetworkManager.h"
+#import "SelectCourseViewController.h"
 
 
 @interface HostViewController : UIViewController <NetworkManagerServerDelegate>
@@ -18,5 +19,6 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *selectCourse;
 
 @end

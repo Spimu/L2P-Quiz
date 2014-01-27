@@ -98,8 +98,8 @@
     NSMutableDictionary *test = theData;
     
 
-    NSString *bla = [[test allKeys]objectAtIndex:0];
-    if ([bla isEqualToString:@"tellMeYourName"]) {
+    NSString *command = [[test allKeys]objectAtIndex:0];
+    if ([command isEqualToString:@"tellMeYourName"]) {
         NSLog(@"%@", @"My name is Michael");
     }
     

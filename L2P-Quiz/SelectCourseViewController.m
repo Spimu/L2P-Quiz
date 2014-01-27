@@ -26,10 +26,17 @@
     return self;
 }
 
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
     //TODO:
     //_allCourses = [L2PManager getAllCoursesOfThisYear];
     
@@ -37,6 +44,10 @@
     _allCourses = @[@"DIS", @"Current topics", @"iPhone"];
     
     _allSelectedCourses = [[NSMutableArray alloc] init];
+    
+    if ([_detailItem isEqualToString:@"multi"]) {
+        [self.startButton setTitle:@"Enter" forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning

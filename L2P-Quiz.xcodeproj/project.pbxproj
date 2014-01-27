@@ -25,7 +25,7 @@
 		750496361890541D00FD8C76 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496351890541D00FD8C76 /* JoinViewController.m */; };
 		750496391890542C00FD8C76 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496381890542C00FD8C76 /* HostViewController.m */; };
 		757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757862BA188ED40D00F21292 /* GameKit.framework */; };
-		75BC57A31891C068003081CE /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75BC57A21891C068003081CE /* ThoMoNetworking.framework */; };
+		758E0BEC1896D13300ADC5EE /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */; };
 		75BC57A61891C211003081CE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC57A51891C211003081CE /* NetworkManager.m */; };
 		75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */; };
 		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
@@ -197,7 +197,7 @@
 		750496371890542C00FD8C76 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		750496381890542C00FD8C76 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		757862BA188ED40D00F21292 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		75BC57A21891C068003081CE /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ThoMoNetworking.framework; path = "../../ThoMo Networking/iPhoneFramework/ThoMoNetworking.framework"; sourceTree = "<group>"; };
+		758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
 		75BC57A41891C211003081CE /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
 		75BC57A51891C211003081CE /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerMenuViewController.h; sourceTree = "<group>"; };
@@ -263,11 +263,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75BC57A31891C068003081CE /* ThoMoNetworking.framework in Frameworks */,
 				757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */,
 				401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */,
 				95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */,
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
+				758E0BEC1896D13300ADC5EE /* ThoMoNetworking.framework in Frameworks */,
 				95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */,
 				95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */,
 				9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
@@ -509,7 +509,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				75BC57A21891C068003081CE /* ThoMoNetworking.framework */,
+				758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */,
 				757862BA188ED40D00F21292 /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
@@ -878,9 +878,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/claudebemtgen/iPhone/L2P-Quiz",
-					"/Users/michaelbertenburg/Desktop/ThoMo\\ Networking/iPhoneFramework",
+					"/Users/michaelbertenburg/Desktop/iPhone\\ Project/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";
@@ -909,9 +909,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/claudebemtgen/iPhone/L2P-Quiz",
-					"/Users/michaelbertenburg/Desktop/ThoMo\\ Networking/iPhoneFramework",
+					"/Users/michaelbertenburg/Desktop/iPhone\\ Project/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";

@@ -56,4 +56,15 @@
     [self.tableView reloadData];
 }
 
+- (IBAction)openCourses:(id)sender {
+
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([[segue identifier] isEqualToString:@"multiplayer"]) {
+        [[segue destinationViewController]setDetailItem:@"multi"];
+    }
+}
+
 @end
