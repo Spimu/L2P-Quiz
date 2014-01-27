@@ -438,11 +438,11 @@
                                     <segue destination="hAY-n9-XZV" kind="push" id="i8K-8a-5by"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIV-UV-4cu">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIV-UV-4cu">
                                 <rect key="frame" x="116" y="55" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.98823535439999999" green="0.88627457620000005" blue="0.40000003579999999" alpha="1" colorSpace="deviceRGB"/>
-                                <state key="normal" title="?/10">
+                                <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="bestOf10.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -1052,6 +1052,7 @@
     </scenes>
     <resources>
         <image name="1Minute.png" width="137" height="115"/>
+        <image name="bestOf10.png" width="60" height="67"/>
         <image name="highscore.png" width="91" height="88"/>
         <image name="infinity.png" width="65" height="30"/>
         <image name="logo_l2p.png" width="181" height="75"/>
@@ -1068,7 +1069,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oNh-j5-fUB"/>
         <segue reference="Qmm-e9-UFl"/>
+        <segue reference="khO-oK-d62"/>
     </inferredMetricsTieBreakers>
 </document>
