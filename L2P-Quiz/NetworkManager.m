@@ -29,12 +29,12 @@
             appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
             [appDelegate.server setDelegate:self];
             [appDelegate.server start];
-            NSLog(@"%@",@"Server gestartet");
+            NSLog(@"%@",@"Server started");
         } else if ([role isEqualToString:@"client"]){
             appDelegate.client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
             [appDelegate.client setDelegate:self];
             [appDelegate.client start];
-            NSLog(@"%@",@"Client gestartet");
+            NSLog(@"%@",@"Client started");
         }
 
     }
@@ -50,6 +50,10 @@
     NSLog(@"%@", @"Sag mir deinen Namen!");
    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"-",@"tellMeYourName", nil];
    [appDelegate.server send:command toClient:aClientIdString];
+    [self.serverDelegate updateTableView];
+}
+
+- (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage {
     [self.serverDelegate updateTableView];
 }
 
@@ -79,13 +83,11 @@
 - (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage{
     [self.clientDelegate connectionToServerAborted];
     NSLog(@"%@", @"Client disconnected from server");
-    [self.serverDelegate updateTableView];
 }
 
 
 - (void)clientDidShutDown:(ThoMoClientStub *)theClient {
     [self.clientDelegate connectionToServerAborted];
-    [self.serverDelegate updateTableView];
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
