@@ -6,17 +6,24 @@
 //  Copyright (c) 2014 RWTHi10. All rights reserved.
 //
 
+#define tellMeyourName 1
+
 #import "NetworkManager.h"
 
 @implementation NetworkManager {
     
     AppDelegate *appDelegate;
+    NSMutableDictionary *clients;
+    NSString *playerName;
 }
 
-- (id)initWithRole:(NSString*)role {
+- (id)initWithRole:(NSString*)role andName:(NSString*)name {
     self = [super init];
     if (self) {
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+        clients = [[NSMutableDictionary alloc] init];
+        
+        playerName = name;
         
         if ([role isEqualToString:@"server"]) {
             appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
@@ -39,20 +46,24 @@
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
     NSLog(@"%@", @"Client connected");
+    
+    NSLog(@"%@", @"Sag mir deinen Namen!");
+   NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"-",@"tellMeYourName", nil];
+   [appDelegate.server send:command toClient:aClientIdString];
     [self.serverDelegate updateTableView];
 }
 
-- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage{
-    NSLog(@"%@", @"Client disconnected from server");
-    [self.serverDelegate updateTableView];
-}
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onServer:(ThoMoServerStub *)theServer{
     NSLog(@"Error on server: %@", errorMessage);
 }
 
 -(void)server:(ThoMoServerStub *)theServer didReceiveData:(id)theData fromClient:(NSString *)aClientIdString {
-    
+
+}
+
+- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
+    [self.clientDelegate connectionToServerAborted];
 }
 
 
@@ -65,16 +76,32 @@
     
 }
 
-- (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
+- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage{
     [self.clientDelegate connectionToServerAborted];
+    NSLog(@"%@", @"Client disconnected from server");
+    [self.serverDelegate updateTableView];
+}
+
+
+- (void)clientDidShutDown:(ThoMoClientStub *)theClient {
+    [self.clientDelegate connectionToServerAborted];
+    [self.serverDelegate updateTableView];
+}
+
+- (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
         NSLog(@"Error on client: %@", errorMessage);
 }
 
 -(void)client:(ThoMoClientStub *)theClient didReceiveData:(id)theData fromServer:(NSString *)aServerIdString {
+    NSMutableDictionary *test = theData;
+    
+
+    NSString *bla = [[test allKeys]objectAtIndex:0];
+    if ([bla isEqualToString:@"tellMeYourName"]) {
+        NSLog(@"%@", @"My name is Michael");
+    }
     
 }
-
-
 
 
 #pragma mark TableView Delegate Implementations
@@ -100,8 +127,15 @@
 
 #pragma mark Easy ThoMo Actions
 
+-(void)stopServer{
+    [appDelegate.server stop];
+    NSLog(@"%@", @"Server shut down");
+    
+}
+
 -(void)stopClient{
     [appDelegate.client stop];
+    NSLog(@"%@", @"Client shut down");
 }
 
 

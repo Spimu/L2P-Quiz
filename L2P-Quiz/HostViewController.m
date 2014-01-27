@@ -23,13 +23,23 @@
 {
     [super viewDidLoad];
     
+    self.nameTextField.text = [[UIDevice currentDevice] name];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
-    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server"];
+    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server" andName:self.nameTextField.text];
     appDelegate.networkManager.serverDelegate = self;
     [self.tableView setDelegate:appDelegate.networkManager];
     [self.tableView setDataSource:appDelegate.networkManager];
+    
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Stop Server" style:UIBarButtonItemStyleBordered target:self action:@selector(stopServer:)];
+    self.navigationItem.leftBarButtonItem=newBackButton;
+
 	
+}
+
+-(void)stopServer:(UIBarButtonItem *)sender {
+    [appDelegate.networkManager stopServer];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {

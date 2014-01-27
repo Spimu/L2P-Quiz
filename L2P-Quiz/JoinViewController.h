@@ -16,4 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *joinGameButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *serverStatus;
+
 @end

@@ -30,7 +30,8 @@
 @property (assign) id<NetworkManagerServerDelegate> serverDelegate;
 @property (assign) id<NetworkManagerClientDelegate> clientDelegate;
 
--(id)initWithRole:(NSString*)role;
+-(id)initWithRole:(NSString*)role andName:(NSString*)name;
+-(void)stopServer;
 -(void)stopClient;
 
 
