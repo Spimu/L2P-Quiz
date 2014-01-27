@@ -40,6 +40,7 @@
     self.statusLabel.textColor = [UIColor redColor];
     self.statusLabel.text = @"Disconnected";
     
+    
     [self.activityIndicatorView stopAnimating];
     self.serverStatus.text = @"";
     
@@ -63,7 +64,7 @@
     self.statusLabel.text = @"Connected";
     
     [self.activityIndicatorView startAnimating];
-    self.serverStatus.text = @"Waiting for host to start the game";
+    self.serverStatus.text = @"Waiting for host...";
     
     
 }

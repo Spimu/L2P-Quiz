@@ -23,8 +23,6 @@
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         clients = [[NSMutableDictionary alloc] init];
         
-        playerName = name;
-        
         if ([role isEqualToString:@"server"]) {
             appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
             [appDelegate.server setDelegate:self];
@@ -38,6 +36,7 @@
         }
 
     }
+    playerName =  @"Opponent";
     return self;
 }
 
@@ -45,16 +44,21 @@
 #pragma Server Delegate Implementations
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
-    NSLog(@"%@", @"Client connected");
+
+    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"-",@"tellMeYourName", nil];
+    [appDelegate.server send:command toClient:aClientIdString];
+
     
-    NSLog(@"%@", @"Sag mir deinen Namen!");
-   NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"-",@"tellMeYourName", nil];
-   [appDelegate.server send:command toClient:aClientIdString];
+    [clients setObject:playerName forKey:aClientIdString];
     [self.serverDelegate updateTableView];
+    
+    
 }
 
 - (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage {
+    [clients removeObjectForKey:aClientIdString];
     [self.serverDelegate updateTableView];
+    
 }
 
 
@@ -63,7 +67,15 @@
 }
 
 -(void)server:(ThoMoServerStub *)theServer didReceiveData:(id)theData fromClient:(NSString *)aClientIdString {
-
+    NSMutableDictionary *commands = theData;
+    
+    NSString *command = [[commands allKeys]objectAtIndex:0];
+    if ([command isEqualToString:@"myName"]) {
+        playerName = [commands objectForKey:@"myName"];
+    }
+    
+    [clients setObject:playerName forKey:aClientIdString];
+    [self.serverDelegate updateTableView];
 }
 
 - (void)serverDidShutDown:(ThoMoServerStub *)theServer{
@@ -95,12 +107,12 @@
 }
 
 -(void)client:(ThoMoClientStub *)theClient didReceiveData:(id)theData fromServer:(NSString *)aServerIdString {
-    NSMutableDictionary *test = theData;
+    NSMutableDictionary *commands = theData;
     
-
-    NSString *command = [[test allKeys]objectAtIndex:0];
+    NSString *command = [[commands allKeys]objectAtIndex:0];
     if ([command isEqualToString:@"tellMeYourName"]) {
-        NSLog(@"%@", @"My name is Michael");
+        NSMutableDictionary *clientcommands = [[NSMutableDictionary alloc]initWithObjectsAndKeys:[[UIDevice currentDevice] name],@"myName", nil];
+        [appDelegate.client send:clientcommands toServer:aServerIdString];
     }
     
 }
@@ -110,7 +122,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [appDelegate.server.connectedClients count];
+    return [clients count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -123,7 +135,14 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    cell.textLabel.text = [appDelegate.server.connectedClients objectAtIndex:indexPath.row];
+    NSString *key = [clients allKeys][indexPath.row];
+    
+    NSString *providerNameString = clients[key];
+    NSString *providerIdString = key;
+    cell.textLabel.text  = providerNameString;
+    cell.detailTextLabel.text  = providerIdString;
+    
+    //cell.textLabel.text = [clients objectAtIndex:indexPath.row];
     return cell;
 }
 

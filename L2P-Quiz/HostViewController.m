@@ -68,18 +68,9 @@
 }
 
 - (IBAction)startGame:(id)sender {
-    @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         CountdownViewController *viewController = (CountdownViewController *)[storyboard instantiateViewControllerWithIdentifier:@"countdown"];
         [self presentViewController:viewController animated:YES completion:nil];
-    }
-    @catch (NSException *exception) {
-        NSLog(@"Caught exception %@", exception);
-    }
-    @finally {
-        
-    }
-    
 }
 
 
