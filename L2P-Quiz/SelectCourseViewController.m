@@ -26,17 +26,39 @@
     return self;
 }
 
+- (void)setDetailItem:(id)newDetailItem
+{
+    if (_detailItem != newDetailItem) {
+        _detailItem = newDetailItem;
+    }
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
     //TODO:
     //_allCourses = [L2PManager getAllCoursesOfThisYear];
     
     [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
     
     _allSelectedCourses = [[NSMutableArray alloc] init];
+    
+    if ([_detailItem isEqualToString:@"multi"]) {
+        //[self.startButton setTitle:@"Enter" forState:UIControlStateNormal];
+        
+        UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Save selected courses" style:UIBarButtonItemStyleBordered target:self action:@selector(madeSelection:)];
+        self.navigationItem.leftBarButtonItem=newBackButton;
+        
+        [self.startButton removeFromSuperview];
+    }
 }
+
+-(void)madeSelection:(UIBarButtonItem *)sender {
+    //SAVE COURSES SOMEWHERE
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 - (void)didReceiveMemoryWarning
 {

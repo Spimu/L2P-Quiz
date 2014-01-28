@@ -7,8 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "NetworkManager.h"
 
-@implementation AppDelegate
+@implementation AppDelegate {
+}
 
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;

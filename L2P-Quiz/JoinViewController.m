@@ -10,34 +10,45 @@
 
 @interface JoinViewController () {
     BOOL connected;
+    AppDelegate *appDelegate;
 }
 
 @end
 
 @implementation JoinViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.nameTextField.text = [[UIDevice currentDevice] name];
     
-    client = [[ThoMoClientStub alloc] initWithProtocolIdentifier:@"examiner"];
-	[client setDelegate:self];
-	[client start];
-    connected = false;
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"client" andName:self.nameTextField.text];
+    appDelegate.networkManager.clientDelegate = self;
+    
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Cancel" style:UIBarButtonItemStyleBordered target:self action:@selector(stopClient:)];
+    self.navigationItem.leftBarButtonItem=newBackButton;
+    
+    
+    
+}
+
+-(void)stopClient:(UIBarButtonItem *)sender {
+    [appDelegate.networkManager stopClient];
+    
+    self.statusLabel.textColor = [UIColor redColor];
+    self.statusLabel.text = @"Disconnected";
+    
+    
+    [self.activityIndicatorView stopAnimating];
+    self.serverStatus.text = @"";
+    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewDidDisappear:(BOOL)animated {
-    [client stop];
-    connected = false;
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -46,31 +57,24 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void) updateButton {
-    
-    if (!([self.nameTextField.text isEqualToString:@""]) && connected==true) {
-        self.joinGameButton.enabled = true;
-    } else {
-        self.joinGameButton.enabled = false;
-    }
-}
+#pragma mark Implementation of NetworkManagerClientDelegate methods
 
-#pragma mark delegate methods
-
-- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
-    
+-(void)connectionToServerEstablished{
     self.statusLabel.textColor = [UIColor greenColor];
-    self.statusLabel.text = @"Connected to Examiner";
-    connected = true;
-    [self updateButton];
+    self.statusLabel.text = @"Connected";
+    
+    [self.activityIndicatorView startAnimating];
+    self.serverStatus.text = @"Waiting for host...";
+    
     
 }
 
-- (void)client:(ThoMoClientStub *)theClient didDisconnectFromServer:(NSString *)aServerIdString errorMessage:(NSString *)errorMessage {
-    
+-(void)connectionToServerAborted{
     self.statusLabel.textColor = [UIColor redColor];
     self.statusLabel.text = @"Disconnected";
-    [self updateButton];
+    
+    [self.activityIndicatorView stopAnimating];
+    self.serverStatus.text = @"";
 }
 
 @end

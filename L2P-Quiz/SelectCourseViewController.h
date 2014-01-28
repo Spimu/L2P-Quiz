@@ -12,5 +12,7 @@
 @interface SelectCourseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 - (IBAction)startPressed:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (strong, nonatomic) id detailItem;
 
 @end

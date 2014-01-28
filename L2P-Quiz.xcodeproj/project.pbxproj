@@ -11,6 +11,8 @@
 		03156E98189032AC006D04FC /* highscore@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03156E97189032AC006D04FC /* highscore@2x.png */; };
 		03156E9E18904D76006D04FC /* infinity@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03156E9D18904D76006D04FC /* infinity@2x.png */; };
 		03156EA2189054AF006D04FC /* 1Minute@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03156EA1189054AF006D04FC /* 1Minute@2x.png */; };
+		0357E1451896D8D800C44767 /* bestOf10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357E1441896D8D800C44767 /* bestOf10@2x.png */; };
+		0357E1471896DDEF00C44767 /* Multiplayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357E1461896DDEF00C44767 /* Multiplayer@2x.png */; };
 		03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */; };
 		03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3E9188BF85300802A1B /* profile@2x.png */; };
@@ -25,6 +27,9 @@
 		750496361890541D00FD8C76 /* JoinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496351890541D00FD8C76 /* JoinViewController.m */; };
 		750496391890542C00FD8C76 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 750496381890542C00FD8C76 /* HostViewController.m */; };
 		757862BB188ED40D00F21292 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 757862BA188ED40D00F21292 /* GameKit.framework */; };
+		758E0BEC1896D13300ADC5EE /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */; };
+		758E0BEF1896D32900ADC5EE /* CountdownViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 758E0BEE1896D32900ADC5EE /* CountdownViewController.m */; };
+		75BC57A61891C211003081CE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC57A51891C211003081CE /* NetworkManager.m */; };
 		75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */; };
 		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
@@ -86,6 +91,8 @@
 		03156E97189032AC006D04FC /* highscore@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "highscore@2x.png"; sourceTree = "<group>"; };
 		03156E9D18904D76006D04FC /* infinity@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "infinity@2x.png"; sourceTree = "<group>"; };
 		03156EA1189054AF006D04FC /* 1Minute@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1Minute@2x.png"; sourceTree = "<group>"; };
+		0357E1441896D8D800C44767 /* bestOf10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bestOf10@2x.png"; sourceTree = "<group>"; };
+		0357E1461896DDEF00C44767 /* Multiplayer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Multiplayer@2x.png"; sourceTree = "<group>"; };
 		03ECD3C918896EF700802A1B /* logo_l2p@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo_l2p@2x.png"; sourceTree = "<group>"; };
 		03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startQuiz@2x.png"; sourceTree = "<group>"; };
 		03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
@@ -198,6 +205,11 @@
 		750496371890542C00FD8C76 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
 		750496381890542C00FD8C76 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		757862BA188ED40D00F21292 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
+		758E0BED1896D32900ADC5EE /* CountdownViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CountdownViewController.h; sourceTree = "<group>"; };
+		758E0BEE1896D32900ADC5EE /* CountdownViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CountdownViewController.m; sourceTree = "<group>"; };
+		75BC57A41891C211003081CE /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
+		75BC57A51891C211003081CE /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerMenuViewController.h; sourceTree = "<group>"; };
 		75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerMenuViewController.m; sourceTree = "<group>"; };
 		9505F3361891599400A1858F /* MultiplayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerManager.h; sourceTree = "<group>"; };
@@ -412,6 +424,8 @@
 				750496351890541D00FD8C76 /* JoinViewController.m */,
 				750496371890542C00FD8C76 /* HostViewController.h */,
 				750496381890542C00FD8C76 /* HostViewController.m */,
+				758E0BED1896D32900ADC5EE /* CountdownViewController.h */,
+				758E0BEE1896D32900ADC5EE /* CountdownViewController.m */,
 			);
 			name = Multiplayer;
 			sourceTree = "<group>";
@@ -465,8 +479,10 @@
 				03156E9318902F26006D04FC /* statistic@2x.png */,
 				95DE35861885901A00BF8CB3 /* question_background.png */,
 				03156E97189032AC006D04FC /* highscore@2x.png */,
+				0357E1461896DDEF00C44767 /* Multiplayer@2x.png */,
 				03156E9D18904D76006D04FC /* infinity@2x.png */,
 				03156EA1189054AF006D04FC /* 1Minute@2x.png */,
+				0357E1441896D8D800C44767 /* bestOf10@2x.png */,
 				95DE358418858F5D00BF8CB3 /* sol_background.png */,
 				95DE3588188594F300BF8CB3 /* sol_background_correct.png */,
 				03ECD3E9188BF85300802A1B /* profile@2x.png */,
@@ -511,7 +527,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				95550A9C1892C70C00F9B8ED /* ThoMoNetworking.framework */,
+				758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */,
 				757862BA188ED40D00F21292 /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
@@ -602,6 +618,8 @@
 				95EECE90188AD8270069CE74 /* SolutionManager.m */,
 				9505F3361891599400A1858F /* MultiplayerManager.h */,
 				9505F3371891599400A1858F /* MultiplayerManager.m */,
+				75BC57A41891C211003081CE /* NetworkManager.h */,
+				75BC57A51891C211003081CE /* NetworkManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -696,6 +714,7 @@
 				03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */,
 				03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
+				0357E1471896DDEF00C44767 /* Multiplayer@2x.png in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,
 				95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */,
 				95DE358B188594F300BF8CB3 /* sol_background_correct.png in Resources */,
@@ -713,6 +732,7 @@
 				95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */,
 				2078D1E5188F417B005C60E6 /* APIViewController.xib in Resources */,
 				03156EA2189054AF006D04FC /* 1Minute@2x.png in Resources */,
+				0357E1451896D8D800C44767 /* bestOf10@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -738,11 +758,13 @@
 				95E75A54187C162800FFE5AD /* L2P_Quiz.xcdatamodeld in Sources */,
 				95F654141886952C00014005 /* RatingViewController.m in Sources */,
 				958F8DF918854B2B00F87F00 /* SelectCourseViewController.m in Sources */,
+				75BC57A61891C211003081CE /* NetworkManager.m in Sources */,
 				95E75A51187C162800FFE5AD /* AppDelegate.m in Sources */,
 				958F8DFC1885563800F87F00 /* GameViewController.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
 				959A2DDA18940B4F0036586A /* UserManager.m in Sources */,
 				401EDABD188817D40091AD0A /* Courses.m in Sources */,
+				758E0BEF1896D32900ADC5EE /* CountdownViewController.m in Sources */,
 				750496391890542C00FD8C76 /* HostViewController.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
@@ -880,9 +902,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anton Atanasov (R6VZ75DYSW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anton Atanasov (R6VZ75DYSW)";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/claudebemtgen/iPhone/L2P-Quiz",
-					"/Users/emil/Documents/Projects/iOS/l2p-quiz/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";
@@ -910,9 +931,8 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Anton Atanasov (R6VZ75DYSW)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Anton Atanasov (R6VZ75DYSW)";
 				FRAMEWORK_SEARCH_PATHS = (
+					"$(SRCROOT)",
 					"$(inherited)",
-					"/Users/claudebemtgen/iPhone/L2P-Quiz",
-					"/Users/emil/Documents/Projects/iOS/l2p-quiz/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";

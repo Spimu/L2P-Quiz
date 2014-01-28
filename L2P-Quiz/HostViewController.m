@@ -8,35 +8,41 @@
 
 #import "HostViewController.h"
 
-@interface HostViewController ()
+@interface HostViewController () {
+    
+    AppDelegate *appDelegate;
+    
+}
 
 @end
 
 @implementation HostViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.nameTextField.text = [[UIDevice currentDevice] name];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+
+    appDelegate.networkManager = [[NetworkManager alloc]initWithRole:@"server" andName:self.nameTextField.text];
+    appDelegate.networkManager.serverDelegate = self;
+    [self.tableView setDelegate:appDelegate.networkManager];
+    [self.tableView setDataSource:appDelegate.networkManager];
+    
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Stop Server" style:UIBarButtonItemStyleBordered target:self action:@selector(stopServer:)];
+    self.navigationItem.leftBarButtonItem=newBackButton;
+
 	
-    server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
-	[server setDelegate:self];
-	[server start];
+}
+
+-(void)stopServer:(UIBarButtonItem *)sender {
+    [appDelegate.networkManager stopServer];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated {
-    [server stop];
-}
-- (IBAction)stopServer:(id)sender {
-    [server stop];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,46 +51,28 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark delegate methods
-
-/// Connection notification (optional)
-- (void)client:(ThoMoClientStub *)theClient didConnectToServer:(NSString *)aServerIdString{
-    
+#pragma mark Network delegate implementation
+-(void)updateTableView {
+    [self.tableView reloadData];
 }
 
-#pragma mark table view delegate methods
+- (IBAction)openCourses:(id)sender {
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [server.connectedClients count];
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-    
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    if ([[segue identifier] isEqualToString:@"multiplayer"]) {
+        [[segue destinationViewController]setDetailItem:@"multi"];
     }
-    
-    cell.textLabel.text = [server.connectedClients objectAtIndex:indexPath.row];
-    return cell;
 }
 
-- (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString{
-    
-    [self.tableView reloadData];
+- (IBAction)startGame:(id)sender {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        CountdownViewController *viewController = (CountdownViewController *)[storyboard instantiateViewControllerWithIdentifier:@"countdown"];
+        [self presentViewController:viewController animated:YES completion:nil];
 }
 
-- (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage{
-    [self.tableView reloadData];
-    
-}
 
-- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
-    NSLog(@"%@", @"Server Shutdown");
-}
 
 @end

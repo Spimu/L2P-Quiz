@@ -7,14 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ThoMoNetworking/ThoMoNetworking.h>
+#import "AppDelegate.h"
+#import "NetworkManager.h"
 
-@interface JoinViewController : UIViewController <ThoMoClientDelegateProtocol> {
-    ThoMoClientStub	*client;
-}
+@interface JoinViewController : UIViewController <NetworkManagerClientDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *joinGameButton;
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
+
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (weak, nonatomic) IBOutlet UILabel *serverStatus;
 
 @end

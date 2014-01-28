@@ -7,13 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <ThoMoNetworking/ThoMoNetworking.h>  
+#import "AppDelegate.h"
+#import "NetworkManager.h"
+#import "SelectCourseViewController.h"
+#import "CountdownViewController.h"
 
-@interface HostViewController : UIViewController <ThoMoServerDelegateProtocol, UITableViewDelegate, UITableViewDataSource>
+
+@interface HostViewController : UIViewController <NetworkManagerServerDelegate>
 {
-    ThoMoServerStub	*server;
+    
 }
+
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *selectCourse;
 
 @end
