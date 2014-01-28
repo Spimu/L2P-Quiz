@@ -56,24 +56,36 @@
     [self.tableView reloadData];
 }
 
-- (IBAction)openCourses:(id)sender {
-
-}
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([[segue identifier] isEqualToString:@"multiplayer"]) {
         [[segue destinationViewController]setDetailItem:@"multi"];
-        [[segue destinationViewController]setSelectedCoursesforMultiplayer:[appDelegate.networkManager selectedMultiplayerCourses]];
+        [[segue destinationViewController]setSelectedCoursesforMultiplayer:[appDelegate.networkManager selectedCoursesByHost]];
     }
 }
 
 - (IBAction)startGame:(id)sender {
+    
+    
+    if (!appDelegate.networkManager.selectedCoursesByHost || !appDelegate.networkManager.selectedCoursesByHost.count){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"You have not chosen any courses." delegate:self cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
+//    } else if (!appDelegate.server.connectedClients || !appDelegate.server.connectedClients.count) {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+//                                                    message:@"No clients are connected to the server." delegate:self cancelButtonTitle:@"Cancel"
+//                                          otherButtonTitles:@"OK", nil];
+//        [alert show];
+    } else {
+        [appDelegate.networkManager gameWasStarted];
+    }
+}
+
+-(void)gameHasBeenStarted {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         CountdownViewController *viewController = (CountdownViewController *)[storyboard instantiateViewControllerWithIdentifier:@"countdown"];
         [self presentViewController:viewController animated:YES completion:nil];
 }
-
-
 
 @end

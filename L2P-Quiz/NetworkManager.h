@@ -12,13 +12,13 @@
 
 @protocol NetworkManagerServerDelegate <NSObject>
 -(void)updateTableView;
+-(void)gameHasBeenStarted;
 @end
 
 @protocol NetworkManagerClientDelegate <NSObject>
 -(void)connectionToServerEstablished;
 -(void)connectionToServerAborted;
-
-
+-(void)gameHasBeenStarted;
 @end
 
 
@@ -29,11 +29,13 @@
 
 @property (assign) id<NetworkManagerServerDelegate> serverDelegate;
 @property (assign) id<NetworkManagerClientDelegate> clientDelegate;
-@property (nonatomic) NSMutableArray *selectedMultiplayerCourses;
+@property (nonatomic) NSMutableArray *selectedCoursesByHost;
+@property (nonatomic) NSMutableArray *selectedCoursesSentToClients;
 
 -(id)initWithRole:(NSString*)role andName:(NSString*)name;
 -(void)stopServer;
 -(void)stopClient;
+-(void)gameWasStarted;
 
 
 @end

@@ -61,9 +61,12 @@
     
 }
 
-
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onServer:(ThoMoServerStub *)theServer{
     NSLog(@"Error on server: %@", errorMessage);
+}
+
+- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
+    [self.clientDelegate connectionToServerAborted];
 }
 
 -(void)server:(ThoMoServerStub *)theServer didReceiveData:(id)theData fromClient:(NSString *)aClientIdString {
@@ -78,9 +81,7 @@
     [self.serverDelegate updateTableView];
 }
 
-- (void)serverDidShutDown:(ThoMoServerStub *)theServer{
-    [self.clientDelegate connectionToServerAborted];
-}
+
 
 
 
@@ -97,7 +98,6 @@
     NSLog(@"%@", @"Client disconnected from server");
 }
 
-
 - (void)clientDidShutDown:(ThoMoClientStub *)theClient {
     [self.clientDelegate connectionToServerAborted];
 }
@@ -111,10 +111,33 @@
     
     NSString *command = [[commands allKeys]objectAtIndex:0];
     if ([command isEqualToString:@"tellMeYourName"]) {
-        NSMutableDictionary *clientcommands = [[NSMutableDictionary alloc]initWithObjectsAndKeys:[[UIDevice currentDevice] name],@"myName", nil];
-        [appDelegate.client send:clientcommands toServer:aServerIdString];
+        NSMutableDictionary *clientreplies = [[NSMutableDictionary alloc]initWithObjectsAndKeys:[[UIDevice currentDevice] name],@"myName", nil];
+        [appDelegate.client send:clientreplies toServer:aServerIdString];
+    } else if ([command isEqualToString:@"gameStarts"]){
+        [self.selectedCoursesSentToClients addObjectsFromArray:self.selectedCoursesSentToClients];
+        [self.clientDelegate gameHasBeenStarted];
     }
     
+}
+
+#pragma mark Easy ThoMo Actions
+
+-(void)stopServer{
+    [appDelegate.server stop];
+    NSLog(@"%@", @"Server shut down");
+    
+}
+
+-(void)stopClient{
+    [appDelegate.client stop];
+    NSLog(@"%@", @"Client shut down");
+}
+
+-(void)gameWasStarted {
+    [self.serverDelegate gameHasBeenStarted];
+    
+    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:self.selectedCoursesByHost,@"gameStarts", nil];
+    [appDelegate.server sendToAllClients:command];
 }
 
 
@@ -145,18 +168,7 @@
     return cell;
 }
 
-#pragma mark Easy ThoMo Actions
 
--(void)stopServer{
-    [appDelegate.server stop];
-    NSLog(@"%@", @"Server shut down");
-    
-}
-
--(void)stopClient{
-    [appDelegate.client stop];
-    NSLog(@"%@", @"Client shut down");
-}
 
 
 @end

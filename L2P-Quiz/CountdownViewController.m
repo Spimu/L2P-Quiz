@@ -7,6 +7,7 @@
 //
 
 #import "CountdownViewController.h"
+#import "LoginViewController.h"
 
 @interface CountdownViewController ()
 
@@ -36,7 +37,6 @@
         self.countdownLabel.text = [NSString stringWithFormat:@"%i", time];
     } else {
         [timer invalidate];
-        //ToDO, Spiel startet
         NSLog(@"%@", @"Start");
     }
     

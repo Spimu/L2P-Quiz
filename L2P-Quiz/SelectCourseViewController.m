@@ -63,7 +63,7 @@
 }
 
 -(void)madeSelection:(UIBarButtonItem *)sender {
-    [appDelegate.networkManager setSelectedMultiplayerCourses:_allSelectedCourses];
+    [appDelegate.networkManager setSelectedCoursesByHost:_allSelectedCourses];
     [self.navigationController popViewControllerAnimated:YES];
 }
 

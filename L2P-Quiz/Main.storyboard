@@ -250,7 +250,6 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="openCourses:" destination="wVI-dl-y4f" eventType="touchUpInside" id="aRY-P1-JmY"/>
                                     <segue destination="ywD-l2-pPq" kind="push" identifier="multiplayer" id="oNh-j5-fUB"/>
                                 </connections>
                             </button>
@@ -1076,6 +1075,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="CTd-as-R1r"/>
-        <segue reference="khO-oK-d62"/>
+        <segue reference="oNh-j5-fUB"/>
     </inferredMetricsTieBreakers>
 </document>
