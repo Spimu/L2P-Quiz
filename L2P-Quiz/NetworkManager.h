@@ -29,6 +29,7 @@
 
 @property (assign) id<NetworkManagerServerDelegate> serverDelegate;
 @property (assign) id<NetworkManagerClientDelegate> clientDelegate;
+@property (nonatomic) NSMutableArray *selectedMultiplayerCourses;
 
 -(id)initWithRole:(NSString*)role andName:(NSString*)name;
 -(void)stopServer;

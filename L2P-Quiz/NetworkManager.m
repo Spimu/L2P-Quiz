@@ -142,7 +142,6 @@
     cell.textLabel.text  = providerNameString;
     cell.detailTextLabel.text  = providerIdString;
     
-    //cell.textLabel.text = [clients objectAtIndex:indexPath.row];
     return cell;
 }
 

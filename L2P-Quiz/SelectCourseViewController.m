@@ -9,7 +9,9 @@
 #import "SelectCourseViewController.h"
 #import "UserManager.h"
 
-@interface SelectCourseViewController ()
+@interface SelectCourseViewController () {
+    AppDelegate *appDelegate;
+}
 
 @property (nonatomic) NSMutableArray *allSelectedCourses;
 
@@ -40,12 +42,18 @@
     //TODO:
     //_allCourses = [L2PManager getAllCoursesOfThisYear];
     
+     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
     
     _allSelectedCourses = [[NSMutableArray alloc] init];
+     NSLog(@"array: %@", self.selectedCoursesforMultiplayer);
     
     if ([_detailItem isEqualToString:@"multi"]) {
-        //[self.startButton setTitle:@"Enter" forState:UIControlStateNormal];
+        
+        [_allSelectedCourses addObjectsFromArray:self.selectedCoursesforMultiplayer];
+        
+        [self.startButton setTitle:@"Enter" forState:UIControlStateNormal];
         
         UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Save selected courses" style:UIBarButtonItemStyleBordered target:self action:@selector(madeSelection:)];
         self.navigationItem.leftBarButtonItem=newBackButton;
@@ -55,7 +63,7 @@
 }
 
 -(void)madeSelection:(UIBarButtonItem *)sender {
-    //SAVE COURSES SOMEWHERE
+    [appDelegate.networkManager setSelectedMultiplayerCourses:_allSelectedCourses];
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -114,6 +122,14 @@
     }
     
     cell.textLabel.text = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    
+    if ([_detailItem isEqualToString:@"multi"]) {
+        
+            if ( [self.selectedCoursesforMultiplayer containsObject:[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row]  ] ) {
+                cell.accessoryType = UITableViewCellAccessoryCheckmark;
+            }
+    }
+    
     return cell;
 }
 

@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "SingleGameManager.h"
+#import "AppDelegate.h"
+#import "NetworkManager.h"
 
 @interface SelectCourseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 
 - (IBAction)startPressed:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *startButton;
 @property (strong, nonatomic) id detailItem;
+@property (strong, nonatomic) id selectedCoursesforMultiplayer;
 
 @end

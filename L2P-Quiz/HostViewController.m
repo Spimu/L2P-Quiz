@@ -64,6 +64,7 @@
 {
     if ([[segue identifier] isEqualToString:@"multiplayer"]) {
         [[segue destinationViewController]setDetailItem:@"multi"];
+        [[segue destinationViewController]setSelectedCoursesforMultiplayer:[appDelegate.networkManager selectedMultiplayerCourses]];
     }
 }
 
