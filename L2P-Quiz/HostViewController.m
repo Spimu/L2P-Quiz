@@ -66,6 +66,9 @@
         [[segue destinationViewController]setDetailItem:@"multi"];
         [[segue destinationViewController]setSelectedCoursesforMultiplayer:[appDelegate.networkManager selectedCoursesByHost]];
     }
+    if ([[segue identifier] isEqualToString:@"multiplayerSegue"]) {
+        [[segue destinationViewController] setMultiplayerManager:appDelegate.networkManager.multiplayerManager];
+    }
 }
 
 - (IBAction)startGame:(id)sender {
@@ -132,12 +135,12 @@
 
 -(void)gameHasBeenStarted {
     
-    MultiGameViewController *gameViewController = [[MultiGameViewController alloc]init];
-    [gameViewController setMultiplayerManager:appDelegate.networkManager.multiplayerManager];
-    
-    [self.navigationController pushViewController:gameViewController animated:YES];
+    [self performSegueWithIdentifier:@"multiplayerSegue" sender:nil];
+
+    //[self.navigationController pushViewController:gameViewController animated:YES];
     
 
 }
+
 
 @end
