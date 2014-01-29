@@ -14,8 +14,13 @@
 @property (nonatomic) NSArray *tenQuestionIds;
 @property (nonatomic) int currentQuestionNumber;
 
-//This function initializes all our properties above
+// This function initializes all our properties above
+// !! THIS FUNCTION IS USED BY THE HOST !!
 - (void) initializeQuestionsWithCourses:(NSArray *)courses;
+
+// This function initializes all our properties above
+// !! THIS FUNCTION IS USED BY THE CLIENT !!
+- (void) initializeQuestionsWithTenQuestionArray:(NSArray *)arrayThatContainsTenQuestionIds;
 
 //This function returns if the answer was correct, and saves our solution in the questiosnWithSolutions-array
 - (BOOL) currentQuestionWasAnsweredCorrectlyWithSolution:(NSString *)solution;

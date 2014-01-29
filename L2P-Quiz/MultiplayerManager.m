@@ -65,6 +65,20 @@
 
 
 
+- (void) initializeQuestionsWithTenQuestionArray:(NSArray *)arrayThatContainsTenQuestionIds
+{
+    //Initialize the starting questoinNumber
+    _currentQuestionNumber = 0;
+    
+    //Initalize our solutionArray
+    _questionsWithSolutions = [[NSMutableArray alloc] init];
+    
+    // Initialize our tenQuestionIdArray
+    _tenQuestionIds = [NSArray arrayWithArray:arrayThatContainsTenQuestionIds];
+}
+
+
+
 
 - (BOOL) currentQuestionWasAnsweredCorrectlyWithSolution:(NSString*)solution
 {
