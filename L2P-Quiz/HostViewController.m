@@ -11,11 +11,11 @@
 
 
 @interface HostViewController () {
-    
     AppDelegate *appDelegate;
     NSTimer *timer;
     int time;
-    
+    UILabel *timerLabel;
+    UIView *timerView;
 }
 
 @end
@@ -74,34 +74,63 @@
 - (IBAction)startGame:(id)sender {
     
     
-//    if (!appDelegate.networkManager.selectedCoursesByHost || !appDelegate.networkManager.selectedCoursesByHost.count){
-//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                        message:@"You have not chosen any courses." delegate:self cancelButtonTitle:@"Cancel"
-//                                              otherButtonTitles:@"OK", nil];
-//        [alert show];
+    if (!appDelegate.networkManager.selectedCoursesByHost || !appDelegate.networkManager.selectedCoursesByHost.count){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:@"You have not chosen any courses." delegate:self cancelButtonTitle:@"Cancel"
+                                              otherButtonTitles:@"OK", nil];
+        [alert show];
 //    } else if (!appDelegate.server.connectedClients || !appDelegate.server.connectedClients.count) {
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 //                                                    message:@"No clients are connected to the server." delegate:self cancelButtonTitle:@"Cancel"
 //                                          otherButtonTitles:@"OK", nil];
 //        [alert show];
-//    } else {
+    } else {
     
-        //Timer until game starts
+    //Timer until game starts
+        // Window bounds.
+        CGRect frame = self.view.frame;
         
-//        // Window bounds.
-//        CGRect frame = self.view.frame;
-//        
-//        // Create a view and add it to the window.
-//        UIView* timerView = [[UIView alloc] initWithFrame: frame];
-//        [timerView setBackgroundColor: [UIColor colorWithRed:0.231 green:0.49 blue:0.87 alpha:1.0]];
-//        [self.view addSubview:timerView];
-//    
-//        UILabel *timerLabel = [[UILabel alloc]init];
-//    
-//        [self.navigationController setNavigationBarHidden:YES];
+        // Create a view and add it to the window.
+        timerView = [[UIView alloc] initWithFrame: frame];
+        [timerView setBackgroundColor: [UIColor colorWithRed:0.231 green:0.49 blue:0.87 alpha:1.0]];
+        [self.view addSubview:timerView];
+        
+        UILabel *startText = [[UILabel alloc] initWithFrame:CGRectMake(90, 120, 200, 25)];
+        startText.text = [NSString stringWithFormat:@"The game starts in"];
+        startText.textAlignment = NSTextAlignmentCenter;
+        startText.textColor = [UIColor whiteColor];
+        startText.font = [UIFont systemFontOfSize:20.0];
+        [timerView addSubview:startText];
+    
+        timerLabel = [[UILabel alloc]initWithFrame: CGRectMake(133, 200, 55, 63)];
+        timerLabel.textAlignment = NSTextAlignmentCenter;
+        timerLabel.textColor = [UIColor whiteColor];
+        timerLabel.font = [UIFont systemFontOfSize:60.0];
+        [timerView addSubview:timerLabel];
+    
+        time = 5;
+        timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDownDuration) userInfo:Nil repeats:YES];
 
+        [self.navigationController setNavigationBarHidden:YES];
+
+    
+    }
+}
+
+-(void)countDownDuration{
+    if (time > 0) {
+        time -= 1;
+        timerLabel.text = [NSString stringWithFormat:@"%i", time];
+    } else {
+        [timer invalidate];
+        //start game
+        [timerView removeFromSuperview];
+        [self.navigationController setNavigationBarHidden:NO];
+        
         [appDelegate.networkManager gameWasStarted];
-//    }
+        NSLog(@"%@", @"Start");
+    }
+    
 }
 
 -(void)gameHasBeenStarted {
