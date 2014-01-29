@@ -98,10 +98,12 @@
     _currentQuestionNumber++;
     
     //Check if the answer was correct
-    if ([[[question valueForKey:@"question"] stringValue] isEqualToString:[[question valueForKey:@"corr_sol"] stringValue]])
+    if ([[tempDict valueForKey:@"own_sol"] isEqualToString:[tempDict valueForKey:@"corr_sol"]])
     {
         return YES;
     }
+    
+    NSLog(@"QuestionNumber: %d",_currentQuestionNumber);
 
     return NO;
 }

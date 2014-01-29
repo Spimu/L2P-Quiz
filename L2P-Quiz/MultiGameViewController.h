@@ -34,4 +34,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *questionIV;
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
+@property (nonatomic) BOOL solutionSelected;
+
 @end

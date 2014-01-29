@@ -126,6 +126,8 @@
 //        [self pauseTimer:_timer];
 //    }
     
+    _solutionSelected = YES;
+    
     //Checks if the answer was right
     [self performSelector:@selector(checkIfRight:) withObject:sender afterDelay:1.0];
     
@@ -133,8 +135,6 @@
 //    NSTimeInterval delay = 3.0;
 //    
 //    [self performSelector:@selector(hideQuestion) withObject:self afterDelay:delay];
-    
-    [self.view setUserInteractionEnabled:YES];
 }
 
 
@@ -142,36 +142,34 @@
 - (void) checkIfRight:(id)sender
 {
     
-    NSLog(@"Checking if right");
-//    BOOL answerWasCorrect = NO;
-//    UIButton *senderButton = (UIButton *)sender;
-//    NSString *correctSolution = [[[SingleGameManager sharedManager] currentQuestion] valueForKey:@"corr_sol"];
-//    
-//    
-//    //Inform the SolutionManager about the answer
-//    [_solManager answeredQuestion:[[SingleGameManager sharedManager] currentQuestion] withOwnSolution:senderButton.titleLabel.text];
-//    
-//    
-//    //Displays the right answer
-//    int senderTag = [senderButton tag];
-//    UIImageView *correctIV = (UIImageView *)[self.view viewWithTag:senderTag-10];
-//    if (answerWasCorrect)
-//    {
-//        [correctIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
-//    }
-//    else
-//    {
-//        [correctIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
-//        for (int i = 11; i < 15; i++)
-//        {
-//            UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
-//            if ([tempButton.titleLabel.text isEqualToString:correctSolution])
-//            {
-//                UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
-//                [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
-//            }
-//        }
-//    }
+    UIButton *senderButton = (UIButton *)sender;
+    BOOL answerWasCorrect = [_multiplayerManager currentQuestionWasAnsweredCorrectlyWithSolution:senderButton.titleLabel.text];
+    
+    int questionNumber = [_multiplayerManager currentQuestionNumber]-1;
+    NSString *correctSolution = [[_multiplayerManager questionsWithSolutions][questionNumber] valueForKey:@"corr_sol"];
+ 
+    NSLog(correctSolution);
+    
+    //Displays the right answer
+    int senderTag = [senderButton tag];
+    UIImageView *correctIV = (UIImageView *)[self.view viewWithTag:senderTag-10];
+    if (answerWasCorrect)
+    {
+        [correctIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
+    }
+    else
+    {
+        [correctIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
+        for (int i = 11; i < 15; i++)
+        {
+            UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
+            if ([tempButton.titleLabel.text isEqualToString:correctSolution])
+            {
+                UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
+                [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
+            }
+        }
+    }
 }
 
 
@@ -179,8 +177,10 @@
 //TODO: check if we are in ?/10-mode and if we reached the last question
 - (void) checkIfLastQuestion
 {
-            [_timer invalidate];
-            //[self performSegueWithIdentifier:@"resultSegue" sender:self];
+    if ([_multiplayerManager currentQuestionNumber] == 10) {
+        [_timer invalidate];
+        //[self performSegueWithIdentifier:@"resultSegue" sender:self];
+    }
 }
 
 
@@ -273,6 +273,8 @@
     [_sol3_IV setImage:[UIImage imageNamed:@"sol_background"]];
     [_sol4_IV setImage:[UIImage imageNamed:@"sol_background"]];
     
+    [self.view setUserInteractionEnabled:YES];
+    
     //TODO: set question
     [self setQuestionWithAnswers];
     
@@ -353,16 +355,31 @@
 {
     if ([_rightTopLabel.text isEqualToString:@"0"])
     {
-        _rightTopLabel.text = @"10";
+        [_timer invalidate];
+        [self performSelector:@selector(resetTimer) withObject:self afterDelay:2.0];
         
-        //Abfrage, ob letzte Frage oder nächste Frage
+        [self.view setUserInteractionEnabled:NO];
         
-      [self performSelector:@selector(hideQuestion) withObject:self afterDelay:1.0];
+        if (!_solutionSelected) {
+            [_multiplayerManager currentQuestionWasAnsweredCorrectlyWithSolution:@"NOT ANSWERED"];
+        }
+        
+        [self performSelector:@selector(hideQuestion) withObject:self afterDelay:1.0];
     }
     else
     {
         [_rightTopLabel setText:[NSString stringWithFormat:@"%d",[[_rightTopLabel text] integerValue]-1]];
     }
+}
+
+
+- (void) resetTimer
+{
+    _rightTopLabel.text = @"10";
+    
+    _solutionSelected = NO;
+    
+    [self startTimer];
 }
 
 
