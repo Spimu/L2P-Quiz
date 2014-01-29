@@ -22,6 +22,10 @@
 -(void)gameHasBeenStarted;
 @end
 
+@protocol NetworkManagerScoreDelegate <NSObject>
+-(void)scoresHaveBeenComputed:(NSDictionary*)allScores;
+@end
+
 
 
 @interface NetworkManager : NSObject <ThoMoServerDelegateProtocol, ThoMoClientDelegateProtocol, UITableViewDelegate, UITableViewDataSource>{
@@ -30,6 +34,7 @@
 
 @property (assign) id<NetworkManagerServerDelegate> serverDelegate;
 @property (assign) id<NetworkManagerClientDelegate> clientDelegate;
+@property (assign) id<NetworkManagerScoreDelegate> scoreDelegate;
 @property (nonatomic) NSMutableArray *selectedCoursesByHost;
 @property (nonatomic) NSMutableArray *selectedCoursesSentToClients;
 @property (nonatomic) MultiplayerManager *multiplayerManager;
@@ -39,6 +44,7 @@
 -(void)stopClient;
 -(void)gameWasStarted;
 -(void)notifyClientThatGameWasStarted;
+-(void)sendScoreToHost:(NSNumber*)score;
 
 
 @end

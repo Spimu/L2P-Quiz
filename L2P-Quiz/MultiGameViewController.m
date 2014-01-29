@@ -8,7 +8,10 @@
 
 #import "MultiGameViewController.h"
 
-@interface MultiGameViewController ()
+@interface MultiGameViewController () {
+    
+    AppDelegate *appDelegate;
+}
 
 @property (nonatomic) UILabel *rightTopLabel;
 @property (nonatomic) NSTimer *timer;
@@ -35,6 +38,7 @@
     [super viewDidLoad];
     
     [self initSingleGame];
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 }
 
 
@@ -179,7 +183,18 @@
 {
     if ([_multiplayerManager currentQuestionNumber] == 10) {
         [_timer invalidate];
-        //[self performSegueWithIdentifier:@"resultSegue" sender:self];
+        
+        //Calculate final score
+        int i = 0;
+        for (id scores in [_multiplayerManager questionsWithSolutions]) {
+            
+            if ([[scores objectForKey:@"corr_sol"] isEqualToString:[scores objectForKey:@"own_sol"] ]) {
+                i++;
+            }
+        }
+        
+        [appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:i]];
+        [self performSegueWithIdentifier:@"resultSegue" sender:self];
     }
 }
 

@@ -15,6 +15,7 @@
     AppDelegate *appDelegate;
     NSMutableDictionary *clients;
     NSString *playerName;
+    NSMutableDictionary *allClientsScores;
 }
 
 - (id)initWithRole:(NSString*)role andName:(NSString*)name {
@@ -75,10 +76,24 @@
     NSString *command = [[commands allKeys]objectAtIndex:0];
     if ([command isEqualToString:@"myName"]) {
         playerName = [commands objectForKey:@"myName"];
+        [clients setObject:playerName forKey:aClientIdString];
+        [self.serverDelegate updateTableView];
+        
+    } else if ([command isEqualToString:@"myScore"]) {
+        allClientsScores = [[NSMutableDictionary alloc]init];
+        [allClientsScores setObject:theData forKey:aClientIdString];
+        
+        NSSet *set1 = [NSSet setWithArray:[allClientsScores allKeys]];
+        NSSet *set2 = [NSSet setWithArray:[appDelegate.server connectedClients]];
+        
+        if ([set1 isEqualToSet:set2]) {
+            [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
+            
+            NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:allClientsScores,@"updateYourScore", nil];
+        [   appDelegate.server sendToAllClients:command];
+            
+        }
     }
-    
-    [clients setObject:playerName forKey:aClientIdString];
-    [self.serverDelegate updateTableView];
 }
 
 
@@ -121,8 +136,11 @@
         [_multiplayerManager initializeQuestionsWithTenQuestionArray:[commands objectForKey:@"gameStarts"]];
         
         [self.clientDelegate gameHasBeenStarted];
-    }
+    } else if ([command isEqualToString:@"updateYourScore"]){
     
+        [self.scoreDelegate scoresHaveBeenComputed:[commands objectForKey:@"updateYourScore"]];
+        
+    }
 }
 
 #pragma mark NetworkManager Methods Implementation
@@ -153,6 +171,15 @@
     
     NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:arrayToSend,@"gameStarts", nil];
     [appDelegate.server sendToAllClients:command];
+}
+
+-(void)sendScoreToHost:(NSNumber*)score {
+    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:score,@"myScore", nil];
+    [appDelegate.client sendToAllServers:command];
+    if (!appDelegate.server) {
+        allClientsScores = [[NSMutableDictionary alloc]init];
+        [allClientsScores setObject:score forKey:[[UIDevice currentDevice] name]];
+    }
 }
 
 

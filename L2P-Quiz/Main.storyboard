@@ -279,44 +279,6 @@
             </objects>
             <point key="canvasLocation" x="165" y="-2303"/>
         </scene>
-        <!--Countdown View Controller-->
-        <scene sceneID="rw4-d9-rtr">
-            <objects>
-                <viewController storyboardIdentifier="countdown" id="D50-Kk-1fB" customClass="CountdownViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="yIv-2y-RSe"/>
-                        <viewControllerLayoutGuide type="bottom" id="ABX-cL-vnQ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="1aZ-lf-zAk">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game starts in" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhG-tj-2td">
-                                <rect key="frame" x="104" y="120" width="112" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VGQ-NK-tQ3">
-                                <rect key="frame" x="133" y="200" width="55" height="63"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="0.28627452250000002" green="0.63137257099999999" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="WQl-Gn-hw2"/>
-                    <connections>
-                        <outlet property="countdownLabel" destination="VGQ-NK-tQ3" id="dcG-uW-BcA"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Hxp-A5-wVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="766" y="-1843"/>
-        </scene>
         <!--Join View Controller-->
         <scene sceneID="sKt-PE-qcY">
             <objects>
@@ -994,7 +956,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1EI-KA-U7f"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="DAk-MD-db3">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -1131,6 +1093,7 @@
                                 </state>
                                 <connections>
                                     <action selector="sol3Pressed:" destination="TVU-Sg-56V" eventType="touchUpInside" id="r7g-Bh-OPM"/>
+                                    <segue destination="ScV-U9-i85" kind="push" identifier="resultSegue" id="kbO-dY-c6S"/>
                                 </connections>
                             </button>
                             <button hidden="YES" opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcl-mZ-ukI" userLabel="sol4_button">
@@ -1165,7 +1128,43 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mxt-af-X9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1252" y="-1843"/>
+            <point key="canvasLocation" x="768" y="-1935"/>
+        </scene>
+        <!--Score View Controller-->
+        <scene sceneID="vHh-Lw-Wg3">
+            <objects>
+                <viewController id="ScV-U9-i85" customClass="ScoreViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8Yo-vy-wPq"/>
+                        <viewControllerLayoutGuide type="bottom" id="4b1-IU-yll"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MeU-HU-Wg4">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Scores" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBI-aN-fsq">
+                                <rect key="frame" x="20" y="20" width="54" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sRA-C2-Gms">
+                                <rect key="frame" x="20" y="77" width="280" height="398"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.28627452250000002" green="0.63137257099999999" blue="0.92941182850000004" alpha="1" colorSpace="deviceRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zfi-a4-NCA"/>
+                    <connections>
+                        <outlet property="scoreTableView" destination="sRA-C2-Gms" id="zC4-RL-WAa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jFG-jk-Bal" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1260" y="-1935"/>
         </scene>
     </scenes>
     <resources>
@@ -1188,8 +1187,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="CTd-as-R1r"/>
+        <segue reference="wi2-xx-H1b"/>
         <segue reference="oNh-j5-fUB"/>
-        <segue reference="Tht-B0-dyF"/>
+        <segue reference="wmP-kS-GDw"/>
     </inferredMetricsTieBreakers>
 </document>
