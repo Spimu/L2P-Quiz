@@ -7,7 +7,7 @@
 //
 
 #import "CountdownViewController.h"
-#import "LoginViewController.h"
+#import "GameViewController.h"
 
 @interface CountdownViewController ()
 
@@ -38,6 +38,11 @@
     } else {
         [timer invalidate];
         NSLog(@"%@", @"Start");
+        
+        [self dismissViewControllerAnimated:NO completion:^{
+            GameViewController *game = [[GameViewController alloc] init];
+            [self.navigationController pushViewController:game animated:YES];
+        }];
     }
     
 }

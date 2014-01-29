@@ -7,6 +7,7 @@
 //
 
 #import "HostViewController.h"
+#import "GameViewController.h"
 
 @interface HostViewController () {
     
@@ -83,9 +84,12 @@
 }
 
 -(void)gameHasBeenStarted {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        CountdownViewController *viewController = (CountdownViewController *)[storyboard instantiateViewControllerWithIdentifier:@"countdown"];
-        [self presentViewController:viewController animated:YES completion:nil];
+    
+    GameViewController *game = [[GameViewController alloc] init];
+    [self.navigationController pushViewController:game animated:YES];
+//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//        CountdownViewController *viewController = (CountdownViewController *)[storyboard instantiateViewControllerWithIdentifier:@"countdown"];
+//        [self presentViewController:viewController animated:YES completion:nil];
 }
 
 @end

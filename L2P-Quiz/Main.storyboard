@@ -314,7 +314,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hxp-A5-wVO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-2303"/>
+            <point key="canvasLocation" x="766" y="-1843"/>
         </scene>
         <!--Join View Controller-->
         <scene sceneID="sKt-PE-qcY">
@@ -644,7 +644,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Quw-Id-bHv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="462" y="-937"/>
+            <point key="canvasLocation" x="496" y="-937"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="d4Q-on-Vvm">
@@ -1052,6 +1052,117 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vzD-FA-4P9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1775" y="-335"/>
+        </scene>
+        <!--Multi Game View Controller-->
+        <scene sceneID="vB1-J6-vgL">
+            <objects>
+                <viewController id="TVU-Sg-56V" customClass="MultiGameViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="AAt-RP-E68"/>
+                        <viewControllerLayoutGuide type="bottom" id="MZM-0Q-GSO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="X9t-VV-ukO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="e7D-tw-DRi" userLabel="question_IV">
+                                <rect key="frame" x="0.0" y="-180" width="320" height="284"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="yZe-G0-gfe" userLabel="sol1_IV">
+                                <rect key="frame" x="-400" y="179" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="376-Jz-kjL" userLabel="sol2_IV">
+                                <rect key="frame" x="400" y="239" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="yGV-de-lxx" userLabel="sol3_IV">
+                                <rect key="frame" x="-400" y="299" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" tag="4" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sol_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="aKp-E1-jvZ" userLabel="sol4_IV">
+                                <rect key="frame" x="400" y="359" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What does DIS stand for?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumFontSize="8" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="zgq-U1-mkC">
+                                <rect key="frame" x="20" y="-164" width="280" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button hidden="YES" opaque="NO" clearsContextBeforeDrawing="NO" tag="11" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x7j-fE-oFX" userLabel="sol1_button">
+                                <rect key="frame" x="0.0" y="179" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol1Pressed:" destination="TVU-Sg-56V" eventType="touchUpInside" id="YXg-Dz-asd"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="12" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jrx-WJ-lCu" userLabel="sol2_button">
+                                <rect key="frame" x="0.0" y="239" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol2Pressed:" destination="TVU-Sg-56V" eventType="touchUpInside" id="dcI-9g-jkW"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="13" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCY-YK-GK8" userLabel="sol3_button">
+                                <rect key="frame" x="0.0" y="299" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol3Pressed:" destination="TVU-Sg-56V" eventType="touchUpInside" id="r7g-Bh-OPM"/>
+                                </connections>
+                            </button>
+                            <button hidden="YES" opaque="NO" tag="14" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lcl-mZ-ukI" userLabel="sol4_button">
+                                <rect key="frame" x="0.0" y="359" width="320" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                <state key="normal">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="sol4Pressed:" destination="TVU-Sg-56V" eventType="touchUpInside" id="cGy-pT-hUc"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <navigationItem key="navigationItem" id="a57-kM-jSR"/>
+                    <connections>
+                        <outlet property="questionIV" destination="e7D-tw-DRi" id="jnR-jn-aHM"/>
+                        <outlet property="questionLabel" destination="zgq-U1-mkC" id="Mpl-qw-U2Y"/>
+                        <outlet property="sol1_IV" destination="yZe-G0-gfe" id="fXQ-wm-FE0"/>
+                        <outlet property="sol1_button" destination="x7j-fE-oFX" id="PpM-2p-BZv"/>
+                        <outlet property="sol2_IV" destination="376-Jz-kjL" id="VCe-ZF-b3n"/>
+                        <outlet property="sol2_button" destination="Jrx-WJ-lCu" id="Tlc-0N-TSg"/>
+                        <outlet property="sol3_IV" destination="yGV-de-lxx" id="a4u-Wn-PCz"/>
+                        <outlet property="sol3_button" destination="xCY-YK-GK8" id="Zqp-Ld-XKN"/>
+                        <outlet property="sol4_IV" destination="aKp-E1-jvZ" id="Yxh-ZF-g3C"/>
+                        <outlet property="sol4_button" destination="Lcl-mZ-ukI" id="dW1-xr-CtF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Mxt-af-X9f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-1843"/>
         </scene>
     </scenes>
     <resources>

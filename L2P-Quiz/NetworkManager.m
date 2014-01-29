@@ -114,13 +114,15 @@
         NSMutableDictionary *clientreplies = [[NSMutableDictionary alloc]initWithObjectsAndKeys:[[UIDevice currentDevice] name],@"myName", nil];
         [appDelegate.client send:clientreplies toServer:aServerIdString];
     } else if ([command isEqualToString:@"gameStarts"]){
-        [self.selectedCoursesSentToClients addObjectsFromArray:self.selectedCoursesSentToClients];
+        
+        _multiplayerManager = [[MultiplayerManager alloc] init];
+        
         [self.clientDelegate gameHasBeenStarted];
     }
     
 }
 
-#pragma mark Easy ThoMo Actions
+#pragma mark NetworkManager Methods Implementation
 
 -(void)stopServer{
     [appDelegate.server stop];
@@ -136,7 +138,12 @@
 -(void)gameWasStarted {
     [self.serverDelegate gameHasBeenStarted];
     
-    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:self.selectedCoursesByHost,@"gameStarts", nil];
+    _multiplayerManager = [[MultiplayerManager alloc]init];
+    [_multiplayerManager initializeQuestionsWithCourses:_selectedCoursesByHost];
+    
+    NSArray *arrayToSend = [_multiplayerManager tenQuestionIds];
+    
+    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:arrayToSend,@"gameStarts", nil];
     [appDelegate.server sendToAllClients:command];
 }
 

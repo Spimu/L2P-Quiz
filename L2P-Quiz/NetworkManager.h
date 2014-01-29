@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
 #import <ThoMoNetworking/ThoMoNetworking.h>
+#import "MultiplayerManager.h"
 
 @protocol NetworkManagerServerDelegate <NSObject>
 -(void)updateTableView;
@@ -31,6 +32,7 @@
 @property (assign) id<NetworkManagerClientDelegate> clientDelegate;
 @property (nonatomic) NSMutableArray *selectedCoursesByHost;
 @property (nonatomic) NSMutableArray *selectedCoursesSentToClients;
+@property (nonatomic) MultiplayerManager *multiplayerManager;
 
 -(id)initWithRole:(NSString*)role andName:(NSString*)name;
 -(void)stopServer;
