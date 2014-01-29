@@ -140,6 +140,12 @@
 
 -(void)gameWasStarted {
     
+    
+    [self.serverDelegate gameHasBeenStarted];
+
+}
+
+-(void)notifyClientThatGameWasStarted {
     _multiplayerManager = [[MultiplayerManager alloc]init];
     [_multiplayerManager initializeQuestionsWithCourses:_selectedCoursesByHost];
     
@@ -147,8 +153,6 @@
     
     NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:arrayToSend,@"gameStarts", nil];
     [appDelegate.server sendToAllClients:command];
-    [self.serverDelegate gameHasBeenStarted];
-
 }
 
 

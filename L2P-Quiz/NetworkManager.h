@@ -38,6 +38,7 @@
 -(void)stopServer;
 -(void)stopClient;
 -(void)gameWasStarted;
+-(void)notifyClientThatGameWasStarted;
 
 
 @end

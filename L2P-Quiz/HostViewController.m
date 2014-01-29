@@ -85,8 +85,10 @@
 //                                          otherButtonTitles:@"OK", nil];
 //        [alert show];
     } else {
+        
+        [appDelegate.networkManager notifyClientThatGameWasStarted];
     
-    //Timer until game starts
+        //Timer until game starts
         // Window bounds.
         CGRect frame = self.view.frame;
         
