@@ -10,7 +10,7 @@
 #import "AppDelegate.h"
 #import "NetworkManager.h"
 #import "SelectCourseViewController.h"
-#import "CountdownViewController.h"
+#import "MultiGameViewController.h"
 
 
 @interface HostViewController : UIViewController <NetworkManagerServerDelegate>

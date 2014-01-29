@@ -10,7 +10,6 @@
 
 @interface MultiGameViewController ()
 
-@property (nonatomic) SolutionManager *solManager;
 @property (nonatomic) UILabel *rightTopLabel;
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) NSDate *previousFireDate;
@@ -64,7 +63,6 @@
 - (void) initSingleGame
 {
     //Init the solutionmanager
-    _solManager = [[SolutionManager alloc] init];
     
     //Align all the solutions to the center
     [_sol1_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
@@ -212,9 +210,7 @@
 // Displays the new question
 - (void) setQuestionWithAnswers
 {
-    uint32_t rnd = arc4random_uniform([[[SingleGameManager sharedManager] possibleQuestions] count]);
-    NSManagedObject *questionsObject = [[[SingleGameManager sharedManager] possibleQuestions] objectAtIndex:rnd];
-    [[SingleGameManager sharedManager] setCurrentQuestion:questionsObject];
+    NSManagedObject *questionsObject = [_multiplayerManager getNextQuestion];
     
     NSArray *keyArray = @[@"corr_sol",@"wrong_sol1",@"wrong_sol2",@"wrong_sol3"];
     NSArray *shuffledKeyArray = [self shuffleArray:keyArray];
@@ -447,7 +443,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    [[segue destinationViewController] setSolManager:_solManager];
+    //[[segue destinationViewController] setSolManager:_solManager];
 }
 
 

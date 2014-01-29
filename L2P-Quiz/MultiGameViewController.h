@@ -11,12 +11,15 @@
 #import "RatingViewController.h"
 #import "SolutionManager.h"
 #import "AppDelegate.h"
+#import "MultiplayerManager.h"
 
 @interface MultiGameViewController : UIViewController
 - (IBAction)sol1Pressed:(id)sender;
 - (IBAction)sol2Pressed:(id)sender;
 - (IBAction)sol3Pressed:(id)sender;
 - (IBAction)sol4Pressed:(id)sender;
+
+@property (nonatomic) MultiplayerManager *multiplayerManager;
 
 @property (weak, nonatomic) IBOutlet UIImageView *sol1_IV;
 @property (weak, nonatomic) IBOutlet UIImageView *sol2_IV;

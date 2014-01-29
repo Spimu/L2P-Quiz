@@ -110,12 +110,15 @@
     NSMutableDictionary *commands = theData;
     
     NSString *command = [[commands allKeys]objectAtIndex:0];
+    
     if ([command isEqualToString:@"tellMeYourName"]) {
         NSMutableDictionary *clientreplies = [[NSMutableDictionary alloc]initWithObjectsAndKeys:[[UIDevice currentDevice] name],@"myName", nil];
         [appDelegate.client send:clientreplies toServer:aServerIdString];
+        
     } else if ([command isEqualToString:@"gameStarts"]){
         
         _multiplayerManager = [[MultiplayerManager alloc] init];
+        [_multiplayerManager initializeQuestionsWithTenQuestionArray:[commands objectForKey:@"gameStarts"]];
         
         [self.clientDelegate gameHasBeenStarted];
     }

@@ -38,11 +38,6 @@
     } else {
         [timer invalidate];
         NSLog(@"%@", @"Start");
-        
-        [self dismissViewControllerAnimated:NO completion:^{
-            GameViewController *game = [[GameViewController alloc] init];
-            [self.navigationController pushViewController:game animated:YES];
-        }];
     }
     
 }
