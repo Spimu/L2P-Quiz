@@ -15,11 +15,12 @@
 
 @interface HostViewController : UIViewController <NetworkManagerServerDelegate>
 {
-    
+
 }
 
 @property (weak, nonatomic) IBOutlet UITextField *nameTextField;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UIButton *selectCourse;
+//@property (weak, nonatomic) IBOutlet UILabel *timerLabel;
 
 @end
