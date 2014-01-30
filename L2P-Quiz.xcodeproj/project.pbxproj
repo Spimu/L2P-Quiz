@@ -16,10 +16,11 @@
 		03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */; };
 		03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3E9188BF85300802A1B /* profile@2x.png */; };
-		2078D1E4188F417B005C60E6 /* APIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E2188F417B005C60E6 /* APIViewController.m */; };
-		2078D1E5188F417B005C60E6 /* APIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2078D1E3188F417B005C60E6 /* APIViewController.xib */; };
+		2078D1E4188F417B005C60E6 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E2188F417B005C60E6 /* APIController.m */; };
 		2078D1E9188F41E7005C60E6 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E7188F41E7005C60E6 /* WebViewController.m */; };
 		2078D1EA188F41E7005C60E6 /* WebViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2078D1E8188F41E7005C60E6 /* WebViewController.xib */; };
+		20CA4BC2189AF49800CFD3E2 /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 20CA4BC1189AF49800CFD3E2 /* ThoMoNetworking.framework */; };
+		20CA4BC5189AF8A300CFD3E2 /* Course.m in Sources */ = {isa = PBXBuildFile; fileRef = 20CA4BC4189AF8A300CFD3E2 /* Course.m */; };
 		401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB21887ED1C0091AD0A /* QuartzCore.framework */; };
 		401EDAB6188813C70091AD0A /* StatisticsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB5188813C70091AD0A /* StatisticsPageViewController.m */; };
 		401EDAB91888154F0091AD0A /* SelectCourseStatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 401EDAB81888154F0091AD0A /* SelectCourseStatisticsViewController.m */; };
@@ -34,7 +35,6 @@
 		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
-		95550A9D1892C70C00F9B8ED /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95550A9C1892C70C00F9B8ED /* ThoMoNetworking.framework */; };
 		9569660D188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		9569660E188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
@@ -100,12 +100,14 @@
 		206DC713189595930097DF7D /* L2PLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L2PLoginDelegate.h; sourceTree = "<group>"; };
 		2078D1DF188F298A005C60E6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServicesConstants.h; sourceTree = "<group>"; };
-		2078D1E1188F417B005C60E6 /* APIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIViewController.h; sourceTree = "<group>"; };
-		2078D1E2188F417B005C60E6 /* APIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIViewController.m; sourceTree = "<group>"; };
-		2078D1E3188F417B005C60E6 /* APIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = APIViewController.xib; sourceTree = "<group>"; };
+		2078D1E1188F417B005C60E6 /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
+		2078D1E2188F417B005C60E6 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
 		2078D1E6188F41E7005C60E6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		2078D1E7188F41E7005C60E6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		2078D1E8188F41E7005C60E6 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		20CA4BC1189AF49800CFD3E2 /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
+		20CA4BC3189AF8A300CFD3E2 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
+		20CA4BC4189AF8A300CFD3E2 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
 		401EDA621887ECC10091AD0A /* CorePlot-CocoaTouch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CorePlot-CocoaTouch.h"; sourceTree = "<group>"; };
 		401EDA631887ECC10091AD0A /* CPTAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimation.h; sourceTree = "<group>"; };
 		401EDA641887ECC10091AD0A /* CPTAnimationOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CPTAnimationOperation.h; sourceTree = "<group>"; };
@@ -207,7 +209,6 @@
 		7520191618993C4D007FA2F1 /* MultiGameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiGameViewController.h; sourceTree = "<group>"; };
 		7520191718993C4D007FA2F1 /* MultiGameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiGameViewController.m; sourceTree = "<group>"; };
 		757862BA188ED40D00F21292 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
-		758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
 		759D2FE0189977B9008A70FA /* ScoreViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScoreViewController.h; sourceTree = "<group>"; };
 		759D2FE1189977B9008A70FA /* ScoreViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScoreViewController.m; sourceTree = "<group>"; };
 		75BC57A41891C211003081CE /* NetworkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkManager.h; sourceTree = "<group>"; };
@@ -218,7 +219,6 @@
 		9505F3371891599400A1858F /* MultiplayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
-		95550A9C1892C70C00F9B8ED /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		9579AFB1187EF04100747EF6 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		9582A721188C0EB2001E5082 /* ResultCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultCell.h; sourceTree = "<group>"; };
@@ -282,9 +282,9 @@
 				401EDAB31887ED1C0091AD0A /* QuartzCore.framework in Frameworks */,
 				95E75A41187C162800FFE5AD /* CoreGraphics.framework in Frameworks */,
 				95E75A45187C162800FFE5AD /* CoreData.framework in Frameworks */,
+				20CA4BC2189AF49800CFD3E2 /* ThoMoNetworking.framework in Frameworks */,
 				95E75A43187C162800FFE5AD /* UIKit.framework in Frameworks */,
 				95E75A3F187C162800FFE5AD /* Foundation.framework in Frameworks */,
-				95550A9D1892C70C00F9B8ED /* ThoMoNetworking.framework in Frameworks */,
 				9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -402,6 +402,8 @@
 			children = (
 				401EDABB188817D40091AD0A /* Courses.h */,
 				401EDABC188817D40091AD0A /* Courses.m */,
+				20CA4BC3189AF8A300CFD3E2 /* Course.h */,
+				20CA4BC4189AF8A300CFD3E2 /* Course.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -506,9 +508,8 @@
 				2078D1E6188F41E7005C60E6 /* WebViewController.h */,
 				2078D1E7188F41E7005C60E6 /* WebViewController.m */,
 				2078D1E8188F41E7005C60E6 /* WebViewController.xib */,
-				2078D1E1188F417B005C60E6 /* APIViewController.h */,
-				2078D1E2188F417B005C60E6 /* APIViewController.m */,
-				2078D1E3188F417B005C60E6 /* APIViewController.xib */,
+				2078D1E1188F417B005C60E6 /* APIController.h */,
+				2078D1E2188F417B005C60E6 /* APIController.m */,
 				2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */,
 				2078D1DF188F298A005C60E6 /* Constants.h */,
 				401EDA601887EC6F0091AD0A /* CorePlot */,
@@ -531,7 +532,7 @@
 		95E75A3D187C162800FFE5AD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				758E0BEB1896D13300ADC5EE /* ThoMoNetworking.framework */,
+				20CA4BC1189AF49800CFD3E2 /* ThoMoNetworking.framework */,
 				757862BA188ED40D00F21292 /* GameKit.framework */,
 				401EDAB21887ED1C0091AD0A /* QuartzCore.framework */,
 				95E75A3E187C162800FFE5AD /* Foundation.framework */,
@@ -676,7 +677,7 @@
 				ORGANIZATIONNAME = RWTHi10;
 				TargetAttributes = {
 					95E75A3A187C162800FFE5AD = {
-						DevelopmentTeam = W88773838E;
+						DevelopmentTeam = 4DSGKUGA82;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -734,7 +735,6 @@
 				03156E98189032AC006D04FC /* highscore@2x.png in Resources */,
 				9569660F188BD9BC00B94176 /* startQuiz@2x.png in Resources */,
 				95696610188BD9BC00B94176 /* logo_l2p@2x.png in Resources */,
-				2078D1E5188F417B005C60E6 /* APIViewController.xib in Resources */,
 				03156EA2189054AF006D04FC /* 1Minute@2x.png in Resources */,
 				0357E1451896D8D800C44767 /* bestOf10@2x.png in Resources */,
 			);
@@ -767,6 +767,7 @@
 				958F8DFC1885563800F87F00 /* GameViewController.m in Sources */,
 				953017B7187E973F00917C7C /* ParseManager.m in Sources */,
 				959A2DDA18940B4F0036586A /* UserManager.m in Sources */,
+				20CA4BC5189AF8A300CFD3E2 /* Course.m in Sources */,
 				401EDABD188817D40091AD0A /* Courses.m in Sources */,
 				750496391890542C00FD8C76 /* HostViewController.m in Sources */,
 				95EF1EB6187F5056008BF8AC /* MainMenuViewController.m in Sources */,
@@ -782,7 +783,7 @@
 				95E75A4D187C162800FFE5AD /* main.m in Sources */,
 				958F8DF31885472A00F87F00 /* SingleGameManager.m in Sources */,
 				95EECE8E188AD5A80069CE74 /* ResultViewController.m in Sources */,
-				2078D1E4188F417B005C60E6 /* APIViewController.m in Sources */,
+				2078D1E4188F417B005C60E6 /* APIController.m in Sources */,
 				750496361890541D00FD8C76 /* JoinViewController.m in Sources */,
 				95EECE91188AD8270069CE74 /* SolutionManager.m in Sources */,
 			);
@@ -904,11 +905,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Bertenburg (K237DBQ49D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Bertenburg (K237DBQ49D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
+					"/Users/emil/Documents/Projects/iOS/l2p-quiz/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";
@@ -933,11 +935,12 @@
 				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Michael Bertenburg (K237DBQ49D)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Michael Bertenburg (K237DBQ49D)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)",
 					"$(inherited)",
+					"/Users/emil/Documents/Projects/iOS/l2p-quiz/L2P-Quiz",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "L2P-Quiz/L2P-Quiz-Prefix.pch";

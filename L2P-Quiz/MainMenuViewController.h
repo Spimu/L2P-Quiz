@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "APIController.h"
 
-@interface MainMenuViewController : UIViewController
+@interface MainMenuViewController : UIViewController <DataLoadedDelegate>
 - (IBAction)onLogout:(id)sender;
 
 @end

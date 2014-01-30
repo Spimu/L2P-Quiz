@@ -9,7 +9,7 @@
 #import "LoginViewController.h"
 #import "WebServicesConstants.h"
 #import "Constants.h"
-#import "APIViewController.h"
+#import "APIController.h"
 #import "WebViewController.h"
 
 @interface LoginViewController ()
@@ -36,7 +36,7 @@
 @property(retain) NSDate    *accessExpiresAtDate;
 
 //controller needed to display a web-view
-@property(retain) APIViewController *apiVC;
+@property(retain) APIController *apiVC;
 
 @property(nonatomic, assign) BOOL isLogged;
 
@@ -57,7 +57,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.apiVC = [[APIViewController alloc] initWithNibName:@"APIViewController" bundle:Nil];
+    self.apiVC = [APIController getInstance];
     [self loadUserDefaults];
 }
 

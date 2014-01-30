@@ -27,6 +27,10 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    [[APIController getInstance] setDelegate:self];
+    [[APIController getInstance] getL2PCourseRooms];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -49,6 +53,12 @@
 
 - (IBAction)onLogout:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+-(void) dataLoaded:(APIController *)controller
+{
+    NSArray * courses = [controller getAllCourses];
+    NSLog(@"Courses: %@", courses);
 }
 
 @end
