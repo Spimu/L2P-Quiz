@@ -13,6 +13,7 @@
 @property (nonatomic) NSMutableArray *questionsWithSolutions;
 @property (nonatomic) NSArray *tenQuestionIds;
 @property (nonatomic) int currentQuestionNumber;
+@property (nonatomic) int numberOfCorrectSolutions;
 
 // This function initializes all our properties above
 // !! THIS FUNCTION IS USED BY THE HOST !!

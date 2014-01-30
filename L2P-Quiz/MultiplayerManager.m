@@ -18,6 +18,8 @@
     //Initialize the starting questoinNumber
     _currentQuestionNumber = 0;
     
+    _numberOfCorrectSolutions = 0;
+    
     //Initalize our solutionArray
     _questionsWithSolutions = [[NSMutableArray alloc] init];
     
@@ -70,6 +72,8 @@
     //Initialize the starting questoinNumber
     _currentQuestionNumber = 0;
     
+    _numberOfCorrectSolutions = 0;
+    
     //Initalize our solutionArray
     _questionsWithSolutions = [[NSMutableArray alloc] init];
     
@@ -97,14 +101,15 @@
     //Increment the questionNumber
     _currentQuestionNumber++;
     
+    NSLog(@"QuestionNumber: %d",_currentQuestionNumber);
+    
     //Check if the answer was correct
     if ([[tempDict valueForKey:@"own_sol"] isEqualToString:[tempDict valueForKey:@"corr_sol"]])
     {
+        _numberOfCorrectSolutions++;
         return YES;
     }
     
-    NSLog(@"QuestionNumber: %d",_currentQuestionNumber);
-
     return NO;
 }
 

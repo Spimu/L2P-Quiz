@@ -7,7 +7,7 @@
 //
 
 #import "MultiGameViewController.h"
-#define timeForToAnswer @"1"
+#define timeForToAnswer @"2"
 
 @interface MultiGameViewController () {
     
@@ -15,6 +15,7 @@
 }
 
 @property (nonatomic) UILabel *rightTopLabel;
+@property (nonatomic) UILabel *leftTopLabel;
 @property (nonatomic) NSTimer *timer;
 @property (nonatomic) NSDate *previousFireDate;
 @property (nonatomic) NSDate *pauseStart;
@@ -75,14 +76,8 @@
     [_sol3_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
     [_sol4_button.titleLabel setTextAlignment:NSTextAlignmentCenter];
     
-    //Add an "Abort quiz"-button to the top, but only if we are not on the infinity mode
-//    if ([[SingleGameManager sharedManager] selectedGameMode] != GameMode_Infinity) {
-//        UIBarButtonItem * backButton = [[UIBarButtonItem alloc] initWithTitle:@"Abort quiz"
-//                                                                        style:UIBarButtonItemStyleBordered
-//                                                                       target:self
-//                                                                       action:@selector(backButtonPressed)];
-//        self.navigationItem.leftBarButtonItem = backButton;
-//    }
+    //Hide the backbutton
+    [self.navigationItem setHidesBackButton:YES animated:YES];
     
     //Add either a timer or the answered questions on the right top
     [self addTimerOrAmountOfQuestions];
@@ -93,28 +88,25 @@
 
 - (void) addTimerOrAmountOfQuestions
 {
-
-//        _rightTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,400,40)];
-//        _rightTopLabel.backgroundColor = [UIColor clearColor];
-//        _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
-//        _rightTopLabel.adjustsFontSizeToFitWidth = NO;
-//        _rightTopLabel.text = @"0/10";
-//        _rightTopLabel.textAlignment = NSTextAlignmentRight;
-//        _rightTopLabel.textColor = [UIColor blackColor];
-//        
-//        self.navigationItem.titleView = _rightTopLabel;
+    _leftTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(10,0,60,40)];
+    _leftTopLabel.backgroundColor = [UIColor clearColor];
+    _leftTopLabel.font = [UIFont boldSystemFontOfSize:16];
+    _leftTopLabel.adjustsFontSizeToFitWidth = NO;
+    _leftTopLabel.text = @"1/10";
+    _leftTopLabel.textAlignment = NSTextAlignmentLeft;
+    _leftTopLabel.textColor = [UIColor blackColor];
     
-
-        _rightTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,0,400,40)];
-        _rightTopLabel.backgroundColor = [UIColor clearColor];
-        _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
-        _rightTopLabel.adjustsFontSizeToFitWidth = NO;
-        _rightTopLabel.text = timeForToAnswer;
-        _rightTopLabel.textAlignment = NSTextAlignmentRight;
-        _rightTopLabel.textColor = [UIColor blackColor];
-        
-        self.navigationItem.titleView = _rightTopLabel;
-        
+    _rightTopLabel = [[UILabel alloc] initWithFrame:CGRectMake(280,0,30,40)];
+    _rightTopLabel.backgroundColor = [UIColor clearColor];
+    _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
+    _rightTopLabel.adjustsFontSizeToFitWidth = NO;
+    _rightTopLabel.text = timeForToAnswer;
+    _rightTopLabel.textAlignment = NSTextAlignmentRight;
+    _rightTopLabel.textColor = [UIColor blackColor];
+    
+    [self.navigationController.navigationBar addSubview:_leftTopLabel];
+    [self.navigationController.navigationBar addSubview:_rightTopLabel];
+    
         [self startTimer];
 }
 
@@ -152,8 +144,6 @@
     
     int questionNumber = [_multiplayerManager currentQuestionNumber]-1;
     NSString *correctSolution = [[_multiplayerManager questionsWithSolutions][questionNumber] valueForKey:@"corr_sol"];
- 
-    NSLog(correctSolution);
     
     //Displays the right answer
     int senderTag = [senderButton tag];
@@ -178,25 +168,39 @@
 }
 
 
-
-//TODO: check if we are in ?/10-mode and if we reached the last question
-- (void) checkIfLastQuestion
+- (void) showRightQuestion
 {
-    if ([_multiplayerManager currentQuestionNumber] == 10) {
-        [_timer invalidate];
-        
-        //Calculate final score
-        int i = 0;
-        for (id scores in [_multiplayerManager questionsWithSolutions]) {
-            
-            if ([[scores objectForKey:@"corr_sol"] isEqualToString:[scores objectForKey:@"own_sol"] ]) {
-                i++;
-            }
+    int questionNumber = [_multiplayerManager currentQuestionNumber]-1;
+    NSString *correctSolution = [[_multiplayerManager questionsWithSolutions][questionNumber] valueForKey:@"corr_sol"];
+    
+    for (int i = 11; i < 15; i++)
+    {
+        UIButton *tempButton = (UIButton *)[self.view viewWithTag:i];
+        if ([tempButton.titleLabel.text isEqualToString:correctSolution])
+        {
+            UIImageView *actuallyCorrectIV = (UIImageView *)[self.view viewWithTag:i-10];
+            [actuallyCorrectIV setImage:[UIImage imageNamed:@"sol_background_correct"]];
         }
-        
-        [appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:i]];
-        [self performSegueWithIdentifier:@"resultSegue" sender:self];
+        else
+        {
+            UIImageView *wrongIV = (UIImageView *)[self.view viewWithTag:i-10];
+            [wrongIV setImage:[UIImage imageNamed:@"sol_background_wrong"]];
+        }
     }
+    
+}
+
+
+
+//TODO: check if we reached the last question
+- (BOOL) checkIfLastQuestion
+{
+    if ([_multiplayerManager currentQuestionNumber] == 10)
+    {
+        return YES;
+    }
+    
+    return NO;
 }
 
 
@@ -280,8 +284,11 @@
 
 - (void) showQuestion
 {
-    //Check if we reached the last question in ?/10
-    [self checkIfLastQuestion];
+    //Check if we reached the last question
+    if([self checkIfLastQuestion])
+        return;
+    
+    _leftTopLabel.text = [NSString stringWithFormat:@"%d/10",[_multiplayerManager currentQuestionNumber]+1];
     
     //deselect all answers
     [_sol1_IV setImage:[UIImage imageNamed:@"sol_background"]];
@@ -293,8 +300,6 @@
     
     //TODO: set question
     [self setQuestionWithAnswers];
-    
-    //TODO: start timer
     
     [UIView beginAnimations:nil context:nil];
     [UIView setAnimationDuration:0.5];
@@ -363,6 +368,7 @@
 - (void) startTimer
 {
     _timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(secondPassed) userInfo:nil repeats:YES];
+    _timerIsRunning = YES;
 }
 
 
@@ -371,13 +377,35 @@
 {
     if ([_rightTopLabel.text isEqualToString:@"0"])
     {
-        [_timer invalidate];
-        [self performSelector:@selector(resetTimer) withObject:self afterDelay:2.0];
+        if (_timerIsRunning) {
+            [_timer invalidate];
+            _timerIsRunning = NO;
+        }
         
         [self.view setUserInteractionEnabled:NO];
         
         if (!_solutionSelected) {
             [_multiplayerManager currentQuestionWasAnsweredCorrectlyWithSolution:@"NOT ANSWERED"];
+            [self showRightQuestion];
+            _solutionSelected = YES;
+            
+        }
+        
+        if ([_multiplayerManager currentQuestionNumber] == 10)
+        {
+            [_timer invalidate];
+            
+            [appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:[_multiplayerManager numberOfCorrectSolutions]]];
+            [self performSegueWithIdentifier:@"resultSegue" sender:self];
+            
+            [_leftTopLabel removeFromSuperview];
+            [_rightTopLabel removeFromSuperview];
+            
+            return;
+        }
+        
+        if (!_timerIsRunning) {
+            [self performSelector:@selector(resetTimer) withObject:self afterDelay:2.0];
         }
         
         [self performSelector:@selector(hideQuestion) withObject:self afterDelay:1.0];
@@ -396,25 +424,6 @@
     _solutionSelected = NO;
     
     [self startTimer];
-}
-
-
-
--(void) pauseTimer:(NSTimer *)timer
-{
-    
-    _pauseStart = [NSDate dateWithTimeIntervalSinceNow:0];
-    _previousFireDate = [timer fireDate];
-    
-    [timer setFireDate:[NSDate distantFuture]];
-}
-
-
-
--(void) resumeTimer:(NSTimer *)timer
-{
-    float pauseTime = -1*[_pauseStart timeIntervalSinceNow];
-    [timer setFireDate:[_previousFireDate initWithTimeInterval:pauseTime sinceDate:_previousFireDate]];
 }
 
 

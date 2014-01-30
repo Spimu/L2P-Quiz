@@ -36,5 +36,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *questionLabel;
 
 @property (nonatomic) BOOL solutionSelected;
+@property (nonatomic) BOOL timerIsRunning;
 
 @end
