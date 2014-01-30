@@ -14,4 +14,5 @@
 @interface ScoreViewController : UIViewController <NetworkManagerScoreDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *scoreTableView;
+@property (nonatomic) NSDictionary *scores;
 @end

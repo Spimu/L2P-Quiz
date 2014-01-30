@@ -396,6 +396,7 @@
             [_timer invalidate];
             
             [appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:[_multiplayerManager numberOfCorrectSolutions]]];
+            NSLog(@" Anzahl richtiger Fragen: %d", [_multiplayerManager numberOfCorrectSolutions]);
             [self performSegueWithIdentifier:@"resultSegue" sender:self];
             
             [_leftTopLabel removeFromSuperview];

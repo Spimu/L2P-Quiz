@@ -40,32 +40,34 @@
 }
 
 -(void)scoresHaveBeenComputed:(NSDictionary*)allScores {
+    _scores = allScores;
+    [self.scoreTableView reloadData];
     NSLog(@"%@", allScores);
 }
 
-//- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-//{
-//    return [clients count];
-//}
-//
-//- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-//{
-//    static NSString *simpleTableIdentifier = @"SimpleTableItem";
-//    
-//    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-//    
-//    if (cell == nil) {
-//        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
-//    }
-//    
-//    NSString *key = [clients allKeys][indexPath.row];
-//    
-//    NSString *providerNameString = clients[key];
-//    NSString *providerIdString = key;
-//    cell.textLabel.text  = providerNameString;
-//    cell.detailTextLabel.text  = providerIdString;
-//    
-//    return cell;
-//}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_scores count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *simpleTableIdentifier = @"SimpleTableItem";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+    }
+    
+    NSString *key = [_scores allKeys][indexPath.row];
+    
+    NSString *providerNameString = _scores[key];
+    NSString *providerIdString = key;
+    cell.textLabel.text  = providerNameString;
+    cell.detailTextLabel.text  = providerIdString;
+    
+    return cell;
+}
 
 @end

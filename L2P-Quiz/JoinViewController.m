@@ -107,14 +107,14 @@
     timerLabel.font = [UIFont systemFontOfSize:60.0];
     [timerView addSubview:timerLabel];
     
-    time = 5;
+    time = 6;
     timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(countDownDuration) userInfo:Nil repeats:YES];
     
     [self.navigationController setNavigationBarHidden:YES];
 }
 
 -(void)countDownDuration{
-    if (time > 0) {
+    if (time > 1) {
         time -= 1;
         timerLabel.text = [NSString stringWithFormat:@"%i", time];
     } else {
