@@ -7,6 +7,7 @@
 //
 
 #import "MultiGameViewController.h"
+#define timeForToAnswer @"1"
 
 @interface MultiGameViewController () {
     
@@ -108,7 +109,7 @@
         _rightTopLabel.backgroundColor = [UIColor clearColor];
         _rightTopLabel.font = [UIFont boldSystemFontOfSize:16];
         _rightTopLabel.adjustsFontSizeToFitWidth = NO;
-        _rightTopLabel.text = @"10";
+        _rightTopLabel.text = timeForToAnswer;
         _rightTopLabel.textAlignment = NSTextAlignmentRight;
         _rightTopLabel.textColor = [UIColor blackColor];
         
@@ -390,7 +391,7 @@
 
 - (void) resetTimer
 {
-    _rightTopLabel.text = @"10";
+    _rightTopLabel.text = timeForToAnswer;
     
     _solutionSelected = NO;
     
