@@ -30,6 +30,8 @@
 {
     [super viewDidLoad];
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.networkManager.scoreDelegate = self;
+    [appDelegate.networkManager sendScoreToHost:_playerScore];
 
 }
 
@@ -40,14 +42,14 @@
 }
 
 -(void)scoresHaveBeenComputed:(NSDictionary*)allScores {
-    _scores = allScores;
+    _allScores = allScores;
     [self.scoreTableView reloadData];
     NSLog(@"%@", allScores);
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_scores count];
+    return [_allScores count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -60,12 +62,10 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    NSString *key = [_scores allKeys][indexPath.row];
+    NSString *key = [_allScores allKeys][indexPath.row];
     
-    NSString *providerNameString = _scores[key];
-    NSString *providerIdString = key;
+    NSString *providerNameString = [NSString stringWithFormat:@"%@: %@", [[_allScores objectForKey:key] stringValue], key];
     cell.textLabel.text  = providerNameString;
-    cell.detailTextLabel.text  = providerIdString;
     
     return cell;
 }

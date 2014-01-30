@@ -395,7 +395,7 @@
         {
             [_timer invalidate];
             
-            [appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:[_multiplayerManager numberOfCorrectSolutions]]];
+            //[appDelegate.networkManager sendScoreToHost:[NSNumber numberWithInt:[_multiplayerManager numberOfCorrectSolutions]]];
             NSLog(@" Anzahl richtiger Fragen: %d", [_multiplayerManager numberOfCorrectSolutions]);
             [self performSegueWithIdentifier:@"resultSegue" sender:self];
             
@@ -486,7 +486,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    //[[segue destinationViewController] setSolManager:_solManager];
+    [[segue destinationViewController] setPlayerScore:[NSNumber numberWithInt:[_multiplayerManager numberOfCorrectSolutions]]];
 }
 
 

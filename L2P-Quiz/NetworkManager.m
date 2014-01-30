@@ -17,6 +17,7 @@
     NSString *playerName;
     NSMutableDictionary *allClientsScores;
     NSString *serverID;
+    NSNumber * hostScore;
 }
 
 - (id)initWithRole:(NSString*)role andName:(NSString*)name {
@@ -82,11 +83,16 @@
         [self.serverDelegate updateTableView];
         
     } else if ([command isEqualToString:@"myScore"]) {
-        [allClientsScores setObject:theData forKey:aClientIdString];
+        [allClientsScores setObject:[commands objectForKey:@"myScore"] forKey:playerName];
+        
+        if ([allClientsScores objectForKey:[[UIDevice currentDevice] name]] == nil) {
+            [allClientsScores setObject:hostScore forKey:[[UIDevice currentDevice] name]];
+        }
         
         NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:allClientsScores,@"updateYourScore", nil];
         [appDelegate.server sendToAllClients:command];
 
+        [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
     }
 }
 
@@ -167,14 +173,15 @@
 }
 
 -(void)sendScoreToHost:(NSNumber*)score {
-
+    
     if (appDelegate.server != nil) {
-        [allClientsScores setObject:score forKey:[[UIDevice currentDevice] name]];
+        hostScore = score;
     }
+    
     NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:score,@"myScore", nil];
     [appDelegate.client send:command toServer:serverID];
     
-    [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
+    //[self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
 }
 
 #pragma mark TableView Delegate Implementations
