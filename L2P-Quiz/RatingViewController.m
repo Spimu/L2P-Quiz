@@ -131,6 +131,8 @@
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [_ratingDict setValue:[NSNumber numberWithBool:YES] forKey:cellText];
+        
+        [_rateButton setTitle:@"Rate" forState:UIControlStateNormal];
     }
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

@@ -359,6 +359,9 @@
     if (buttonIndex == 0)
     {
         [self.navigationController popViewControllerAnimated:YES];
+        
+        [_timer invalidate];
+        
         //TODO: score of -10
     }
 }
