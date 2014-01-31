@@ -94,7 +94,7 @@
     [timerView setBackgroundColor: [UIColor colorWithRed:0.231 green:0.49 blue:0.87 alpha:1.0]];
     [self.view addSubview:timerView];
     
-    UILabel *startText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-80.0)];
+    UILabel *startText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-100.0)];
     startText.text = [NSString stringWithFormat:@"The game starts in"];
     startText.textAlignment = NSTextAlignmentCenter;
     startText.textColor = [UIColor whiteColor];
