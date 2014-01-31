@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "NetworkManager.h"
+#import "StartQuizViewController.h"
 
 
 @interface ScoreViewController : UIViewController <NetworkManagerScoreDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *scoreTableView;
-@property (nonatomic) NSDictionary *scores;
+@property (nonatomic) NSDictionary *allScores;
+@property (nonatomic) NSNumber *playerScore;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *activityLabel;
 @end

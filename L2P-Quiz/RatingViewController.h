@@ -12,4 +12,6 @@
 
 - (IBAction)ratePressed:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIButton *rateButton;
+
 @end

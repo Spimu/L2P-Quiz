@@ -76,13 +76,13 @@
     
     if (!appDelegate.networkManager.selectedCoursesByHost || !appDelegate.networkManager.selectedCoursesByHost.count){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:@"You have not chosen any courses." delegate:self cancelButtonTitle:@"Cancel"
-                                              otherButtonTitles:@"OK", nil];
+                                                        message:@"You have not chosen any courses." delegate:self cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil, nil];
         [alert show];
 //    } else if (!appDelegate.server.connectedClients || !appDelegate.server.connectedClients.count) {
 //        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-//                                                    message:@"No clients are connected to the server." delegate:self cancelButtonTitle:@"Cancel"
-//                                          otherButtonTitles:@"OK", nil];
+//                                                    message:@"No clients are connected to the server." delegate:self cancelButtonTitle:@"OK"
+//                                          otherButtonTitles:nil, nil];
 //        [alert show];
     } else {
         
@@ -97,7 +97,7 @@
         [timerView setBackgroundColor: [UIColor colorWithRed:0.231 green:0.49 blue:0.87 alpha:1.0]];
         [self.view addSubview:timerView];
         
-        UILabel *startText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-80.0)];
+        UILabel *startText = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height-100.0)];
         startText.text = [NSString stringWithFormat:@"The game starts in"];
         startText.textAlignment = NSTextAlignmentCenter;
         startText.textColor = [UIColor whiteColor];

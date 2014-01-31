@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    NSString *scoreText = [NSString stringWithFormat:@"%d correct solutions, %d wrong solutions => %d",_solManager.correctAnswersInCurrentRound,_solManager.wrongAnswersInCurrentRound,_solManager.correctAnswersInCurrentRound+_solManager.wrongAnswersInCurrentRound];
+    NSString *scoreText = [NSString stringWithFormat:@"%d correct solutions, %d wrong solutions => %d",_solManager.correctAnswersInCurrentRound,_solManager.wrongAnswersInCurrentRound,_solManager.correctAnswersInCurrentRound-_solManager.wrongAnswersInCurrentRound];
     [_scoreLabel setText:scoreText];
     
     [self.navigationItem setHidesBackButton:YES animated:NO];

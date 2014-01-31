@@ -40,7 +40,7 @@
 - (void) save
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:[NSNumber numberWithInt:_score] forKey:@"score"];
+    [defaults setObject:[NSNumber numberWithInt:_userScore] forKey:@"score"];
     [defaults setObject:[NSNumber numberWithInt:_duelsLost] forKey:@"duelsLost"];
     [defaults setObject:[NSNumber numberWithInt:_duelsWon] forKey:@"duelsWon"];
     [defaults synchronize];
@@ -54,11 +54,11 @@
     
     if (![defaults objectForKey:@"score"])
     {
-        _score = 0;
+        _userScore = 0;
     }
     else
     {
-        _score = [[defaults objectForKey:@"score"] integerValue];
+        _userScore = [[defaults objectForKey:@"score"] integerValue];
     }
     
     

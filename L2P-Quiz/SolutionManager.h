@@ -10,6 +10,7 @@
 
 #import <Foundation/Foundation.h>
 #import "AppDelegate.h"
+#import "UserManager.h"
 
 @interface SolutionManager : NSObject
 

@@ -17,6 +17,7 @@
     NSString *playerName;
     NSMutableDictionary *allClientsScores;
     NSString *serverID;
+    NSNumber * hostScore;
 }
 
 - (id)initWithRole:(NSString*)role andName:(NSString*)name {
@@ -36,7 +37,7 @@
             [appDelegate.client start];
             NSLog(@"%@",@"Client started");
         }
-
+        
     }
     playerName =  @"Opponent";
     allClientsScores = [[NSMutableDictionary alloc]init];
@@ -47,15 +48,13 @@
 #pragma Server Delegate Implementations
 
 - (void)server:(ThoMoServerStub *)theServer acceptedConnectionFromClient:(NSString *)aClientIdString {
-
+    
     NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:@"-",@"tellMeYourName", nil];
     [appDelegate.server send:command toClient:aClientIdString];
-
+    
     
     [clients setObject:playerName forKey:aClientIdString];
     [self.serverDelegate updateTableView];
-    
-    
 }
 
 - (void)server:(ThoMoServerStub *)theServer lostConnectionToClient:(NSString *)aClientIdString errorMessage:(NSString *)errorMessage {
@@ -82,11 +81,21 @@
         [self.serverDelegate updateTableView];
         
     } else if ([command isEqualToString:@"myScore"]) {
-        [allClientsScores setObject:theData forKey:aClientIdString];
+        [allClientsScores setObject:[commands objectForKey:@"myScore"] forKey:playerName];
         
-        NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:allClientsScores,@"updateYourScore", nil];
-        [appDelegate.server sendToAllClients:command];
-
+        NSSet *set1 = [NSSet setWithArray:[clients allValues]];
+        NSSet *set2 = [NSSet setWithArray:[allClientsScores allKeys]];
+        
+        if ([set1 isEqualToSet:set2]) {
+            if ([allClientsScores objectForKey:[[UIDevice currentDevice] name]] == nil) {
+                [allClientsScores setObject:hostScore forKey:[[UIDevice currentDevice] name]];
+            }
+            
+            NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:allClientsScores,@"updateYourScore", nil];
+            [appDelegate.server sendToAllClients:command];
+            
+            [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
+        }
     }
 }
 
@@ -112,7 +121,7 @@
 }
 
 - (void)netServiceProblemEncountered:(NSString *)errorMessage onClient:(ThoMoClientStub *)theClient {
-        NSLog(@"Error on client: %@", errorMessage);
+    NSLog(@"Error on client: %@", errorMessage);
 }
 
 -(void)client:(ThoMoClientStub *)theClient didReceiveData:(id)theData fromServer:(NSString *)aServerIdString {
@@ -131,7 +140,7 @@
         [self.clientDelegate gameHasBeenStarted];
         
     } else if ([command isEqualToString:@"updateYourScore"]){
-    
+        
         [self.scoreDelegate scoresHaveBeenComputed:[commands objectForKey:@"updateYourScore"]];
         
     }
@@ -140,21 +149,39 @@
 #pragma mark NetworkManager Methods Implementation
 
 -(void)stopServer{
-    [appDelegate.server stop];
-    NSLog(@"%@", @"Server shut down");
-    
+    if (appDelegate.server){
+        [appDelegate.server stop];
+        appDelegate.server = nil;
+        NSLog(@"%@", @"Server shut down");
+    }
 }
 
 -(void)stopClient{
-    [appDelegate.client stop];
-    NSLog(@"%@", @"Client shut down");
+    
+    if (appDelegate.client){
+        [appDelegate.client stop];
+        appDelegate.client = nil;
+        NSLog(@"%@", @"Client shut down");
+    }
+    
 }
 
 -(void)gameWasStarted {
     
     [self.serverDelegate gameHasBeenStarted];
-
+    
 }
+
+//-(BOOL)didAllClientsSendTheirScore {
+//    NSSet *set1 = [NSSet setWithArray:[clients allValues]];
+//    NSSet *set2 = [NSSet setWithArray:[allClientsScores allKeys]];
+//
+//    if ([set1 isEqualToSet:set2]) {
+//        return true;
+//    }
+//
+//    return false;
+//}
 
 -(void)notifyClientThatGameWasStarted {
     _multiplayerManager = [[MultiplayerManager alloc]init];
@@ -167,14 +194,22 @@
 }
 
 -(void)sendScoreToHost:(NSNumber*)score {
-
-    if (appDelegate.server != nil) {
-        [allClientsScores setObject:score forKey:[[UIDevice currentDevice] name]];
-    }
-    NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:score,@"myScore", nil];
-    [appDelegate.client send:command toServer:serverID];
     
-    [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
+    if (appDelegate.server != nil) {
+        hostScore = score;
+    }
+    
+    if([appDelegate.server connectedClients].count ==0 && appDelegate.server) {
+        if ([allClientsScores objectForKey:[[UIDevice currentDevice] name]] == nil) {
+            [allClientsScores setObject:hostScore forKey:[[UIDevice currentDevice] name]];
+        }
+        [self.scoreDelegate scoresHaveBeenComputed:allClientsScores];
+    } else {
+        
+        NSMutableDictionary *command = [[NSMutableDictionary alloc]initWithObjectsAndKeys:score,@"myScore", nil];
+        [appDelegate.client send:command toServer:serverID];
+        
+    }
 }
 
 #pragma mark TableView Delegate Implementations

@@ -359,7 +359,12 @@
     if (buttonIndex == 0)
     {
         [self.navigationController popViewControllerAnimated:YES];
-        //TODO: score of -10
+        
+        [_timer invalidate];
+        
+        [[UserManager sharedManager] setUserScore:[[UserManager sharedManager] userScore]-10];
+        [[UserManager sharedManager] save];
+
     }
 }
 

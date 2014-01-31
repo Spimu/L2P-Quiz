@@ -15,7 +15,8 @@
 
 + (id)sharedManager;
 
-- (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+- (void) downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler;
+- (void) downloadNewQuestionsTheFirstTime;
 - (void) saveBiggestIdParsed;
 
 @end

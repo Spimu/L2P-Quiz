@@ -13,6 +13,7 @@
 #import "AppDelegate.h"
 #import "MultiplayerManager.h"
 #import "NetworkManager.h"
+#import "ScoreViewController.h"
 
 @interface MultiGameViewController : UIViewController
 - (IBAction)sol1Pressed:(id)sender;

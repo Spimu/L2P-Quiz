@@ -149,6 +149,16 @@
         [_allSelectedCourses addObject:cellText];
     }
     
+    
+    if (![_allSelectedCourses count])
+    {
+        [_startButton setHidden:YES];
+    }
+    else
+    {
+        [_startButton setHidden:NO];
+    }
+    
 }
 
 
