@@ -7,6 +7,9 @@
 //
 
 #import "SubmitQuestionViewController.h"
+#import "UserManager.h"
+
+#define SUBMIT_QUESTIONS_URL @"http://www.spivan.com/l2pquiz/saveQuestion.php"
 
 @interface SubmitQuestionViewController ()
 
@@ -26,12 +29,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    [_activityIndicator setHidden:YES];
+    
+    [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
 	
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
     
     [self.view addGestureRecognizer:tap];
+    
+    [_coursePicker reloadAllComponents];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,7 +79,9 @@
     [UIView beginAnimations:@"registerScroll" context:NULL];
     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
     [UIView setAnimationDuration:0.4];
+   
     self.view.transform = CGAffineTransformMakeTranslation(0, y);
+    
     [UIView commitAnimations];
     
 }
@@ -81,7 +92,7 @@
 {
     CGRect theFrame = view.frame;
     float y = theFrame.origin.y;
-    y -= (y/1.7);
+    y -= (y/2.4);
     [self scrollToY:-y];
 }
 
@@ -99,7 +110,6 @@
     [self scrollToY:0];
     [textField resignFirstResponder];
 }
-
 
 
 //----------------------------------------------------------------------------------------
@@ -132,6 +142,29 @@
 
 
 
+
+//----------------------------------------------------------------------------------------
+#pragma mark Picker View Delegates
+//----------------------------------------------------------------------------------------
+
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;// or the number of vertical "columns" the picker will show...
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return [[[UserManager sharedManager] courses] count];//this will tell the picker how many rows it has - in this case, the size of your loaded array...
+}
+
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return [[[UserManager sharedManager] courses] objectAtIndex:row];//assuming the array contains strings..
+}
+
+
 //----------------------------------------------------------------------------------------
 #pragma mark Button presses
 //----------------------------------------------------------------------------------------
@@ -139,39 +172,59 @@
 
 - (IBAction)sumbitQuestion:(id)sender
 {
+    NSString *courseString = [[[UserManager sharedManager] courses] objectAtIndex:[_coursePicker selectedRowInComponent:0]];
+    
+    [self.view setUserInteractionEnabled:NO];
+    [_activityIndicator setHidden:NO];
+    [_activityIndicator startAnimating];
+    
     if ([self checkIfEverythingIsFilled])
     {
-        //TODO: Modify the following POST-request
-        //IMPORTANT: WE STILL NEED TO KNOW HOW EVERY STUDENT CAN BE IDENTIFIED... ID? EMAIL? -> Lab on monday
-        
-        /*
         //Here we create the POST-Body-String that we will send to the server
-        NSString *dataString = [NSString stringWithFormat:@"lastId=%d&courses=%@", _biggestIdParsed, coursesJsonString];
+        NSString *dataString = [NSString stringWithFormat:@"course=%@&q=%@&ca=%@&wa1=%@&wa2=%@&wa3=%@", courseString, _questionTextField.text, _correctAnswerTextField.text, _wrongAnswerTextField1.text, _wrongAnswerTextField2.text, _wrongAnswerTextField3.text];
+        NSString *finalDataString = [dataString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
         
         //Create the session and send our request
         NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
-        NSURL *url = [NSURL URLWithString:NEW_QUESTIONS_URL];
+        NSURL *url = [NSURL URLWithString:SUBMIT_QUESTIONS_URL];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-        request.HTTPBody = [completeDataString dataUsingEncoding:NSUTF8StringEncoding];
+        request.HTTPBody = [finalDataString dataUsingEncoding:NSUTF8StringEncoding];
         request.HTTPMethod = @"POST";
         NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
             if(error == nil)
             {
-                //Parse the JSON-String that has been returned
-                ParseManager *parseManager = [[ParseManager alloc] init];
-                BOOL newUpdates = [parseManager parseData:data withCompletionHandler:completionHandler];
+                [_questionTextField setText:@""];
+                [_correctAnswerTextField setText:@""];
+                [_wrongAnswerTextField1 setText:@""];
+                [_wrongAnswerTextField2 setText:@""];
+                [_wrongAnswerTextField3 setText:@""];
                 
-                //Update our fetch result and call the completion handler
-                UIBackgroundFetchResult result = UIBackgroundFetchResultNoData;
-                if(newUpdates) {
-                    result = UIBackgroundFetchResultNewData;
-                }
-                completionHandler(result);
+                UIAlertView *alert =
+                [[UIAlertView alloc] initWithTitle: @"Success!"
+                                           message: @"Your question has been submitted successfully!"
+                                          delegate: self
+                                 cancelButtonTitle: @"OK"
+                                 otherButtonTitles: nil];
+                [alert show];
             }
+            else
+            {
+                UIAlertView *alert =
+                [[UIAlertView alloc] initWithTitle: @"Oops!"
+                                           message: @"Something went wrong, please try again! (Do you have an active internet connection?)"
+                                          delegate: self
+                                 cancelButtonTitle: @"OK"
+                                 otherButtonTitles: nil];
+                [alert show];
+            }
+            
+            [self.view setUserInteractionEnabled:YES];
+            [_activityIndicator setHidden:YES];
+            [_activityIndicator stopAnimating];
         }];
+        
         [postDataTask resume];
-         */
     }
 }
 @end
