@@ -362,7 +362,9 @@
         
         [_timer invalidate];
         
-        //TODO: score of -10
+        [[UserManager sharedManager] setUserScore:[[UserManager sharedManager] userScore]-10];
+        [[UserManager sharedManager] save];
+
     }
 }
 

@@ -11,6 +11,7 @@
 #import "RatingViewController.h"
 #import "SolutionManager.h"
 #import "AppDelegate.h"
+#import "UserManager.h"
 
 @interface GameViewController : UIViewController
 - (IBAction)sol1Pressed:(id)sender;

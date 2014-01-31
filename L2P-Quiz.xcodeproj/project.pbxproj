@@ -38,6 +38,8 @@
 		9535D356189BBEFC00E612C3 /* CPDStockPriceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */; };
 		9535D357189BBF7B00E612C3 /* StatisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8D18895579006E7240 /* StatisticsViewController.m */; };
 		9535D358189BBF7C00E612C3 /* StatisticsPageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E8A18894E11006E7240 /* StatisticsPageContentViewController.m */; };
+		9535D35A189C13F400E612C3 /* score_profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9535D359189C13F400E612C3 /* score_profile@2x.png */; };
+		9535D35D189C150700E612C3 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9535D35C189C150700E612C3 /* ProfileViewController.m */; };
 		95550A9D1892C70C00F9B8ED /* ThoMoNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95550A9C1892C70C00F9B8ED /* ThoMoNetworking.framework */; };
 		9569660D188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		9569660E188BD9BC00B94176 /* (null) in Resources */ = {isa = PBXBuildFile; };
@@ -222,6 +224,9 @@
 		9505F3371891599400A1858F /* MultiplayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
+		9535D359189C13F400E612C3 /* score_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "score_profile@2x.png"; sourceTree = "<group>"; };
+		9535D35B189C150700E612C3 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		9535D35C189C150700E612C3 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		95550A9C1892C70C00F9B8ED /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
 		9579AFB0187EF04100747EF6 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		9579AFB1187EF04100747EF6 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
@@ -484,6 +489,7 @@
 		95978C1E187F4AFF00F68638 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				9535D359189C13F400E612C3 /* score_profile@2x.png */,
 				03156E9318902F26006D04FC /* statistic@2x.png */,
 				95DE35861885901A00BF8CB3 /* question_background.png */,
 				03156E97189032AC006D04FC /* highscore@2x.png */,
@@ -607,6 +613,8 @@
 				95EF1EB5187F5056008BF8AC /* MainMenuViewController.m */,
 				95EF1EB9188049A0008BF8AC /* SubmitQuestionViewController.h */,
 				95EF1EBA188049A0008BF8AC /* SubmitQuestionViewController.m */,
+				9535D35B189C150700E612C3 /* ProfileViewController.h */,
+				9535D35C189C150700E612C3 /* ProfileViewController.m */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -731,6 +739,7 @@
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
 				9569660D188BD9BC00B94176 /* (null) in Resources */,
+				9535D35A189C13F400E612C3 /* score_profile@2x.png in Resources */,
 				03156E9418902F26006D04FC /* statistic@2x.png in Resources */,
 				03156E9E18904D76006D04FC /* infinity@2x.png in Resources */,
 				2078D1EA188F41E7005C60E6 /* WebViewController.xib in Resources */,
@@ -763,6 +772,7 @@
 				9535D358189BBF7C00E612C3 /* StatisticsPageContentViewController.m in Sources */,
 				9535D355189BBEFB00E612C3 /* CPDConstants.m in Sources */,
 				9535D356189BBEFC00E612C3 /* CPDStockPriceStore.m in Sources */,
+				9535D35D189C150700E612C3 /* ProfileViewController.m in Sources */,
 				75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */,
 				95E75A75187C1A0C00FFE5AD /* LoginViewController.m in Sources */,
 				95EF1EBB188049A0008BF8AC /* SubmitQuestionViewController.m in Sources */,

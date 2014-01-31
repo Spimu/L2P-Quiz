@@ -896,7 +896,7 @@
         <!--Profile View Controller Scene-->
         <scene sceneID="4Wp-Jf-7g4">
             <objects>
-                <viewController id="SAg-S4-z9t" userLabel="Profile View Controller Scene" sceneMemberID="viewController">
+                <viewController id="SAg-S4-z9t" userLabel="Profile View Controller Scene" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tIV-mE-6Rs"/>
                         <viewControllerLayoutGuide type="bottom" id="2F7-Xr-aZY"/>
@@ -924,11 +924,26 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="score_profile.png" translatesAutoresizingMaskIntoConstraints="NO" id="i6P-lA-LuI">
+                                <rect key="frame" x="60" y="31" width="201" height="181"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="23" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mxr-HD-254">
+                                <rect key="frame" x="178" y="64" width="44" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="16"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="DCq-oD-7lI"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="Mxr-HD-254" id="NVS-UX-XVe"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MBo-U8-NxN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1209,6 +1224,7 @@
         <image name="logo_l2p.png" width="181" height="75"/>
         <image name="profile.png" width="112" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
+        <image name="score_profile.png" width="166" height="142"/>
         <image name="sol_background.png" width="640" height="114"/>
         <image name="startQuiz.png" width="136" height="156"/>
         <image name="statistic.png" width="95" height="101"/>

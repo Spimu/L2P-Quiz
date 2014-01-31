@@ -66,10 +66,16 @@
     if (answeredCorrect)
     {
         [self incrementCorrectAnswer];
+        
+        [[UserManager sharedManager] setUserScore:[[UserManager sharedManager] userScore]+1];
+        [[UserManager sharedManager] save];
     }
     else
     {
         [self incrementWrongAnswer];
+        
+        [[UserManager sharedManager] setUserScore:[[UserManager sharedManager] userScore]-1];
+        [[UserManager sharedManager] save];
     }
     
 }

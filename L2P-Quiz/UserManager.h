@@ -18,7 +18,7 @@
 
 
 
-@property (nonatomic) int score;
+@property (nonatomic) int userScore;
 @property (nonatomic) int duelsWon;
 @property (nonatomic) int duelsLost;
 
