@@ -77,6 +77,37 @@
     
 }
 
+
+- (void)downloadNewQuestionsTheFirstTime
+{
+    NSError *error = nil;
+    NSDictionary* courses = @{@"1":@"DIS",@"2":@"iPhone"};
+    
+    //Here we create the POST-Body-String that we will send to the server
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:courses options:NSJSONWritingPrettyPrinted error:&error];
+    NSString *coursesJsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *completeDataString = [NSString stringWithFormat:@"lastId=%ld&courses=%@", (long)_biggestIdParsed, coursesJsonString];
+    
+    //Create the session and send our request
+    NSURLSessionConfiguration *sessionConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:sessionConfiguration];
+    NSURL *url = [NSURL URLWithString:NEW_QUESTIONS_URL];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPBody = [completeDataString dataUsingEncoding:NSUTF8StringEncoding];
+    request.HTTPMethod = @"POST";
+    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+        if(error == nil)
+        {
+            //Parse the JSON-String that has been returned
+            ParseManager *parseManager = [[ParseManager alloc] init];
+            BOOL newUpdates = [parseManager parseData:data withCompletionHandler:nil];
+        }
+    }];
+    [postDataTask resume];
+    
+}
+
+
 - (void) saveBiggestIdParsed
 {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
