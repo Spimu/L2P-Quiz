@@ -11,6 +11,8 @@
 @interface ScoreViewController () {
     
     AppDelegate *appDelegate;
+    NSArray *scores;
+    NSArray *players;
 }
 
 @end
@@ -32,7 +34,27 @@
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.networkManager.scoreDelegate = self;
     [appDelegate.networkManager sendScoreToHost:_playerScore];
+    
+    UIBarButtonItem *newBackButton = [[UIBarButtonItem alloc] initWithTitle:@"Quit Game" style:UIBarButtonItemStyleBordered target:self action:@selector(quitGame:)];
+    self.navigationItem.leftBarButtonItem=newBackButton;
+    
+    [_activityIndicator startAnimating];
+    
+}
 
+-(void)quitGame:(UIBarButtonItem *)sender {
+    [appDelegate.networkManager stopServer];
+    [appDelegate.networkManager stopClient];
+    
+    NSArray *viewControllers = [[self navigationController] viewControllers];
+    NSLog(@"%@", viewControllers);
+    for( int i=0;i<[viewControllers count];i++){
+        id obj=[viewControllers objectAtIndex:i];
+        if([obj isKindOfClass:[StartQuizViewController class]]){
+            [[self navigationController] popToViewController:obj animated:YES];
+            return;
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,10 +64,25 @@
 }
 
 -(void)scoresHaveBeenComputed:(NSDictionary*)allScores {
+    
+    [_activityIndicator stopAnimating];
+    [_activityIndicator removeFromSuperview];
+    [_activityLabel removeFromSuperview];
+    
     _allScores = allScores;
+    
+    scores = [[_allScores allValues] sortedArrayUsingComparator:^(id obj1, id obj2) {
+        return [(NSNumber *)obj2 compare:(NSNumber *)obj1];
+    }];
+    
+    players = [_allScores keysSortedByValueUsingComparator:^(id obj1, id obj2) {
+        return [(NSNumber *)obj2 compare:(NSNumber *)obj1];
+    }];
+    
     [self.scoreTableView reloadData];
     NSLog(@"%@", allScores);
 }
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -62,12 +99,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
     }
     
-    NSString *key = [_allScores allKeys][indexPath.row];
-    
-    NSString *providerNameString = [NSString stringWithFormat:@"%@: %@", [[_allScores objectForKey:key] stringValue], key];
-    cell.textLabel.text  = providerNameString;
+    cell.textLabel.text  = [NSString stringWithFormat:@"%@   %@", scores[indexPath.row], players [indexPath.row]];
     
     return cell;
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
 }
 
 @end
