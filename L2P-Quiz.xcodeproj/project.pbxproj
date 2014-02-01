@@ -32,6 +32,8 @@
 		759D2FE2189977B9008A70FA /* ScoreViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 759D2FE1189977B9008A70FA /* ScoreViewController.m */; };
 		75BC57A61891C211003081CE /* NetworkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 75BC57A51891C211003081CE /* NetworkManager.m */; };
 		75D6B2CA188EBA7300FE6FEF /* MultiplayerMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */; };
+		75F7ECD9189D67810001F78B /* examiner_startscreen_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7ECD8189D67810001F78B /* examiner_startscreen_logo.png */; };
+		75F7ECDB189D68690001F78B /* original_l2p_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7ECDA189D68690001F78B /* original_l2p_logo.png */; };
 		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
@@ -221,6 +223,8 @@
 		75BC57A51891C211003081CE /* NetworkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkManager.m; sourceTree = "<group>"; };
 		75D6B2C8188EBA7300FE6FEF /* MultiplayerMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerMenuViewController.h; sourceTree = "<group>"; };
 		75D6B2C9188EBA7300FE6FEF /* MultiplayerMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerMenuViewController.m; sourceTree = "<group>"; };
+		75F7ECD8189D67810001F78B /* examiner_startscreen_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = examiner_startscreen_logo.png; sourceTree = "<group>"; };
+		75F7ECDA189D68690001F78B /* original_l2p_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = original_l2p_logo.png; sourceTree = "<group>"; };
 		9505F3361891599400A1858F /* MultiplayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerManager.h; sourceTree = "<group>"; };
 		9505F3371891599400A1858F /* MultiplayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
@@ -491,6 +495,8 @@
 		95978C1E187F4AFF00F68638 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				75F7ECDA189D68690001F78B /* original_l2p_logo.png */,
+				75F7ECD8189D67810001F78B /* examiner_startscreen_logo.png */,
 				9535D359189C13F400E612C3 /* score_profile@2x.png */,
 				03156E9318902F26006D04FC /* statistic@2x.png */,
 				95DE35861885901A00BF8CB3 /* question_background.png */,
@@ -733,10 +739,12 @@
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
 				0357E1471896DDEF00C44767 /* Multiplayer@2x.png in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,
+				75F7ECD9189D67810001F78B /* examiner_startscreen_logo.png in Resources */,
 				95E75A77187C1A4500FFE5AD /* Main.storyboard in Resources */,
 				95DE358B188594F300BF8CB3 /* sol_background_correct.png in Resources */,
 				95DE358518858F5D00BF8CB3 /* sol_background.png in Resources */,
 				03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */,
+				75F7ECDB189D68690001F78B /* original_l2p_logo.png in Resources */,
 				95DE35871885901A00BF8CB3 /* question_background.png in Resources */,
 				95DE358D188594F300BF8CB3 /* sol_background_wrong.png in Resources */,
 				9569660D188BD9BC00B94176 /* (null) in Resources */,
