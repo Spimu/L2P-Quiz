@@ -63,7 +63,8 @@ CGFloat const CPDBarInitialX = 0.25f;
 	graph.plotAreaFrame.masksToBorder = NO;
 	self.hostView.hostedGraph = graph;
 	// 2 - Configure the graph
-	[graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
+//	[graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
+    graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:76.0f/255.0f green:148.0f/255.0f blue:227.0f/255.0f alpha:1.0f]];
 	graph.paddingBottom = 100.0f;
 	graph.paddingLeft  = 30.0f;
 	graph.paddingTop    = -1.0f;
@@ -94,7 +95,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 //	self.aaplPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithComponentRed:74 green:131 blue:215 alpha:1] horizontalBars:NO];
     self.aaplPlot = [[CPTBarPlot alloc] init];
 //    self.aaplPlot.fill = [CPTFill fillWithColor:[CPTColor redColor]];
-    self.aaplPlot.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:74.0f/255.0f green:131.0f/255.0f blue:215.0f/255.0f alpha:1.0f]];
+    self.aaplPlot.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:182.0f/255.0f green:213.0f/255.0f blue:242.0f/255.0f alpha:1.0f]];
 
 	self.aaplPlot.identifier = CPDTickerSymbolAAPL;
 //	self.googPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor greenColor] horizontalBars:NO];
@@ -103,7 +104,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 //	self.msftPlot.identifier = CPDTickerSymbolMSFT;
 	// 2 - Set up line style
 	CPTMutableLineStyle *barLineStyle = [[CPTMutableLineStyle alloc] init];
-	barLineStyle.lineColor = [CPTColor blackColor];
+	barLineStyle.lineColor = [CPTColor whiteColor];
 	barLineStyle.lineWidth = 0.5;
 	// 3 - Add plots to graph
 	CPTGraph *graph = self.hostView.hostedGraph;
@@ -124,12 +125,12 @@ CGFloat const CPDBarInitialX = 0.25f;
 -(void)configureAxes {
 	// 1 - Configure styles
 	CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
-	axisTitleStyle.color = [CPTColor blackColor];
+	axisTitleStyle.color = [CPTColor whiteColor];
 	axisTitleStyle.fontName = @"Helvetica-Bold";
 	axisTitleStyle.fontSize = 12.0f;
 	CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
 	axisLineStyle.lineWidth = 2.0f;
-	axisLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:1];
+	axisLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:1];
 	// 2 - Get the graph's axis set
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
 	// 3 - Configure the x-axis

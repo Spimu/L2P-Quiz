@@ -21,9 +21,9 @@
     [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor whiteColor];
+    pageControl.pageIndicatorTintColor = [UIColor colorWithRed:182.0f/255.0f green:213.0f/255.0f blue:242.0f/255.0f alpha:1.0f];
+    pageControl.currentPageIndicatorTintColor = [UIColor colorWithRed:32.0f/255.0f green:93.0f/255.0f blue:190.0f/255.0f alpha:1.0f];
+    pageControl.backgroundColor = [UIColor colorWithRed:76.0f/255.0f green:148.0f/255.0f blue:227.0f/255.0f alpha:1.0f];
     
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
