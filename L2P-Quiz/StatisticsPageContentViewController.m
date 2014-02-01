@@ -63,22 +63,22 @@ CGFloat const CPDBarInitialX = 0.25f;
 	graph.plotAreaFrame.masksToBorder = NO;
 	self.hostView.hostedGraph = graph;
 	// 2 - Configure the graph
-	[graph applyTheme:[CPTTheme themeNamed:kCPTPlainBlackTheme]];
-	graph.paddingBottom = 30.0f;
+	[graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
+	graph.paddingBottom = 100.0f;
 	graph.paddingLeft  = 30.0f;
 	graph.paddingTop    = -1.0f;
 	graph.paddingRight  = -5.0f;
 	// 3 - Set up styles
 	CPTMutableTextStyle *titleStyle = [CPTMutableTextStyle textStyle];
-	titleStyle.color = [CPTColor whiteColor];
+	titleStyle.color = [CPTColor blackColor];
 	titleStyle.fontName = @"Helvetica-Bold";
 	titleStyle.fontSize = 16.0f;
 	// 4 - Set up title
-	NSString *title = @"Questions per Day";
-	graph.title = title;
-	graph.titleTextStyle = titleStyle;
-	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
-	graph.titleDisplacement = CGPointMake(0.0f, -16.0f);
+//	NSString *title = @"Questions per Day";
+//	graph.title = title;
+//	graph.titleTextStyle = titleStyle;
+//	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
+//	graph.titleDisplacement = CGPointMake(0.0f, -16.0f);
 	// 5 - Set up plot space
 	CGFloat xMin = 0.0f;
 	CGFloat xMax = [[[CPDStockPriceStore sharedInstance] datesInWeek] count];
@@ -91,20 +91,25 @@ CGFloat const CPDBarInitialX = 0.25f;
 
 -(void)configurePlots {
 	// 1 - Set up the three plots
-	self.aaplPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor redColor] horizontalBars:NO];
+//	self.aaplPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor colorWithComponentRed:74 green:131 blue:215 alpha:1] horizontalBars:NO];
+    self.aaplPlot = [[CPTBarPlot alloc] init];
+//    self.aaplPlot.fill = [CPTFill fillWithColor:[CPTColor redColor]];
+    self.aaplPlot.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:74.0f/255.0f green:131.0f/255.0f blue:215.0f/255.0f alpha:1.0f]];
+
 	self.aaplPlot.identifier = CPDTickerSymbolAAPL;
-	self.googPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor greenColor] horizontalBars:NO];
-	self.googPlot.identifier = CPDTickerSymbolGOOG;
-	self.msftPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
-	self.msftPlot.identifier = CPDTickerSymbolMSFT;
+//	self.googPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor greenColor] horizontalBars:NO];
+//	self.googPlot.identifier = CPDTickerSymbolGOOG;
+//	self.msftPlot = [CPTBarPlot tubularBarPlotWithColor:[CPTColor blueColor] horizontalBars:NO];
+//	self.msftPlot.identifier = CPDTickerSymbolMSFT;
 	// 2 - Set up line style
 	CPTMutableLineStyle *barLineStyle = [[CPTMutableLineStyle alloc] init];
-	barLineStyle.lineColor = [CPTColor lightGrayColor];
+	barLineStyle.lineColor = [CPTColor blackColor];
 	barLineStyle.lineWidth = 0.5;
 	// 3 - Add plots to graph
 	CPTGraph *graph = self.hostView.hostedGraph;
 	CGFloat barX = CPDBarInitialX;
-	NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, self.googPlot, self.msftPlot, nil];
+//	NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, self.googPlot, self.msftPlot, nil];
+    NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, Nil];
 	for (CPTBarPlot *plot in plots) {
 		plot.dataSource = self;
 		plot.delegate = self;
@@ -119,12 +124,12 @@ CGFloat const CPDBarInitialX = 0.25f;
 -(void)configureAxes {
 	// 1 - Configure styles
 	CPTMutableTextStyle *axisTitleStyle = [CPTMutableTextStyle textStyle];
-	axisTitleStyle.color = [CPTColor whiteColor];
+	axisTitleStyle.color = [CPTColor blackColor];
 	axisTitleStyle.fontName = @"Helvetica-Bold";
 	axisTitleStyle.fontSize = 12.0f;
 	CPTMutableLineStyle *axisLineStyle = [CPTMutableLineStyle lineStyle];
 	axisLineStyle.lineWidth = 2.0f;
-	axisLineStyle.lineColor = [[CPTColor whiteColor] colorWithAlphaComponent:1];
+	axisLineStyle.lineColor = [[CPTColor blackColor] colorWithAlphaComponent:1];
 	// 2 - Get the graph's axis set
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
 	// 3 - Configure the x-axis
@@ -135,7 +140,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	axisSet.xAxis.axisLineStyle = axisLineStyle;
 	// 4 - Configure the y-axis
 	axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
-	axisSet.yAxis.title = @"Price";
+	axisSet.yAxis.title = @"Questions answered";
 	axisSet.yAxis.titleTextStyle = axisTitleStyle;
 	axisSet.yAxis.titleOffset = 5.0f;
 	axisSet.yAxis.axisLineStyle = axisLineStyle;
