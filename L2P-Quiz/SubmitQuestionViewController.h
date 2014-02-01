@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Course.h"
 
 @interface SubmitQuestionViewController : UIViewController<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 

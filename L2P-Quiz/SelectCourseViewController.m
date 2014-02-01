@@ -44,8 +44,6 @@
     
      appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
-    
     _allSelectedCourses = [[NSMutableArray alloc] init];
      NSLog(@"array: %@", self.selectedCoursesforMultiplayer);
     
@@ -86,6 +84,7 @@
 {
     //Tell our GameManager which courses the user selected
     [[SingleGameManager sharedManager] setSelectedCourses:_allSelectedCourses];
+    
 }
 
 
@@ -121,7 +120,10 @@
                                        reuseIdentifier:MyIdentifier] ;
     }
     
-    cell.textLabel.text = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    Course *course = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    
+    cell.textLabel.text = [course title];
+    [cell.textLabel setFont:[UIFont fontWithName:@"Helvetica" size:12]];
     
     if ([_detailItem isEqualToString:@"multi"]) {
         
@@ -137,16 +139,16 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    NSString *cellText = cell.textLabel.text;
+
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark)
     {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        [_allSelectedCourses removeObject:cellText];
+        [_allSelectedCourses removeObject:[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row]];
     }
     else
     {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [_allSelectedCourses addObject:cellText];
+        [_allSelectedCourses addObject:[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row]];
     }
     
     

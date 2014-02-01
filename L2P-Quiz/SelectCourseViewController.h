@@ -10,6 +10,7 @@
 #import "SingleGameManager.h"
 #import "AppDelegate.h"
 #import "NetworkManager.h"
+#import "Course.h"
 
 @interface SelectCourseViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 

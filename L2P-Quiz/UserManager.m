@@ -43,6 +43,8 @@
     [defaults setObject:[NSNumber numberWithInt:_userScore] forKey:@"score"];
     [defaults setObject:[NSNumber numberWithInt:_duelsLost] forKey:@"duelsLost"];
     [defaults setObject:[NSNumber numberWithInt:_duelsWon] forKey:@"duelsWon"];
+    NSData *courseData = [NSKeyedArchiver archivedDataWithRootObject:_courses];
+    [defaults setObject:courseData forKey:@"courses"];
     [defaults synchronize];
 }
 
@@ -81,7 +83,15 @@
         _duelsWon = [[defaults objectForKey:@"duelsWon"] integerValue];
     }
     
-    
+    if (![defaults objectForKey:@"courses"])
+    {
+        _courses = [[NSMutableArray alloc] init];
+    }
+    else
+    {
+        NSData *coursesData = [defaults objectForKey:@"courses"];
+        _courses = [[NSMutableArray alloc] initWithArray:[NSKeyedUnarchiver unarchiveObjectWithData:coursesData]];
+    }
     
 }
 

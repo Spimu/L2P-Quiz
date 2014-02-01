@@ -8,6 +8,7 @@
 
 #import "MultiplayerManager.h"
 #import "AppDelegate.h"
+#import "Course.h"
 
 @implementation MultiplayerManager
 
@@ -35,7 +36,12 @@
     [fetchRequest setEntity:entity];
     
     // Filter all the courses we selected
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", courses];
+    NSMutableArray *tempSelectedCourses = [[NSMutableArray alloc] init];
+    for (Course *course in courses) {
+        [tempSelectedCourses addObject:[course identifier]];
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", tempSelectedCourses];
     [fetchRequest setPredicate:predicate];
     
     //Get all the possible questions

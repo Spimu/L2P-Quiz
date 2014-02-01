@@ -7,6 +7,7 @@
 //
 
 #import "SingleGameManager.h"
+#import "Course.h"
 
 @interface SingleGameManager()
 
@@ -43,7 +44,12 @@
     [fetchRequest setEntity:entity];
     
     // Filter all the courses we selected
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", _selectedCourses];
+    NSMutableArray *tempSelectedCourses = [[NSMutableArray alloc] init];
+    for (Course *course in _selectedCourses) {
+        [tempSelectedCourses addObject:[course identifier]];
+    }
+    
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName IN %@", tempSelectedCourses];
     [fetchRequest setPredicate:predicate];
     
     //Get all the possible questions and save them in our singlegamemanager

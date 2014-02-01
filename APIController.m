@@ -285,7 +285,9 @@ typedef enum _requestState requestState;
                 
                 currentCourse.title = string;
                 
-                [resultArray addObject:currentCourse];
+                if (currentCourse != nil) {
+                    [resultArray addObject:currentCourse];
+                }
                 currentCourse = nil;
             }
             stringToAppend = [stringToAppend stringByAppendingString:string];

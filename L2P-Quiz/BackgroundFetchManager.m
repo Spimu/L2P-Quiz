@@ -7,6 +7,8 @@
 //
 
 #import "BackgroundFetchManager.h"
+#import "UserManager.h"
+#import "Course.h"
 
 #define NEW_QUESTIONS_URL @"http://www.spivan.com/l2pquiz/getQuestions.php"
 
@@ -44,7 +46,13 @@
 - (void)downloadNewQuestionsWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
     NSError *error = nil;
-    NSDictionary* courses = @{@"1":@"DIS",@"2":@"Current topics",@"3":@"iPhone"};
+    
+    int counter = 1;
+    NSMutableDictionary *courses = [[NSMutableDictionary alloc] init];
+    for (Course *course in [[UserManager sharedManager] courses]) {
+        [courses setObject:[course identifier] forKey:[NSString stringWithFormat:@"%d",counter]];
+        counter++;
+    }
     
     //Here we create the POST-Body-String that we will send to the server
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:courses options:NSJSONWritingPrettyPrinted error:&error];
@@ -81,7 +89,13 @@
 - (void)downloadNewQuestionsTheFirstTime
 {
     NSError *error = nil;
-    NSDictionary* courses = @{@"1":@"DIS",@"2":@"iPhone"};
+    
+    int counter = 1;
+    NSMutableDictionary *courses = [[NSMutableDictionary alloc] init];
+    for (Course *course in [[UserManager sharedManager] courses]) {
+        [courses setObject:[course identifier] forKey:[NSString stringWithFormat:@"%d",counter]];
+        counter++;
+    }
     
     //Here we create the POST-Body-String that we will send to the server
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:courses options:NSJSONWritingPrettyPrinted error:&error];

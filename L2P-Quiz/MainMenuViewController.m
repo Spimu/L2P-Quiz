@@ -7,6 +7,8 @@
 //
 
 #import "MainMenuViewController.h"
+#import "Course.h"
+#import "UserManager.h"
 
 @interface MainMenuViewController ()
 
@@ -57,8 +59,35 @@
 
 -(void) dataLoaded:(APIController *)controller
 {
-    NSArray * courses = [controller getAllCourses];
-    NSLog(@"Courses: %@", courses);
+    NSArray *courses = [controller getAllCourses];
+    
+    
+    //PARSING ONLY THE COURSES OF THE CURRENT SEMESTER
+    NSString *searchString = @"";
+    
+    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
+    NSInteger month = [components month];
+    NSInteger year = [components year];
+    
+    
+    if (month < 4) {
+        searchString = [NSString stringWithFormat:@"%dws",year-2001];
+    } else if (month < 10) {
+        searchString = [NSString stringWithFormat:@"%dss",year-2000];
+    } else {
+        searchString = [NSString stringWithFormat:@"%dws",year-2000];
+    }
+    
+    [[[UserManager sharedManager] courses] removeAllObjects];
+    
+    for (Course *course in courses) {
+        NSString *subString = [[course identifier] substringWithRange:NSMakeRange(0,4)];
+        
+        if ([subString isEqualToString:searchString]) {
+            [[[UserManager sharedManager] courses] addObject:course];
+        }
+    }
+    [[UserManager sharedManager] save];
 }
 
 @end

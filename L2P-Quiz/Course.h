@@ -16,4 +16,9 @@
 @property (nonatomic, strong) NSString * type;
 @property (nonatomic, assign) int status;
 
+
+-(id)initWithCoder:(NSCoder*)decoder;
+-(void)encodeWithCoder:(NSCoder*)encoder;
+
+
 @end

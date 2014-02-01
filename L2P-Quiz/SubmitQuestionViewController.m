@@ -32,8 +32,6 @@
     
     [_activityIndicator setHidden:YES];
     
-    [[UserManager sharedManager] setCourses:[NSMutableArray arrayWithArray:@[@"DIS", @"Current topics", @"iPhone"]]];
-	
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self
                                    action:@selector(dismissKeyboard)];
@@ -159,9 +157,25 @@
     return [[[UserManager sharedManager] courses] count];//this will tell the picker how many rows it has - in this case, the size of your loaded array...
 }
 
+
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [[[UserManager sharedManager] courses] objectAtIndex:row];//assuming the array contains strings..
+    return @"";
+}
+
+
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view{
+    UILabel* tView = (UILabel*)view;
+    if (!tView){
+        tView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+        [tView setTextAlignment:NSTextAlignmentCenter];
+        [tView setFont:[UIFont fontWithName:@"Helvetica" size:10]];
+    }
+    
+    Course *course = [[[UserManager sharedManager] courses] objectAtIndex:row];
+    [tView setText:[course title]];
+    
+    return tView;
 }
 
 
@@ -172,7 +186,8 @@
 
 - (IBAction)sumbitQuestion:(id)sender
 {
-    NSString *courseString = [[[UserManager sharedManager] courses] objectAtIndex:[_coursePicker selectedRowInComponent:0]];
+    Course *selectedCourse = [[[UserManager sharedManager] courses] objectAtIndex:[_coursePicker selectedRowInComponent:0]];
+    NSString *courseString = [selectedCourse identifier];
     
     [self.view setUserInteractionEnabled:NO];
     [_activityIndicator setHidden:NO];

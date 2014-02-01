@@ -16,4 +16,18 @@
     return desc;
 }
 
+-(id)initWithCoder:(NSCoder *)decoder {
+    if ((self=[super init])) {
+        _title = [decoder decodeObjectForKey:@"title"];
+        _identifier = [decoder decodeObjectForKey:@"identifier"];
+        _relativeURL = [decoder decodeObjectForKey:@"url"];
+    }
+    return self;
+}
+-(void)encodeWithCoder:(NSCoder *)encoder {
+    [encoder encodeObject:_title forKey:@"title"];
+    [encoder encodeObject:_identifier forKey:@"identifier"];
+    [encoder encodeObject:_relativeURL forKey:@"url"];
+}
+
 @end
