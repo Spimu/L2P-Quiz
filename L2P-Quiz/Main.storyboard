@@ -126,53 +126,6 @@
             </objects>
             <point key="canvasLocation" x="-816" y="-335"/>
         </scene>
-        <!--Multiplayer Menu View Controller-->
-        <scene sceneID="Tb5-8q-eSH">
-            <objects>
-                <viewController id="hAY-n9-XZV" customClass="MultiplayerMenuViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="TCC-1F-2Ea"/>
-                        <viewControllerLayoutGuide type="bottom" id="bpz-mm-1uS"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="FJP-VV-61T">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BWD-V0-c6W">
-                                <rect key="frame" x="63" y="109" width="195" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="Host Game">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="wVI-dl-y4f" kind="push" id="DeW-W2-0q0"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FXa-Re-3sq">
-                                <rect key="frame" x="63" y="220" width="195" height="85"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <color key="tintColor" red="0.28627450980000002" green="0.62745098040000002" blue="0.90588235289999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Join Game">
-                                    <color key="titleColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dyA-HI-LzG" kind="push" id="Tit-nw-NZs"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.28627450980392155" green="0.63137254901960782" blue="0.92941176470588238" alpha="1" colorSpace="deviceRGB"/>
-                        <color key="tintColor" red="0.28627450980000002" green="0.63137254899999995" blue="0.92941176469999998" alpha="1" colorSpace="calibratedRGB"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="nnr-9C-L0H"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k2u-VX-Moy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-355" y="-1652"/>
-        </scene>
         <!--Host View Controller-->
         <scene sceneID="Fr0-LJ-B0f">
             <objects>
@@ -382,21 +335,21 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Single mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jyi-PM-wuZ">
-                                <rect key="frame" x="20" y="20" width="135" height="29"/>
+                                <rect key="frame" x="64" y="18" width="135" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Multiplayer mode" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zx5-ud-dIa">
-                                <rect key="frame" x="20" y="193" width="174" height="29"/>
+                                <rect key="frame" x="92" y="265" width="174" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8u5-X3-gp3">
-                                <rect key="frame" x="18" y="55" width="90" height="90"/>
+                                <rect key="frame" x="18" y="78" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="1Minute.png">
@@ -406,19 +359,8 @@
                                     <segue destination="ywD-l2-pPq" kind="push" identifier="1minSegue" id="khO-oK-d62"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R7G-Si-1Tj">
-                                <rect key="frame" x="53" y="238" width="214" height="148"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" image="Multiplayer.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="hAY-n9-XZV" kind="push" id="i8K-8a-5by"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OIV-UV-4cu">
-                                <rect key="frame" x="116" y="55" width="90" height="90"/>
+                                <rect key="frame" x="116" y="78" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71372549019999998" green="0.83529411760000005" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="bestOf10.png">
@@ -429,7 +371,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8QI-Ik-0RZ">
-                                <rect key="frame" x="214" y="55" width="90" height="90"/>
+                                <rect key="frame" x="214" y="78" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.71372549019607845" green="0.83529411764705885" blue="0.94901960784313721" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" image="infinity.png">
@@ -437,6 +379,38 @@
                                 </state>
                                 <connections>
                                     <segue destination="ywD-l2-pPq" kind="push" identifier="InfinitySegue" id="Qgq-Ql-DWz"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Multiplayer_without_label.png" translatesAutoresizingMaskIntoConstraints="NO" id="24g-8J-fSJ">
+                                <rect key="frame" x="18" y="257" width="66" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="singleplayer.png" translatesAutoresizingMaskIntoConstraints="NO" id="41w-nQ-b4U">
+                                <rect key="frame" x="11" y="18" width="45" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7i8-ii-xMf">
+                                <rect key="frame" x="20" y="334" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Host Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="wVI-dl-y4f" kind="push" id="QqD-SF-2oR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vHO-LT-6Ig">
+                                <rect key="frame" x="188" y="334" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                <state key="normal" title="Join Game">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="dyA-HI-LzG" kind="push" id="jiQ-v1-wnY"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -1237,7 +1211,7 @@
     </scenes>
     <resources>
         <image name="1Minute.png" width="137" height="115"/>
-        <image name="Multiplayer.png" width="178" height="131"/>
+        <image name="Multiplayer_without_label.png" width="356" height="213"/>
         <image name="bestOf10.png" width="60" height="67"/>
         <image name="examiner_startscreen_logo.png" width="800" height="170"/>
         <image name="highscore.png" width="91" height="88"/>
@@ -1246,6 +1220,7 @@
         <image name="profile.png" width="112" height="107"/>
         <image name="question_background.png" width="640" height="264"/>
         <image name="score_profile.png" width="166" height="142"/>
+        <image name="singleplayer.png" width="224" height="163"/>
         <image name="sol_background.png" width="640" height="114"/>
         <image name="startQuiz.png" width="136" height="156"/>
         <image name="statistic.png" width="95" height="101"/>
@@ -1257,8 +1232,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="wmP-kS-GDw"/>
+        <segue reference="khO-oK-d62"/>
         <segue reference="fDD-BV-bv1"/>
-        <segue reference="oNh-j5-fUB"/>
+        <segue reference="wmP-kS-GDw"/>
     </inferredMetricsTieBreakers>
 </document>
