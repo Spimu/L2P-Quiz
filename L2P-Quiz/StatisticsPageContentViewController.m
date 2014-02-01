@@ -51,10 +51,15 @@ CGFloat const CPDBarInitialX = 0.25f;
 
 #pragma mark - Chart behavior
 -(void)initPlot {
-    self.hostView.allowPinchScaling = NO;
-    [self configureGraph];
-    [self configurePlots];
-    [self configureAxes];
+    // Questions per day bar chart
+    if (self.pageIndex == 0) {
+        self.hostView.allowPinchScaling = NO;
+        [self configureGraph];
+        [self configurePlots];
+        [self configureAxes];
+    }
+    // Ratio right/wrong chart
+    
 }
 
 -(void)configureGraph {
@@ -80,6 +85,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 //	graph.titleTextStyle = titleStyle;
 //	graph.titlePlotAreaFrameAnchor = CPTRectAnchorTop;
 //	graph.titleDisplacement = CGPointMake(0.0f, -16.0f);
+    
 	// 5 - Set up plot space
 	CGFloat xMin = 0.0f;
 	CGFloat xMax = [[[CPDStockPriceStore sharedInstance] datesInWeek] count];

@@ -27,7 +27,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    _pageTitles = @[@"Questions per Day", @"Stat 2", @"Bla", @"Blub"];
+    _pageTitles = @[@"Questions Answered per Day", @"Answer Ratio", @"Bla", @"Blub"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"StatisticsPageViewController"];
