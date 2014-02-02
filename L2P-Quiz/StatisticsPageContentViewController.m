@@ -49,6 +49,16 @@ CGFloat const CPDBarInitialX = 0.25f;
     // Dispose of any resources that can be recreated.
 }
 
+- (NSManagedObjectContext *)managedObjectContext
+{
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 #pragma mark - Chart behavior
 -(void)initPlot {
     // Questions per day bar chart
@@ -90,7 +100,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	CGFloat xMin = 0.0f;
 	CGFloat xMax = [[[CPDStockPriceStore sharedInstance] datesInWeek] count];
 	CGFloat yMin = 0.0f;
-	CGFloat yMax = 800.0f;  // should determine dynamically based on max price
+	CGFloat yMax = 100.0f;  // should determine dynamically based on max price
 	CPTXYPlotSpace *plotSpace = (CPTXYPlotSpace *) graph.defaultPlotSpace;
 	plotSpace.xRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(xMin) length:CPTDecimalFromFloat(xMax)];
 	plotSpace.yRange = [CPTPlotRange plotRangeWithLocation:CPTDecimalFromFloat(yMin) length:CPTDecimalFromFloat(yMax)];
@@ -146,7 +156,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	axisSet.xAxis.titleOffset = 10.0f;
 	axisSet.xAxis.axisLineStyle = axisLineStyle;
 	// 4 - Configure the y-axis
-	axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
+    axisSet.yAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
 	axisSet.yAxis.title = @"Questions answered";
 	axisSet.yAxis.titleTextStyle = axisTitleStyle;
 	axisSet.yAxis.titleOffset = 5.0f;
@@ -181,7 +191,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	static CPTMutableTextStyle *style = nil;
 	if (!style) {
 		style = [CPTMutableTextStyle textStyle];
-		style.color= [CPTColor yellowColor];
+		style.color= [CPTColor whiteColor];
 		style.fontSize = 16.0f;
 		style.fontName = @"Helvetica-Bold";
 	}
@@ -215,7 +225,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	// 7 - Get the anchor point for annotation
 	CGFloat x = index + CPDBarInitialX + (plotIndex * CPDBarWidth);
 	NSNumber *anchorX = [NSNumber numberWithFloat:x];
-	CGFloat y = [price floatValue] + 40.0f;
+	CGFloat y = [price floatValue] + 10.0f;
 	NSNumber *anchorY = [NSNumber numberWithFloat:y];
 	self.priceAnnotation.anchorPlotPoint = [NSArray arrayWithObjects:anchorX, anchorY, nil];
 	// 8 - Add the annotation
