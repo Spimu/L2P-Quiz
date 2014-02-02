@@ -37,6 +37,7 @@
 		75F7ECE1189D6C6C0001F78B /* singleplayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 75F7ECE0189D6C6C0001F78B /* singleplayer.png */; };
 		9505F3381891599400A1858F /* MultiplayerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 9505F3371891599400A1858F /* MultiplayerManager.m */; };
 		9517626818898C0500730C0F /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 401EDAB01887ECC10091AD0A /* libCorePlot-CocoaTouch.a */; };
+		951861E4189E66F50080ABD1 /* StatsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 951861E3189E66F50080ABD1 /* StatsManager.m */; };
 		953017B7187E973F00917C7C /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 953017B6187E973F00917C7C /* ParseManager.m */; };
 		9535D355189BBEFB00E612C3 /* CPDConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9018896C2F006E7240 /* CPDConstants.m */; };
 		9535D356189BBEFC00E612C3 /* CPDStockPriceStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 409B1E9218896C2F006E7240 /* CPDStockPriceStore.m */; };
@@ -228,6 +229,8 @@
 		75F7ECE0189D6C6C0001F78B /* singleplayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = singleplayer.png; sourceTree = "<group>"; };
 		9505F3361891599400A1858F /* MultiplayerManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MultiplayerManager.h; sourceTree = "<group>"; };
 		9505F3371891599400A1858F /* MultiplayerManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MultiplayerManager.m; sourceTree = "<group>"; };
+		951861E2189E66F50080ABD1 /* StatsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatsManager.h; sourceTree = "<group>"; };
+		951861E3189E66F50080ABD1 /* StatsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatsManager.m; sourceTree = "<group>"; };
 		953017B5187E973F00917C7C /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		953017B6187E973F00917C7C /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		9535D359189C13F400E612C3 /* score_profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "score_profile@2x.png"; sourceTree = "<group>"; };
@@ -644,6 +647,8 @@
 				9505F3371891599400A1858F /* MultiplayerManager.m */,
 				75BC57A41891C211003081CE /* NetworkManager.h */,
 				75BC57A51891C211003081CE /* NetworkManager.m */,
+				951861E2189E66F50080ABD1 /* StatsManager.h */,
+				951861E3189E66F50080ABD1 /* StatsManager.m */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -802,6 +807,7 @@
 				759D2FE2189977B9008A70FA /* ScoreViewController.m in Sources */,
 				9579AFB2187EF04100747EF6 /* Question.m in Sources */,
 				9505F3381891599400A1858F /* MultiplayerManager.m in Sources */,
+				951861E4189E66F50080ABD1 /* StatsManager.m in Sources */,
 				95E75AFE187C24A900FFE5AD /* BackgroundFetchManager.m in Sources */,
 				2078D1E9188F41E7005C60E6 /* WebViewController.m in Sources */,
 				7520191818993C4D007FA2F1 /* MultiGameViewController.m in Sources */,
