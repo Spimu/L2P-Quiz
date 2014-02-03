@@ -35,6 +35,8 @@
         [fetcher downloadNewQuestionsTheFirstTime];
     }
     
+    application.applicationSupportsShakeToEdit = YES;
+    
     
     return YES;
 }

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "APIController.h"
+#import "SingleGameManager.h"
 
 @interface MainMenuViewController : UIViewController <DataLoadedDelegate>
 - (IBAction)onLogout:(id)sender;

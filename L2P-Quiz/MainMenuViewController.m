@@ -51,6 +51,12 @@
 {
     [self.navigationController setNavigationBarHidden:NO animated:animated];
     [super viewWillDisappear:animated];
+     [self resignFirstResponder];
+}
+
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self becomeFirstResponder];
 }
 
 - (IBAction)onLogout:(id)sender {
@@ -88,6 +94,25 @@
         }
     }
     [[UserManager sharedManager] save];
+}
+
+-(BOOL)canBecomeFirstResponder {
+    return YES;
+}
+
+- (void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event
+{
+    if (motion == UIEventSubtypeMotionShake)
+    {
+        [self performSegueWithIdentifier: @"1minSegue" sender: self];
+    }
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+        [[SingleGameManager sharedManager] setSelectedGameMode:GameMode_1minute];
+
 }
 
 @end
