@@ -9,6 +9,7 @@
 #import "SelectCourseStatisticsViewController.h"
 #import "Courses.h"
 #import "StatisticsViewController.h"
+#import "UserManager.h"
 
 @interface SelectCourseStatisticsViewController () {
     NSString* selectedCourse;
@@ -57,8 +58,8 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    NSNumber *numberOfRows = [[Courses sharedCourses] totalAmountOfCourses];
-    return [numberOfRows integerValue];
+    NSUInteger numberOfRows = [[[UserManager sharedManager] courses] count];
+    return numberOfRows;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -73,7 +74,9 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     
 	// setup cell with course name.
-    NSString *courseName = [[[Courses sharedCourses] listCourseNames] objectAtIndex:indexPath.row];
+//    NSString *courseName = [[[Courses sharedCourses] listCourseNames] objectAtIndex:indexPath.row];
+    NSString *courseName = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    
     cell.textLabel.text = courseName;
     
     return cell;
