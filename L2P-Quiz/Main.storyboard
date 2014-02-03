@@ -121,6 +121,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="4np-Q6-gjR"/>
                     <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <segue destination="ywD-l2-pPq" kind="push" identifier="1minSegue" id="LzQ-YJ-J5s"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEM-xr-kVV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -440,7 +443,7 @@
                         <viewControllerLayoutGuide type="bottom" id="dIF-IB-RQv"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qOo-0S-718">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Select one or multiple courses:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v8H-g6-uQ4">
@@ -451,7 +454,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="VEX-LL-Vvp">
-                                <rect key="frame" x="0.0" y="57" width="320" height="393"/>
+                                <rect key="frame" x="0.0" y="57" width="320" height="457"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -500,11 +503,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tLH-cx-P6X"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Yy-2P-zxZ">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="question_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="bEP-pC-1UM" userLabel="question_IV">
-                                <rect key="frame" x="0.0" y="-180" width="320" height="156"/>
+                                <rect key="frame" x="0.0" y="-180" width="320" height="132"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
@@ -612,7 +615,7 @@
                         <viewControllerLayoutGuide type="bottom" id="SOj-bz-1ss"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LP3-VS-qsn">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your score:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NqU-9j-CJm">
@@ -636,7 +639,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="118" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="JKJ-zH-gbQ">
-                                <rect key="frame" x="0.0" y="130" width="326" height="374"/>
+                                <rect key="frame" x="0.0" y="130" width="326" height="438"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.29803921570000003" green="0.58039215690000001" blue="0.89019607840000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <prototypes>
@@ -1179,7 +1182,9 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sRA-C2-Gms">
                                 <rect key="frame" x="-5" y="162" width="330" height="342"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.2823529541" green="0.63921570780000003" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="sectionIndexColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" red="0.2823529541" green="0.63921570780000003" blue="0.92549026010000002" alpha="1" colorSpace="deviceRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ScV-U9-i85" id="OAW-45-Xrk"/>
                                     <outlet property="delegate" destination="ScV-U9-i85" id="UCh-X5-Oth"/>
@@ -1236,8 +1241,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="khO-oK-d62"/>
         <segue reference="fDD-BV-bv1"/>
+        <segue reference="LzQ-YJ-J5s"/>
         <segue reference="wmP-kS-GDw"/>
     </inferredMetricsTieBreakers>
 </document>
