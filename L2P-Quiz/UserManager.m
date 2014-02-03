@@ -43,8 +43,10 @@
     [defaults setObject:[NSNumber numberWithInt:_userScore] forKey:@"score"];
     [defaults setObject:[NSNumber numberWithInt:_duelsLost] forKey:@"duelsLost"];
     [defaults setObject:[NSNumber numberWithInt:_duelsWon] forKey:@"duelsWon"];
-    NSData *courseData = [NSKeyedArchiver archivedDataWithRootObject:_courses];
-    [defaults setObject:courseData forKey:@"courses"];
+    if (_courses != nil && [_courses count] != 0) {
+        NSData *courseData = [NSKeyedArchiver archivedDataWithRootObject:_courses];
+        [defaults setObject:courseData forKey:@"courses"];
+    }
     [defaults synchronize];
 }
 
