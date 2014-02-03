@@ -13,6 +13,7 @@
 
 #import "CPDStockPriceStore.h"
 #import "CPDConstants.h"
+#import "StatsManager.h"
 
 @interface CPDStockPriceStore ()
 
@@ -150,18 +151,20 @@
 
 - (NSArray *)weeklyAaplPrices
 {
-    static NSArray *prices = nil;
-    if (!prices)
-    {
-        prices = [NSArray arrayWithObjects:
-                  [NSDecimalNumber numberWithFloat:20],
-                  [NSDecimalNumber numberWithFloat:7],
-                  [NSDecimalNumber numberWithFloat:32],
-                  [NSDecimalNumber numberWithFloat:9],
-                  [NSDecimalNumber numberWithFloat:77],
-                  nil];
+    NSMutableArray *questionsInLastFiveDays = [[NSMutableArray alloc] init];
+//    if (!questionsInLastFiveDays)
+//    {
+    
+    for (int i = 0; i < 5; i++) {
+        NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
+        [componentsToSubtract setDay:-(4-i)];
+
+        NSDate *yesterday = [[NSCalendar currentCalendar] dateByAddingComponents:componentsToSubtract toDate:[NSDate date] options:0];
+        NSLog(@"%@", [[[StatsManager sharedManager] currentCourse] title]);
+        [questionsInLastFiveDays addObject:[NSNumber numberWithInt:[[StatsManager sharedManager] numberOfQuestionsAnsweredOnDate:yesterday inCourse:[[StatsManager sharedManager] currentCourse]]]];
     }
-    return prices;
+        
+    return questionsInLastFiveDays;
 }
 
 - (NSArray *)weeklyGoogPrices

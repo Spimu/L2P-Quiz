@@ -7,9 +7,9 @@
 //
 
 #import "StatisticsPageContentViewController.h"
+#import "StatsManager.h"
 
 @interface StatisticsPageContentViewController ()
-
 
 @property (weak, nonatomic) IBOutlet CPTGraphHostingView *hostView;
 @property (nonatomic, strong) CPTBarPlot *aaplPlot;
@@ -80,7 +80,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	// 2 - Configure the graph
 //	[graph applyTheme:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     graph.fill = [CPTFill fillWithColor:[CPTColor colorWithComponentRed:76.0f/255.0f green:148.0f/255.0f blue:227.0f/255.0f alpha:1.0f]];
-	graph.paddingBottom = 100.0f;
+	graph.paddingBottom = 150.0f;
 	graph.paddingLeft  = 30.0f;
 	graph.paddingTop    = -1.0f;
 	graph.paddingRight  = -5.0f;
@@ -127,6 +127,17 @@ CGFloat const CPDBarInitialX = 0.25f;
 	CGFloat barX = CPDBarInitialX;
 //	NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, self.googPlot, self.msftPlot, nil];
     NSArray *plots = [NSArray arrayWithObjects:self.aaplPlot, Nil];
+
+//    NSMutableArray *questionsInLastFiveDays = [[NSMutableArray alloc] init];
+//    for (int i = 0; i < 5; i++) {
+//        NSDateComponents *componentsToSubtract = [[NSDateComponents alloc] init];
+//        [componentsToSubtract setDay:4-i];
+//        
+//        NSDate *yesterday = [[NSCalendar currentCalendar] dateByAddingComponents:componentsToSubtract toDate:[NSDate date] options:0];
+//        NSLog(@"%@", [[[StatsManager sharedManager] currentCourse] title]);
+//        [questionsInLastFiveDays addObject:[NSNumber numberWithInt:[[StatsManager sharedManager] numberOfQuestionsAnsweredOnDate:yesterday inCourse:[[StatsManager sharedManager] currentCourse]]]];
+//    }
+//    NSArray *plots = questionsInLastFiveDays;
 	for (CPTBarPlot *plot in plots) {
 		plot.dataSource = self;
 		plot.delegate = self;

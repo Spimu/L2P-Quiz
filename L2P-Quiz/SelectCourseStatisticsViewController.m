@@ -10,6 +10,7 @@
 #import "Courses.h"
 #import "StatisticsViewController.h"
 #import "UserManager.h"
+#import "StatsManager.h"
 
 @interface SelectCourseStatisticsViewController () {
     NSString* selectedCourse;
@@ -75,7 +76,7 @@
     
 	// setup cell with course name.
 //    NSString *courseName = [[[Courses sharedCourses] listCourseNames] objectAtIndex:indexPath.row];
-    NSString *courseName = [[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row] nameOfCourse];
+    NSString *courseName = [[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row] title];
     
     cell.textLabel.text = courseName;
     
@@ -87,8 +88,11 @@
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
 
     selectedCourse = cell.textLabel.text;
+    Course *pressedCourse = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    [[StatsManager sharedManager] setCurrentCourse: pressedCourse];
     // transition to statistics page view of selected course.
     [self performSegueWithIdentifier:@"showStatisticsPageViewSegue" sender:self];
+    
 }
 
 /*

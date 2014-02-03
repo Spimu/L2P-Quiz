@@ -19,6 +19,10 @@
  NSDate *yesterday = [[NSCalendar currentCalendar] dateByAddingComponents:componentsToSubtract toDate:[NSDate date] options:0];
  */
 
+@property (nonatomic, strong) Course *currentCourse;
+
++ (id)sharedManager;
+
 - (int) numberOfQuestionsAnsweredInCourse:(Course *)course;
 - (int) numberOfQuestionsAnsweredCorrectlyInCourse:(Course *)course;
 

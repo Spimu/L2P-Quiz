@@ -11,6 +11,25 @@
 @implementation StatsManager
 
 
+//Singleton
++ (id)sharedManager
+{
+    static id sharedInstance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        sharedInstance = [[self alloc] init];
+    });
+    
+    return sharedInstance;
+}
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        
+    }
+    return self;
+}
 
 
 - (int) numberOfQuestionsAnsweredInCourse:(Course *)course
@@ -57,7 +76,7 @@
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Courses" inManagedObjectContext:context];
     [fetchRequest setEntity:entity];
     
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName == %@", [course identifier]];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"courseName == %@", [_currentCourse identifier]];
     [fetchRequest setPredicate:predicate];
     
     NSArray *fetchedCourse = [context executeFetchRequest:fetchRequest error:&error];
@@ -109,7 +128,19 @@
     {
         NSSet *stats = [question valueForKeyPath:@"stats"];
         for (NSManagedObject *stat in stats) {
-            if ([stat valueForKey:@"answered_correct"] == date) {
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+            
+            NSDateComponents *date1Components = [calendar components:comps
+                                                            fromDate: date];
+            NSDateComponents *date2Components = [calendar components:comps
+                                                            fromDate: [stat valueForKey:@"answerDate"]];
+            
+            NSDate *date1 = [calendar dateFromComponents:date1Components];
+            NSDate *date2 = [calendar dateFromComponents:date2Components];
+            
+            NSComparisonResult result = [date1 compare:date2];
+            if (result == NSOrderedSame) {
                 counter++;
             }
         }
@@ -145,7 +176,19 @@
         
         for (NSManagedObject *stat in stats) {
             NSNumber *answeredCorrect = [stat valueForKey:@"answered_correct"];
-            if ([answeredCorrect boolValue] && ([stat valueForKey:@"answered_correct"] == date)) {
+            NSCalendar *calendar = [NSCalendar currentCalendar];
+            NSInteger comps = (NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit);
+            
+            NSDateComponents *date1Components = [calendar components:comps
+                                                            fromDate: date];
+            NSDateComponents *date2Components = [calendar components:comps
+                                                            fromDate: [stat valueForKey:@"answerDate"]];
+            
+            NSDate *date1 = [calendar dateFromComponents:date1Components];
+            NSDate *date2 = [calendar dateFromComponents:date2Components];
+            
+            NSComparisonResult result = [date1 compare:date2];
+            if ([answeredCorrect boolValue] && result == NSOrderedSame) {
                 counter++;
             }
         }
