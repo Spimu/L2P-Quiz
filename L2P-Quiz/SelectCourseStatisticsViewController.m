@@ -75,7 +75,7 @@
     
 	// setup cell with course name.
 //    NSString *courseName = [[[Courses sharedCourses] listCourseNames] objectAtIndex:indexPath.row];
-    NSString *courseName = [[[UserManager sharedManager] courses] objectAtIndex:indexPath.row];
+    NSString *courseName = [[[[UserManager sharedManager] courses] objectAtIndex:indexPath.row] nameOfCourse];
     
     cell.textLabel.text = courseName;
     
