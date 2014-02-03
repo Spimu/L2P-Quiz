@@ -109,14 +109,14 @@
 		03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "startQuiz@2x.png"; sourceTree = "<group>"; };
 		03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "submitQuestion@2x.png"; sourceTree = "<group>"; };
 		03ECD3E9188BF85300802A1B /* profile@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "profile@2x.png"; sourceTree = "<group>"; };
-		206DC713189595930097DF7D /* L2PLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = L2PLoginDelegate.h; sourceTree = "<group>"; };
-		2078D1DF188F298A005C60E6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebServicesConstants.h; sourceTree = "<group>"; };
-		2078D1E1188F417B005C60E6 /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APIController.h; sourceTree = "<group>"; };
-		2078D1E2188F417B005C60E6 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APIController.m; sourceTree = "<group>"; };
-		2078D1E6188F41E7005C60E6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
-		2078D1E7188F41E7005C60E6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
-		2078D1E8188F41E7005C60E6 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WebViewController.xib; sourceTree = "<group>"; };
+		206DC713189595930097DF7D /* L2PLoginDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = L2PLoginDelegate.h; path = ../L2PLoginDelegate.h; sourceTree = "<group>"; };
+		2078D1DF188F298A005C60E6 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Constants.h; path = ../Constants.h; sourceTree = "<group>"; };
+		2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebServicesConstants.h; path = ../WebServicesConstants.h; sourceTree = "<group>"; };
+		2078D1E1188F417B005C60E6 /* APIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = APIController.h; path = ../APIController.h; sourceTree = "<group>"; };
+		2078D1E2188F417B005C60E6 /* APIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = APIController.m; path = ../APIController.m; sourceTree = "<group>"; };
+		2078D1E6188F41E7005C60E6 /* WebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = WebViewController.h; path = ../WebViewController.h; sourceTree = "<group>"; };
+		2078D1E7188F41E7005C60E6 /* WebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = WebViewController.m; path = ../WebViewController.m; sourceTree = "<group>"; };
+		2078D1E8188F41E7005C60E6 /* WebViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = WebViewController.xib; path = ../WebViewController.xib; sourceTree = "<group>"; };
 		20CA4BC1189AF49800CFD3E2 /* ThoMoNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ThoMoNetworking.framework; sourceTree = "<group>"; };
 		20CA4BC3189AF8A300CFD3E2 /* Course.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Course.h; sourceTree = "<group>"; };
 		20CA4BC4189AF8A300CFD3E2 /* Course.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Course.m; sourceTree = "<group>"; };
@@ -487,6 +487,21 @@
 			name = Statistics;
 			sourceTree = "<group>";
 		};
+		951861E5189FF09E0080ABD1 /* L2P Stuff */ = {
+			isa = PBXGroup;
+			children = (
+				206DC713189595930097DF7D /* L2PLoginDelegate.h */,
+				2078D1E6188F41E7005C60E6 /* WebViewController.h */,
+				2078D1E7188F41E7005C60E6 /* WebViewController.m */,
+				2078D1E8188F41E7005C60E6 /* WebViewController.xib */,
+				2078D1E1188F417B005C60E6 /* APIController.h */,
+				2078D1E2188F417B005C60E6 /* APIController.m */,
+				2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */,
+				2078D1DF188F298A005C60E6 /* Constants.h */,
+			);
+			name = "L2P Stuff";
+			sourceTree = "<group>";
+		};
 		9579AFB3187EF04A00747EF6 /* Data Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,14 +542,6 @@
 		95E75A32187C162800FFE5AD = {
 			isa = PBXGroup;
 			children = (
-				206DC713189595930097DF7D /* L2PLoginDelegate.h */,
-				2078D1E6188F41E7005C60E6 /* WebViewController.h */,
-				2078D1E7188F41E7005C60E6 /* WebViewController.m */,
-				2078D1E8188F41E7005C60E6 /* WebViewController.xib */,
-				2078D1E1188F417B005C60E6 /* APIController.h */,
-				2078D1E2188F417B005C60E6 /* APIController.m */,
-				2078D1E0188F2A0F005C60E6 /* WebServicesConstants.h */,
-				2078D1DF188F298A005C60E6 /* Constants.h */,
 				401EDA601887EC6F0091AD0A /* CorePlot */,
 				95E75A46187C162800FFE5AD /* L2P-Quiz */,
 				95E75A63187C162800FFE5AD /* L2P-QuizTests */,
@@ -570,10 +577,11 @@
 		95E75A46187C162800FFE5AD /* L2P-Quiz */ = {
 			isa = PBXGroup;
 			children = (
-				401EDABA188817A10091AD0A /* Model */,
-				9579AFB3187EF04A00747EF6 /* Data Persistence */,
 				95E75A4F187C162800FFE5AD /* AppDelegate.h */,
 				95E75A50187C162800FFE5AD /* AppDelegate.m */,
+				951861E5189FF09E0080ABD1 /* L2P Stuff */,
+				401EDABA188817A10091AD0A /* Model */,
+				9579AFB3187EF04A00747EF6 /* Data Persistence */,
 				409B1E9518896F67006E7240 /* Example Data for Plots */,
 				95E75AFB187C248500FFE5AD /* Managers */,
 				95E75AFA187C246F00FFE5AD /* ViewControllers */,
