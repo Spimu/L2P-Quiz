@@ -162,7 +162,7 @@ CGFloat const CPDBarInitialX = 0.25f;
 	CPTXYAxisSet *axisSet = (CPTXYAxisSet *) self.hostView.hostedGraph.axisSet;
 	// 3 - Configure the x-axis
 	axisSet.xAxis.labelingPolicy = CPTAxisLabelingPolicyNone;
-	axisSet.xAxis.title = @"Days of Week (Mon - Fri)";
+	axisSet.xAxis.title = @"Last five days";
 	axisSet.xAxis.titleTextStyle = axisTitleStyle;
 	axisSet.xAxis.titleOffset = 10.0f;
 	axisSet.xAxis.axisLineStyle = axisLineStyle;
