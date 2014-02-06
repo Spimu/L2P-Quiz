@@ -28,13 +28,6 @@
     [UIApplication sharedApplication].applicationIconBadgeNumber = 0;
     
     
-    //Download all the questions the first time we start the app
-    BackgroundFetchManager *fetcher = [BackgroundFetchManager sharedManager];
-    if ([fetcher biggestIdParsed] == 0) {
-        NSLog(@"We have no biggest ID");
-        [fetcher downloadNewQuestionsTheFirstTime];
-    }
-    
     application.applicationSupportsShakeToEdit = YES;
     
     
