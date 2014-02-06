@@ -55,10 +55,9 @@
     
 
     //Add our answer to the questiosnWithSolutions-array
-    NSDictionary *tempDict = [[NSDictionary alloc] init];
-    tempDict = @{@"question": [question valueForKey:@"question"],
-                 @"corr_sol": [question valueForKey:@"corr_sol"],
-                 @"own_sol": ownSolution};
+    NSDictionary *tempDict = @{@"question": [question valueForKey:@"question"],
+                               @"corr_sol": [question valueForKey:@"corr_sol"],
+                               @"own_sol": ownSolution};
     [_questionsWithSolutions addObject:tempDict];
     
     

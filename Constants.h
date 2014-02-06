@@ -9,6 +9,6 @@
 #ifndef L2P_Quiz_Constants_h
 #define L2P_Quiz_Constants_h
 
-
+#define OAUTH_KEY @"BDOhcNdkqlNZGYaFbcRAuyxzJXe1CFR6hrfxKUxaZHSuMkAbGKdL2zeJ3CLv5Mzt.apps.rwth-aachen.de"
 
 #endif

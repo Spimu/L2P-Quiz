@@ -98,10 +98,9 @@
     NSManagedObject *question = [self getQuestionsById:questionID];
     
     //Add our answer to the questiosnWithSolutions-array
-    NSDictionary *tempDict = [[NSDictionary alloc] init];
-    tempDict = @{@"question": [question valueForKey:@"question"],
-                 @"corr_sol": [question valueForKey:@"corr_sol"],
-                 @"own_sol": solution};
+    NSDictionary *tempDict = @{@"question": [question valueForKey:@"question"],
+                               @"corr_sol": [question valueForKey:@"corr_sol"],
+                               @"own_sol": solution};
     [_questionsWithSolutions addObject:tempDict];
     
     //Increment the questionNumber
