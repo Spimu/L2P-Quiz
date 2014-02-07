@@ -14,7 +14,6 @@
 		0357E1451896D8D800C44767 /* bestOf10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357E1441896D8D800C44767 /* bestOf10@2x.png */; };
 		0357E1471896DDEF00C44767 /* Multiplayer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0357E1461896DDEF00C44767 /* Multiplayer@2x.png */; };
 		03B91A30189FE3B000F0A010 /* profileScore.png in Resources */ = {isa = PBXBuildFile; fileRef = 03B91A2F189FE3B000F0A010 /* profileScore.png */; };
-		03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D7188ABFBE00802A1B /* startQuiz@2x.png */; };
 		03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3D9188BF53F00802A1B /* submitQuestion@2x.png */; };
 		03ECD3EA188BF85300802A1B /* profile@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 03ECD3E9188BF85300802A1B /* profile@2x.png */; };
 		2078D1E4188F417B005C60E6 /* APIController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2078D1E2188F417B005C60E6 /* APIController.m */; };
@@ -752,7 +751,6 @@
 			files = (
 				95E75A4B187C162800FFE5AD /* InfoPlist.strings in Resources */,
 				03ECD3DA188BF53F00802A1B /* submitQuestion@2x.png in Resources */,
-				03ECD3D8188ABFBE00802A1B /* startQuiz@2x.png in Resources */,
 				95E75A56187C162800FFE5AD /* Images.xcassets in Resources */,
 				0357E1471896DDEF00C44767 /* Multiplayer@2x.png in Resources */,
 				95DE358C188594F300BF8CB3 /* sol_background_selected.png in Resources */,

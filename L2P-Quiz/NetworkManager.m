@@ -25,6 +25,8 @@
     if (self) {
         appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
         clients = [[NSMutableDictionary alloc] init];
+        playerName = @"Opponent";
+        allClientsScores = [[NSMutableDictionary alloc]init];
         
         if ([role isEqualToString:@"server"]) {
             appDelegate.server = [[ThoMoServerStub alloc] initWithProtocolIdentifier:@"examiner"];
@@ -39,8 +41,7 @@
         }
         
     }
-    playerName =  @"Opponent";
-    allClientsScores = [[NSMutableDictionary alloc]init];
+    
     return self;
 }
 

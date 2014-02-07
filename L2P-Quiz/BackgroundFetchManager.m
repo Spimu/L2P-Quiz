@@ -113,8 +113,8 @@
         if(error == nil)
         {
             //Parse the JSON-String that has been returned
-            ParseManager *parseManager = [[ParseManager alloc] init];
-            BOOL newUpdates = [parseManager parseData:data withCompletionHandler:nil];
+            //ParseManager *parseManager = [[ParseManager alloc] init];
+            // BOOL newUpdates = [parseManager parseData:data withCompletionHandler:nil];
         }
     }];
     [postDataTask resume];
